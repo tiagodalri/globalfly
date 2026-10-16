@@ -2,10 +2,10 @@
   "id": "/",
   "name": "GlobalFly Trade",
   "short_name": "GlobalFly",
-  "description": "GlobalFly Trade — operações manuais, robôs e acompanhamento em um só lugar.",
+  "description": "GlobalFly Trade: robôs de operação, gestão de risco e acompanhamento ao vivo, na sua própria conta da corretora.",
   "lang": "pt-BR",
   "dir": "ltr",
-  "start_url": "/",
+  "start_url": "/?origem=app",
   "scope": "/",
   "display": "standalone",
   "display_override": [
@@ -31,7 +31,93 @@
       "src": "pwa-globalfly/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "pwa-globalfly/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "pwa-globalfly/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "pwa-globalfly/icon-monocromatico-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "monochrome"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  },
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Robôs",
+      "short_name": "Robôs",
+      "description": "Ligar e acompanhar os robôs",
+      "url": "/?tela=robos",
+      "icons": [
+        {
+          "src": "pwa-globalfly/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Operar",
+      "short_name": "Operar",
+      "description": "Operação manual",
+      "url": "/?tela=operar",
+      "icons": [
+        {
+          "src": "pwa-globalfly/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Aulas",
+      "short_name": "Aulas",
+      "description": "O treinamento da plataforma",
+      "url": "/?tela=aulas",
+      "icons": [
+        {
+          "src": "pwa-globalfly/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "pwa-globalfly/telas/01-entrar-1170x2532.png",
+      "sizes": "1170x2532",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Entrar na plataforma"
+    },
+    {
+      "src": "pwa-globalfly/telas/02-sala-de-aula-1170x2532.png",
+      "sizes": "1170x2532",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Sala de aula com o treinamento completo"
+    },
+    {
+      "src": "pwa-globalfly/telas/04-sala-de-aula-2560x1600.png",
+      "sizes": "2560x1600",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sala de aula com o treinamento completo"
     }
   ]
 }
