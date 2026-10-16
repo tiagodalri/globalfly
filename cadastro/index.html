@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Robôs de operação, gestão de risco e acompanhamento ao vivo em uma plataforma só. O dinheiro fica na sua própria conta na corretora." />
+  <meta name="theme-color" content="#080b10" />
+  <link rel="icon" data-favicon-ico sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" data-favicon="32" />
+  <link rel="icon" type="image/png" sizes="64x64" data-favicon="64" />
+  <link rel="icon" type="image/png" sizes="128x128" data-favicon="128" />
+  <link rel="apple-touch-icon" sizes="180x180" data-apple-icon />
+  <title>Conheça a plataforma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>:root{--cor:#d2aa51;--cor-escura:#8c6926;--fundo:#0d1118;--fundo2:#11161e;--cartao:#161c25;--linha:#28303b;--texto:#f4f1ea;--muted:#9298a3;--verde:#42cb84;--vermelho:#ff6868;--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);font-family:"DM Sans",sans-serif;color-scheme:dark;scroll-behavior:smooth}
+[data-marca=globalfly]{--fundo:#0B1626;--fundo2:#0e1c30;--cartao:#11213a;--linha:#22364f;--muted:#94a2b6}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+section[id]{scroll-margin-top:90px}
+.hero>*{min-width:0}
+.sessao{min-width:0}
+.sessao header{flex-wrap:wrap;gap:6px}
+body{margin:0;background:var(--fundo);color:var(--texto);overflow-x:hidden;line-height:1.5}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 70% 5%,color-mix(in srgb,var(--cor) 10%,transparent),transparent 34%);pointer-events:none}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0}
+
+/* ------------------------------------------------------------- topo */
+.topo{position:sticky;top:0;z-index:20;height:calc(72px + var(--sat));padding:var(--sat) max(24px,calc((100vw - 1240px)/2)) 0;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--linha);background:color-mix(in srgb,var(--fundo) 86%,transparent);backdrop-filter:blur(16px)}
+.marca{display:flex;align-items:center;gap:13px;color:var(--texto);text-decoration:none;letter-spacing:.28em}
+.simbolo{width:36px;height:36px;display:grid;place-items:center;overflow:hidden;padding:5px;border:1px solid color-mix(in srgb,var(--cor) 55%,transparent);border-radius:10px;color:var(--cor);background:color-mix(in srgb,var(--cor) 9%,transparent)}
+.simbolo img{display:block;width:100%;height:100%;object-fit:contain}
+.assinatura{display:grid;gap:2px}.assinatura strong{font-size:15px;line-height:1;letter-spacing:.25em}.assinatura small{font-size:6px;font-weight:700;letter-spacing:.24em;color:#656d78}
+[data-marca=teeds] .marca strong{font-family:"Playfair Display",serif;color:var(--cor)}
+[data-marca=teeds] .simbolo{padding:3px;background:#090b0f}[data-marca=teeds] .simbolo img{filter:drop-shadow(0 2px 5px #d2aa5155)}
+[data-marca=omni] .marca strong{font-family:"DM Sans",sans-serif;font-weight:700;color:#dce6f2}[data-marca=omni] .simbolo{padding:7px;border-radius:50%;background:#edf4fb}[data-marca=omni] .simbolo img{filter:saturate(.82)}
+[data-marca=omni] body:before{background:radial-gradient(circle at 70% 5%,#315f9940,transparent 34%)}
+[data-marca=globalfly] .marca strong{font-family:"DM Sans",sans-serif;font-weight:700;color:#e3ebf6}[data-marca=globalfly] .simbolo{padding:3px;background:#08111e;border-color:#1F6FD180}
+[data-marca=globalfly] body:before{background:radial-gradient(circle at 70% 5%,#1F6FD138,transparent 36%)}
+.topo-nav{display:flex;gap:26px;margin-left:auto;margin-right:26px}.topo-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}.topo-nav a:hover{color:var(--texto)}
+.topo-acao{color:#111;text-decoration:none;background:var(--cor);padding:11px 18px;border-radius:10px;font-size:13px;font-weight:700;white-space:nowrap}
+
+/* ------------------------------------------------------------- tipos */
+.sobretitulo{display:inline-flex;align-items:center;gap:10px;color:var(--cor);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px}
+.sobretitulo i{width:7px;height:7px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 4px #42cb8433}
+.sobretitulo.cinza{color:var(--muted)}
+.botao{border:0;border-radius:12px;background:var(--cor);color:#111;padding:17px 24px;font:700 15px "DM Sans";text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:22px;box-shadow:0 13px 30px color-mix(in srgb,var(--cor) 22%,transparent);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.botao:hover{transform:translateY(-1px);box-shadow:0 18px 36px color-mix(in srgb,var(--cor) 30%,transparent)}
+.nota{max-width:760px;margin:34px auto 0;text-align:center;color:#7f858f;font-size:13px;line-height:1.6}
+
+/* -------------------------------------------------------------- hero */
+.hero{max-width:1240px;margin:auto;padding:84px 24px 70px;display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:50px;position:relative}
+.brilho{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero h1{font:600 clamp(40px,4.6vw,66px)/1.05 "Playfair Display",serif;letter-spacing:-.04em}
+.hero h1 em{color:var(--cor);font-style:normal}
+[data-marca=omni] .hero h1,[data-marca=omni] h2{font-family:"DM Sans",sans-serif!important;font-weight:800!important;letter-spacing:-.045em!important}
+[data-marca=globalfly] .hero h1,[data-marca=globalfly] h2{font-family:"DM Sans",sans-serif!important;font-weight:800!important;letter-spacing:-.045em!important}
+.hero-texto>p{font-size:18px;line-height:1.7;color:#adb1b8;max-width:590px;margin:28px 0}
+.hero-acoes{display:flex;align-items:center;gap:20px}.hero-acoes small{color:#7a808b;font-size:12px;line-height:1.45;max-width:260px}
+.provas{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:12px}
+.provas li{display:flex;gap:12px;align-items:flex-start;color:#aab0b9;font-size:14px;line-height:1.5}
+.provas li b{flex-shrink:0;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#183a2b;color:var(--verde);font-size:12px}
+.provas strong{color:var(--texto)}
+
+/* --------------------------------------- a cabine (layout da plataforma) */
+.tv{position:relative;border:1px solid #2e3541;border-radius:18px;background:#10151d;box-shadow:0 45px 90px #000a,0 0 0 1px color-mix(in srgb,var(--cor) 16%,transparent);overflow:hidden;font-size:12px;transform:perspective(1400px) rotateY(-2.5deg)}
+[data-marca=omni] .tv{background:#0b1320;border-color:#26384d}
+[data-marca=globalfly] .tv{background:#0c1829;border-color:#21385a;box-shadow:0 45px 90px #000a,0 0 0 1px #1F6FD12e}
+.tv .up{color:var(--verde)}.tv .down{color:var(--vermelho)}
+.tv-topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid var(--linha);background:#141a23}
+[data-marca=omni] .tv-topo{background:#0f1a29}
+[data-marca=globalfly] .tv-topo{background:#10203a}
+.tv-quem{display:flex;align-items:center;gap:11px;min-width:0}
+.tv-farol{flex-shrink:0;width:10px;height:10px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 4px #42cb8433;animation:pulsa 1.6s ease-in-out infinite}
+@keyframes pulsa{50%{box-shadow:0 0 0 7px #42cb8411}}
+.tv-quem b{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;font-size:14px}
+.tv-fase{padding:2px 8px;border-radius:99px;background:color-mix(in srgb,var(--cor) 16%,transparent);color:var(--cor);font-size:10px;font-weight:800;letter-spacing:.04em;white-space:nowrap}
+.tv-onde{display:block;margin-top:2px;color:#7a808b;font-size:11px}
+.tv-resumo{display:flex;gap:14px}.tv-resumo span{display:grid;gap:2px;min-width:58px}.tv-resumo i{font-style:normal;color:#727986;font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}.tv-resumo b{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.tv-resumo .tv-res b{font-size:16px}.tv-resumo b small{font-size:9px;color:#8b929d;margin-left:2px}
+.tv-abas{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 16px;border-bottom:1px solid var(--linha);color:#aab0b9;font-size:11px}
+.tv-abas span{display:flex;align-items:center;gap:7px}.tv-abas span i{width:7px;height:7px;border-radius:50%;background:var(--verde)}.tv-abas small{color:#7a808b;font-size:10.5px}
+.tv-fluxo{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--linha)}
+.tv-etapa{display:flex;gap:10px;align-items:flex-start;opacity:.55}.tv-etapa.ativa{opacity:1}
+.tv-etapa>i{flex-shrink:0;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--linha);color:#aab0b9;font-style:normal;font-size:11px;font-weight:800}
+.tv-etapa.ativa>i{border-color:var(--cor);color:var(--cor)}.tv-etapa.concluida>i{background:#183a2b;border-color:transparent;color:var(--verde)}
+.tv-etapa span{display:grid;gap:2px}.tv-etapa b{font-size:12.5px}.tv-etapa small{color:#7a808b;font-size:10.5px}
+.tv-etapa em{margin-top:4px;font-style:normal;color:#7a808b;font-size:10px;text-transform:uppercase;letter-spacing:.06em;display:grid;gap:1px}.tv-etapa em strong{color:var(--texto);font-size:15px;letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}.tv-etapa em strong i{font-style:normal;font-size:9px;color:#8b929d}
+/* A linha entre as etapas: um trilho discreto; com contrato aberto, um ponto de luz viaja da compra ao fechamento; fechado, a linha acende em verde. */
+.tv-linha{position:relative;width:110px;height:14px;display:flex;align-items:center}
+.tv-linha i{position:absolute;left:0;right:0;top:6px;height:2px;border-radius:2px;background:linear-gradient(90deg,#2a323d,#232a34 50%,#2a323d);transition:background .4s}
+.tv-linha span{position:absolute;top:3px;left:0;width:8px;height:8px;border-radius:50%;background:var(--cor);box-shadow:0 0 10px var(--cor),0 0 0 3px color-mix(in srgb,var(--cor) 25%,transparent);opacity:0;transform:translateX(-4px)}
+.tv-fluxo.aberto .tv-linha i{background:linear-gradient(90deg,var(--cor),color-mix(in srgb,var(--cor) 25%,#232a34));background-size:200% 100%;animation:trilho 1.2s linear infinite}
+.tv-fluxo.aberto .tv-linha span{opacity:1;animation:viaja 1.2s cubic-bezier(.4,0,.6,1) infinite}
+.tv-fluxo.fechado .tv-linha i{background:linear-gradient(90deg,var(--cor),var(--verde))}
+.tv-fluxo.fechado .tv-linha span{opacity:1;left:100%;transform:translateX(-4px);background:var(--verde);box-shadow:0 0 10px var(--verde),0 0 0 3px #42cb8440;animation:pousa .5s ease-out}
+@keyframes viaja{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes trilho{from{background-position:0 0}to{background-position:-200% 0}}
+@keyframes pousa{from{transform:translateX(-4px) scale(2);opacity:.2}to{transform:translateX(-4px) scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.tv-fluxo.aberto .tv-linha span,.tv-fluxo.aberto .tv-linha i{animation:none}.tv-fluxo.aberto .tv-linha span{left:50%}}
+.tv-fita-bloco{padding:10px 16px;border-bottom:1px solid var(--linha)}
+.tv-rot{display:block;margin-bottom:8px;color:#727986;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tv-rot em{font-style:normal;color:#aab0b9;text-transform:none;letter-spacing:0}
+.tv-fita{display:flex;gap:4px;min-height:26px}.tv-d{flex:1;height:26px;display:grid;place-items:center;border-radius:6px;background:#161b23;color:#8b929d;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.tv-d.up{background:#183a2b;color:var(--verde)}.tv-d.down{background:#2a1b1f;color:#c98a8a}.tv-d.agora{outline:2px solid var(--texto);outline-offset:-2px;color:var(--texto)}
+.tv-sessao{padding:10px 16px 8px;border-bottom:1px solid var(--linha)}
+.tv-meta{display:flex;justify-content:space-between;gap:10px;margin-bottom:6px}.tv-meta span{display:grid;gap:2px}.tv-meta span.atual{text-align:center}.tv-meta span:last-child{text-align:right}.tv-meta i{font-style:normal;color:#727986;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em}.tv-meta b{font-size:12.5px;font-variant-numeric:tabular-nums}.tv-meta .atual b{font-size:16px}
+.tv-curva{width:100%;height:56px;display:block;overflow:visible}.tv-curva .linha{fill:none;stroke:var(--verde);stroke-width:2;stroke-linejoin:round}.tv-curva .area{fill:url(#g)}
+.tv-trilho{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10px;font-variant-numeric:tabular-nums}.tv-barra{position:relative;flex:1;height:6px;border-radius:3px;background:#1a2029}.tv-barra u{position:absolute;left:33%;top:-3px;width:1px;height:12px;background:#3a414c}.tv-barra i{position:absolute;top:-3px;width:12px;height:12px;border-radius:50%;background:var(--verde);transform:translateX(-50%);transition:left .5s ease;box-shadow:0 0 0 3px #42cb8433}.tv-barra i.down{background:var(--vermelho);box-shadow:0 0 0 3px #ff686833}
+.tv-ops{padding:10px 16px 12px}
+.tv-rolo{max-height:176px;overflow:hidden}
+.tv-tabela{width:100%;border-collapse:collapse;font-size:11px;font-variant-numeric:tabular-nums}.tv-tabela th{padding:4px 6px;text-align:left;color:#727986;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--linha)}.tv-tabela td{padding:6px;border-bottom:1px solid #161b23;color:#c3c8d0;white-space:nowrap}
+.tv-tabela tr:first-child td{animation:entra .35s ease-out}.tv-tabela .forte{font-weight:800}
+.tv-tabela .chip{display:inline-grid;place-items:center;min-width:18px;height:18px;margin-left:4px;padding:0 4px;border-radius:5px;background:#1a2029;color:#aab0b9;font-size:10px;font-weight:800}.tv-tabela .chip.up{background:#183a2b;color:var(--verde)}.tv-tabela .chip.down{background:#2a1b1f;color:#e08a8a}
+@keyframes entra{from{opacity:0;transform:translateY(-4px)}}
+.cabine-aviso{margin:0;padding:8px 16px 12px;color:#6b727d;font-size:10.5px;line-height:1.4}
+
+/* -------------------------------------------------------------- faixa */
+.faixa{max-width:1240px;margin:0 auto;padding:0 24px 70px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.faixa div{padding:18px 20px;border:1px solid var(--linha);border-radius:14px;background:var(--cartao);display:grid;gap:6px}
+.faixa b{color:var(--cor);font-size:15px}.faixa span{color:#8e949e;font-size:12.5px;line-height:1.5}
+
+/* ------------------------------------------------------------- blocos */
+.bloco{padding:100px max(24px,calc((100vw - 1240px)/2))}
+.bloco.escuro{background:var(--fundo2);border-block:1px solid var(--linha)}
+[data-marca=omni] .bloco.escuro{background:#0e1622}
+[data-marca=globalfly] .bloco.escuro{background:#0e1c30}
+.bloco-cab{max-width:820px;margin:0 auto 54px;text-align:center}
+.bloco-cab h2,.gestao h2,.cadastro h2{font:600 clamp(32px,3.6vw,50px)/1.1 "Playfair Display",serif;letter-spacing:-.03em}
+.bloco-cab p{color:#8e949e;font-size:16px;line-height:1.7;margin:18px auto 0;max-width:680px}
+.cta-linha{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:50px;flex-wrap:wrap}.cta-linha small{color:#7a808b;font-size:12px}
+
+/* passos */
+.passos{list-style:none;margin:0 auto;padding:0;max-width:1240px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:passo}
+.passos li{padding:32px;border:1px solid var(--linha);border-radius:18px;background:linear-gradient(145deg,#171d26,#11161e);display:grid;gap:14px;align-content:start}
+.passos li i{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#111;background:var(--cor);font-style:normal;font-weight:800;font-size:15px}
+.passos h3{font-size:19px}.passos p{margin:0;color:#8e949e;line-height:1.7;font-size:14.5px}
+
+/* robôs (só nome e frase) */
+.experiencia{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.experiencia article{padding:30px;border:1px solid var(--linha);border-radius:16px;background:var(--cartao)}
+.experiencia-numero{color:var(--cor);font-size:11px;font-weight:700;letter-spacing:.14em}
+.experiencia h3{font-size:21px;line-height:1.3;margin:24px 0 12px;letter-spacing:-.02em}
+.experiencia p{color:#a0a6af;font-size:15px;line-height:1.7;margin:0}
+@media(max-width:760px){.experiencia{grid-template-columns:1fr;gap:12px}.experiencia article{padding:24px}.experiencia h3{margin-top:16px;font-size:20px}}
+.robo{position:relative;padding:22px 22px 20px;border:1px solid var(--linha);border-radius:16px;background:var(--cartao);display:grid;gap:8px;overflow:hidden;transition:border-color .2s,transform .2s}
+.robo:before{content:"";position:absolute;inset:auto -30px -40px auto;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--cor) 22%,transparent),transparent 70%)}
+.robo:hover{border-color:color-mix(in srgb,var(--cor) 45%,var(--linha));transform:translateY(-3px)}
+.robo i{font-style:normal;color:var(--cor);font-size:11px;font-weight:800;letter-spacing:.18em}
+.robo b{font-size:18px;letter-spacing:-.01em}.robo span{color:#8e949e;font-size:13px;line-height:1.5}
+
+/* galeria da plataforma */
+.galeria{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.galeria figure{margin:0;display:grid;gap:12px}
+.moldura{position:relative;overflow:hidden;border:1px solid #2a303a;border-radius:16px;background:#0b0e13;box-shadow:0 30px 70px -30px #000}
+.moldura:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cor) 14%,transparent);border-radius:16px}
+.moldura img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.galeria figure:hover .moldura img{transform:scale(1.02)}
+.galeria figcaption{display:grid;gap:3px;padding:0 4px}.galeria figcaption b{font-size:15px}.galeria figcaption span{color:#8e949e;font-size:13px;line-height:1.5}
+
+/* sessões na prática */
+.sessoes{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.sessao{padding:16px;border:1px solid var(--linha);border-radius:14px;background:var(--cartao);display:grid;gap:8px}
+.sessao header{display:flex;justify-content:space-between;align-items:center;gap:8px}.sessao header b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sessao .selo{flex-shrink:0;padding:3px 7px;border-radius:99px;font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.sessao.meta .selo{color:var(--verde);background:#183a2b}.sessao.stop .selo{color:var(--vermelho);background:#3a1f22}
+.sessao .valor{font-size:22px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}.sessao.meta .valor{color:var(--verde)}.sessao.stop .valor{color:var(--vermelho)}
+.sessao svg{width:100%;height:44px;display:block;overflow:visible}.sessao svg path{fill:none;stroke:var(--verde);stroke-width:2;stroke-linejoin:round}.sessao.stop svg path{stroke:var(--vermelho)}
+/* o footer global da página tem padding largo; o dos cartões zera tudo */
+.sessao footer{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0;padding:8px 0 0;border:0;border-top:1px solid var(--linha);color:inherit;font-size:inherit;text-align:left}
+.sessao footer span{display:grid;gap:2px}.sessao footer i{font-style:normal;color:#727986;font-size:9px;text-transform:uppercase;letter-spacing:.06em}.sessao footer b{font-size:11.5px;font-variant-numeric:tabular-nums}
+
+/* o ativo */
+.bloco.ativo{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;max-width:none}
+.ativo-texto h2{font:600 clamp(32px,3.6vw,50px)/1.1 "Playfair Display",serif;letter-spacing:-.03em}
+.ativo-texto p{color:#aab0b9;font-size:16px;line-height:1.75;margin:18px 0 0}.ativo-texto p b{color:var(--texto)}
+.ativo-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ativo-cards div{padding:22px;border:1px solid var(--linha);border-radius:16px;background:linear-gradient(145deg,#171d26,#11161e);display:grid;gap:8px}
+.ativo-cards b{color:var(--cor);font-size:22px;letter-spacing:-.02em}.ativo-cards span{color:#8e949e;font-size:13.5px;line-height:1.6}
+
+/* plataforma */
+.grade{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grade article{padding:28px;border:1px solid var(--linha);border-radius:16px;background:linear-gradient(145deg,#171d26,#11161e)}
+.grade i{font-style:normal;color:var(--cor);font-size:24px}.grade h3{margin:20px 0 10px;font-size:16px}.grade p{margin:0;color:#8e949e;line-height:1.65;font-size:13.5px}
+
+/* gestão */
+.gestao{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;max-width:1240px;margin:0 auto;padding-inline:24px}
+.bloco.escuro.gestao{max-width:none;padding-inline:max(24px,calc((100vw - 1240px)/2))}
+.gestao-texto p{color:#aab0b9;font-size:16px;line-height:1.75;margin:20px 0 26px}
+.lista-check,.lista-x{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.lista-check li,.lista-x li{display:flex;gap:12px;color:#bbc0c8;font-size:15px;line-height:1.5}
+.lista-check i{flex-shrink:0;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#183a2b;color:var(--verde);font-style:normal;font-size:12px}
+.lista-x i{flex-shrink:0;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#3a1f22;color:var(--vermelho);font-style:normal;font-size:12px}
+.gestao-painel{border:1px solid #2e3541;border-radius:20px;background:linear-gradient(160deg,#181e28,#0f141b);box-shadow:0 35px 80px #0009;padding:24px;display:grid;gap:12px}
+.gp-linha{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--linha);border-radius:10px;font-size:13.5px;color:#aab0b9}.gp-linha b{color:var(--texto);font-variant-numeric:tabular-nums}.gp-linha b.verde{color:var(--verde)}.gp-linha b.vermelho{color:var(--vermelho)}
+.gp-barra{position:relative;height:38px;border-radius:10px;background:#161b23;overflow:hidden;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:12px;color:#aab0b9}
+.gp-barra i{position:absolute;inset:0;width:var(--p);background:linear-gradient(90deg,color-mix(in srgb,var(--verde) 35%,transparent),color-mix(in srgb,var(--verde) 12%,transparent))}
+.gp-barra span,.gp-barra em{position:relative;font-style:normal}.gp-barra em{color:var(--verde);font-weight:800}
+.gp-botao{margin-top:6px;padding:15px;border-radius:12px;background:var(--cor);color:#111;text-align:center;font-weight:800}
+
+/* depoimentos */
+.depoimentos{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.depoimento{padding:26px;border:1px solid var(--linha);border-radius:16px;background:var(--cartao);display:grid;gap:14px;align-content:start}
+.estrelas{color:var(--cor);letter-spacing:2px;font-size:14px}
+.depoimento p{margin:0;color:#c3c8d0;font-size:14px;line-height:1.7}
+.depoimento footer{display:flex;align-items:center;gap:12px;margin:auto 0 0;padding:0;border:0;color:inherit;font-size:inherit;text-align:left}
+.depoimento footer i{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:color-mix(in srgb,var(--cor) 18%,transparent);color:var(--cor);font-style:normal;font-weight:800}
+.depoimento footer span{display:grid;gap:2px}.depoimento footer b{font-size:13.5px}.depoimento footer small{color:#7a808b;font-size:11.5px}
+
+/* para quem */
+.paraquem{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1240px;margin:0 auto}
+.bloco.escuro.paraquem{max-width:none;padding-inline:max(24px,calc((100vw - 1240px)/2))}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto;display:grid;gap:10px}
+.faq details{border:1px solid var(--linha);border-radius:14px;background:var(--cartao);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;font-weight:700;font-size:15.5px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex-shrink:0;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--linha);color:var(--cor);font-style:normal;font-size:18px;transition:transform .2s}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq details p{margin:0;padding:0 22px 22px;color:#9ea4ad;line-height:1.7;font-size:14.5px}
+
+/* cadastro */
+.cadastro{max-width:1120px;margin:20px auto 80px;border:1px solid color-mix(in srgb,var(--cor) 32%,var(--linha));border-radius:24px;background:linear-gradient(135deg,color-mix(in srgb,var(--cor) 8%,#10141b),#0c1016);padding:65px;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px}
+[data-marca=omni] .cadastro{background:linear-gradient(135deg,#142337,#0a1019)}
+[data-marca=globalfly] .cadastro{background:linear-gradient(135deg,#12264a,#0a1424)}[data-marca=globalfly] form{background:#0d1a2d}[data-marca=globalfly] input{background:#11213a;border-color:#263c5a}
+.cadastro-texto>p{color:#8e949e;line-height:1.7;margin:18px 0 12px}
+.cadastro-texto ul{list-style:none;padding:12px 0;margin:0;display:grid;gap:16px}.cadastro-texto li{font-size:14px;color:#bbc0c8}.cadastro-texto li i{font-style:normal;color:var(--cor);margin-right:10px}
+form{background:#0f141b;border:1px solid var(--linha);border-radius:16px;padding:30px;display:grid;gap:18px}
+.form-top{display:flex;justify-content:space-between;font-size:10px;color:#747b86;text-transform:uppercase;letter-spacing:.08em}.form-top b{color:var(--cor)}
+label{display:grid;gap:8px;font-size:12px;color:#afb4bc;font-weight:600}
+input{width:100%;background:#151b24;border:1px solid #2e3541;color:var(--texto);border-radius:9px;padding:14px;font:16px "DM Sans";outline:none}
+input:focus{border-color:var(--cor);box-shadow:0 0 0 3px color-mix(in srgb,var(--cor) 10%,transparent)}
+.consentimento{grid-template-columns:18px 1fr;align-items:start;font-weight:400;line-height:1.45;color:#777e89}.consentimento input{margin:3px 0;accent-color:var(--cor)}
+.enviar{width:100%;margin-top:3px}.enviar:disabled{opacity:.6}
+.armadilha{position:absolute;left:-9999px}
+.mensagem{margin:0;text-align:center;font-size:12px}.aviso-legal{margin:-6px 0 0;text-align:center;color:#5a626d;font-size:10.5px;line-height:1.4}.mensagem.erro{color:var(--vermelho)}
+
+/* rodapé + cta fixo */
+body > footer{padding:45px max(24px,calc((100vw - 1240px)/2)) calc(45px + var(--sab));border-top:1px solid var(--linha);display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:35px;color:#666d77;font-size:11px}
+body > footer p{text-align:center;line-height:1.6;margin:0}body > footer small{text-align:right}
+.cta-fixo{position:fixed;left:16px;right:16px;bottom:calc(14px + var(--sab));z-index:30;display:none;justify-content:center;align-items:center;gap:14px;padding:16px;border-radius:14px;background:var(--cor);color:#111;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 18px 40px #000a;transform:translateY(120%);transition:transform .25s}
+.cta-fixo.visivel{transform:none}
+
+@media(prefers-reduced-motion:reduce){.cabine-farol{animation:none}}
+
+/* ------------------------------------------------------------ responsivo */
+@media(max-width:1100px){.grade{grid-template-columns:repeat(2,1fr)}.depoimentos{grid-template-columns:repeat(2,1fr)}.sessoes{grid-template-columns:repeat(3,1fr)}.topo-nav{display:none}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:56px;gap:40px}.bloco.ativo{grid-template-columns:1fr;gap:30px}.galeria{grid-template-columns:1fr}.sessoes{grid-template-columns:repeat(2,1fr)}.tv{transform:none}.tv-topo{flex-direction:column;align-items:flex-start;gap:10px}.tv-resumo{width:100%;justify-content:space-between}.tv-resumo span{min-width:0}.faixa{grid-template-columns:repeat(2,1fr)}.passos{grid-template-columns:1fr}.gestao,.paraquem{grid-template-columns:1fr;gap:36px}.cadastro{grid-template-columns:1fr;margin-inline:16px;padding:40px;gap:35px}body > footer{grid-template-columns:1fr;text-align:center}body > footer p,body > footer small{text-align:center}.bloco{padding-block:72px}.cta-fixo{display:flex}}
+@media(max-width:520px){.hero h1{font-size:36px}.hero-acoes{align-items:flex-start;flex-direction:column}.botao{width:100%}.faixa{grid-template-columns:1fr}.grade,.depoimentos,.ativo-cards{grid-template-columns:1fr}.robos{grid-template-columns:1fr 1fr}.robo{padding:16px}.robo b{font-size:15px}.sessoes{grid-template-columns:1fr 1fr;gap:8px}.sessao{padding:12px}.sessao .valor{font-size:18px}.cadastro{padding:22px}.form-top{display:grid;gap:4px}.topo-acao{display:none}.tv-tabela .oculta{display:none}.tv-fluxo{grid-template-columns:1fr auto 1fr}.tv-linha{width:44px}.tv-resumo{flex-wrap:wrap;gap:10px 16px}.tv-resumo .tv-res{flex-basis:100%}.bloco-cab h2{font-size:29px}}
+
+/* Mobile: mesma identidade, hierarquia e espaçamento próprios para toque. */
+button,input,a,summary{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--cor);outline-offset:4px}
+.cta-fixo{visibility:hidden;pointer-events:none;opacity:0}
+.cta-fixo.visivel{visibility:visible;pointer-events:auto;opacity:1}
+.sessoes-expandir{display:none}
+@media(max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .cadastro{grid-template-columns:minmax(0,1fr)}
+  .cadastro>*{min-width:0}
+  .topo{padding-inline:max(20px,env(safe-area-inset-left)) max(20px,env(safe-area-inset-right))}
+  .tv-quem,.tv-quem>div{width:100%}
+  .tv-quem b{align-items:center;justify-content:space-between}
+}
+@media(max-width:600px){
+  section[id]{scroll-margin-top:80px}
+  .topo{height:calc(64px + var(--sat));gap:12px}
+  .topo-acao{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;font-size:12px}
+  .assinatura small{letter-spacing:.12em}
+  .marca{gap:9px}.simbolo{flex-shrink:0}
+  .hero{padding:32px 20px 40px;gap:28px}
+  .sobretitulo{font-size:10px;letter-spacing:.12em;line-height:1.6;margin-bottom:16px}
+  .sobretitulo i{flex-shrink:0}
+  .hero h1{font-size:clamp(30px,8.4vw,40px);line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+  .hero-texto>p{font-size:15px;line-height:1.65;margin:20px 0}
+  .hero-acoes{display:grid;gap:12px}
+  .hero-acoes small{max-width:none;text-align:center;line-height:1.5;color:#a0a6af}
+  .botao{width:100%;min-height:50px;padding:14px 16px;gap:12px;font-size:14px;line-height:1.4;text-align:center}
+  .botao span{flex-shrink:0}
+  .provas{margin-top:24px;gap:12px}.provas li{font-size:13px}
+  .faixa{padding:0 20px 40px;grid-template-columns:minmax(0,1fr);gap:10px}
+  .faixa div{padding:16px;border-radius:12px}
+  .bloco,.bloco.escuro.gestao,.bloco.escuro.paraquem{padding:44px 20px}
+  .bloco-cab{margin-bottom:24px;text-align:left}
+  .bloco-cab h2,.ativo-texto h2,.gestao h2,.cadastro h2{font-size:clamp(27px,7.4vw,32px);line-height:1.17;text-wrap:balance}
+  .bloco-cab p,.ativo-texto p,.gestao-texto p,.cadastro-texto>p{font-size:14px;line-height:1.7;margin-top:14px}
+  .passos,.experiencia,.galeria,.grade,.ativo-cards{grid-template-columns:minmax(0,1fr);gap:12px}
+  .passos li,.experiencia article,.grade article,.ativo-cards div{padding:20px;border-radius:14px}
+  .passos li{grid-template-columns:32px minmax(0,1fr);gap:10px 12px;align-items:center}
+  .passos li i{width:32px;height:32px;border-radius:9px}
+  .passos li h3{font-size:17px;line-height:1.4}.passos li p{grid-column:2;font-size:14px}
+  .experiencia h3{font-size:19px;margin:14px 0 8px}.experiencia p{font-size:14px}
+  .cta-linha{margin-top:24px;gap:12px}.cta-linha small{text-align:center;line-height:1.6;color:#a0a6af}
+  .galeria{gap:24px}.moldura{border-radius:12px}.galeria figcaption{padding:0}
+  .grade article{display:grid;grid-template-columns:26px minmax(0,1fr);gap:8px 12px}
+  .grade i{font-size:22px;line-height:1.3}.grade h3{margin:0;align-self:center;font-size:16px}.grade p{grid-column:2;font-size:14px}
+  .gestao,.paraquem,.bloco.ativo{gap:24px}
+  .gestao-painel{padding:16px;border-radius:14px;gap:10px;box-shadow:none}
+  .gp-linha{gap:12px;padding:12px;font-size:12px}.gp-linha b{white-space:nowrap}
+  .lista-check li,.lista-x li{font-size:14px}
+  .faq summary{padding:16px;gap:12px;font-size:14px;min-height:56px}.faq details p{padding:0 16px 16px;font-size:14px}
+  .cadastro{margin:16px 20px 32px;padding:20px;border-radius:16px;gap:24px}
+  .cadastro-texto ul{gap:10px;padding-bottom:0}.cadastro-texto li{display:flex;gap:10px;font-size:13px}.cadastro-texto li i{margin:0;flex-shrink:0}
+  #form-lead{padding:0;background:none;border:0;border-radius:0;gap:18px;min-width:0}
+  .form-top{display:grid;gap:4px;font-size:10px;line-height:1.6}
+  label{font-size:13px;min-width:0}input{min-width:0;padding:14px 12px;min-height:50px;font-size:16px}
+  .consentimento{grid-template-columns:22px minmax(0,1fr);gap:10px;color:#a0a6af;font-size:12px;padding-block:6px}
+  .consentimento input{width:20px;height:20px;min-height:0;padding:0}
+  .aviso-legal{color:#9298a3;font-size:11px}.mensagem{overflow-wrap:anywhere}
+  /* O CTA do cabeçalho já está sempre acessível: não cobrir a leitura com outro. */
+  .cta-fixo{display:none}
+  .tv{border-radius:14px;box-shadow:0 16px 36px #0004}
+  .tv-topo{padding:14px;gap:14px}.tv-quem b{font-size:13px;gap:6px}.tv-fase{font-size:9px;white-space:normal}
+  .tv-resumo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%}
+  .tv-resumo i{font-size:8px;white-space:normal;letter-spacing:.04em}
+  .tv-resumo .tv-res{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:10px;display:flex;justify-content:space-between;align-items:center}
+  .tv-abas{padding:10px 14px}.tv-fluxo{padding:14px;grid-template-columns:minmax(0,1fr);gap:8px}
+  .tv-etapa{gap:10px;align-items:center}.tv-etapa>span{flex:1;min-width:0}.tv-etapa b{font-size:12px}
+  .tv-etapa em{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .tv-linha{width:2px;height:20px;margin-left:11px}.tv-linha i{top:0;height:20px;width:2px}
+  .tv-linha span{display:none}
+  .tv-sessao{padding:12px 14px}.tv-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .tv-meta span.atual{grid-column:1/-1;grid-row:1;text-align:left;display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--linha)}
+  .tv-meta i{font-size:8px;letter-spacing:.03em}.tv-meta b{font-size:12px}.tv-meta .atual b{font-size:16px}
+  .tv-ops{padding:12px 10px}.tv-tabela th,.tv-tabela td{padding:6px 3px}.tv-tabela{font-size:10px}.tv-tabela th{font-size:8px}
+  .tv-tabela .oculta{display:none}.tv-tabela .chip{margin-left:2px;min-width:16px;padding:0 3px}
+  .cabine-aviso{padding:4px 14px 12px}
+  .sessoes{grid-template-columns:minmax(0,1fr);gap:12px}
+  .sessao{padding:16px}.sessao .valor{font-size:22px}
+  .sessoes:not(.expandida) .sessao:nth-child(n+5){display:none}
+  .sessoes-expandir{display:block;width:100%;min-height:48px;margin-top:16px;padding:12px;border:1px solid var(--linha);border-radius:12px;background:var(--cartao);color:var(--texto);font:600 14px "DM Sans",sans-serif;cursor:pointer}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <header class="topo">
+    <a class="marca" href="#inicio" aria-label="Início"><span class="simbolo"><img data-logo alt=""></span><span class="assinatura"><strong data-marca></strong><small data-assinatura></small></span></a>
+    <nav class="topo-nav" aria-label="Seções"><a href="#como-funciona">Como funciona</a><a href="#robos">Sua experiência</a><a href="#ativo">O ativo</a><a href="#por-dentro">Por dentro</a><a href="#faq">Dúvidas</a></nav>
+    <a class="topo-acao" href="#cadastro">Quero conhecer</a>
+  </header>
+
+  <main id="inicio">
+    <!-- ================================================================ HERO -->
+    <section class="hero">
+      <div class="brilho" aria-hidden="true"></div>
+      <div class="hero-texto">
+        <span class="sobretitulo"><i></i> Plataforma de operações com robôs · Vagas limitadas</span>
+        <h1>Robôs que operam por você.<br><em>Com regras claras e o dinheiro na sua própria conta.</em></h1>
+        <p data-intro></p>
+        <div class="hero-acoes"><a class="botao" href="#cadastro">Entrar na fila de espera <span>→</span></a><small>Vagas iniciais limitadas, com acesso gratuito. Liberação mediante aprovação.</small></div>
+        <ul class="provas" aria-label="Por que confiar">
+          <li><b>✓</b><span>Você define <strong>quanto quer ganhar</strong> e <strong>quanto aceita perder</strong>. O robô obedece.</span></li>
+          <li><b>✓</b><span>O saldo fica na <strong>sua conta na corretora</strong>. A plataforma nunca guarda o seu dinheiro.</span></li>
+          <li><b>✓</b><span><strong>Liga e desliga quando quiser</strong>, do computador ou do celular.</span></li>
+        </ul>
+      </div>
+
+      <!-- A cabine, no layout da plataforma: cabeçalho, resumo, fluxo do contrato, sessão e operações.
+           Roda um CENÁRIO PRÉ-CALCULADO (sessão fictícia de +4 a +200), avisado na tela. -->
+      <div class="tv" aria-label="Demonstração de um robô operando, com dados ilustrativos" data-demo>
+        <header class="tv-topo">
+          <div class="tv-quem"><i class="tv-farol"></i><div><b><span data-demo-robo></span><span class="tv-fase" data-demo-fase>Aguardando entrada</span></b><span class="tv-onde">Sessão ilustrativa · Volatility 75 (1s)</span></div></div>
+          <div class="tv-resumo"><span><i>Operações</i><b data-demo-ops>0</b></span><span><i>Ganhadoras</i><b class="up" data-demo-ganhas>0</b></span><span><i>Perdedoras</i><b class="down" data-demo-perdas>0</b></span><span class="tv-res"><i>Resultado da sessão</i><b class="up" data-demo-resultado>+0,00 <small>USD</small></b></span></div>
+        </header>
+        <div class="tv-abas"><span><i></i> Acompanhamento ao vivo</span></div>
+        <div class="tv-fluxo">
+          <div class="tv-etapa ativa"><i data-demo-etapa1>1</i><span><b data-demo-etapa1-titulo>Aguardando entrada</b><small data-demo-etapa1-sub>monitorando o mercado</small><em>Próxima entrada <strong data-demo-entrada>3,00 <i>USD</i></strong></em></span></div>
+          <div class="tv-linha" aria-hidden="true"><i></i><span></span></div>
+          <div class="tv-etapa" data-demo-etapa2><i>2</i><span><b>Contrato fechado</b><small data-demo-etapa2-sub>próxima etapa</small></span></div>
+        </div>
+        <div class="tv-sessao">
+          <div class="tv-meta"><span><i>Margem até o stop</i><b class="down" data-demo-stop>USD 100,00</b></span><span class="atual"><i>Resultado atual</i><b class="up" data-demo-atual>+0,00 USD</b></span><span><i>Falta para a meta</i><b class="up" data-demo-falta>USD 200,00</b></span></div>
+          <svg class="tv-curva" viewBox="0 0 560 60" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#42cb84" stop-opacity=".35"/><stop offset="1" stop-color="#42cb84" stop-opacity="0"/></linearGradient></defs><path class="area" data-demo-area d=""/><path class="linha" data-demo-linha d=""/></svg>
+          <div class="tv-trilho"><span class="down">−100,00</span><div class="tv-barra"><u></u><i data-demo-cursor style="left:33%"></i></div><span class="up">+200,00</span></div>
+        </div>
+        <div class="tv-ops">
+          <span class="tv-rot">Operações da sessão <em data-demo-ops2>(0)</em></span>
+          <div class="tv-rolo"><table class="tv-tabela"><thead><tr><th>#</th><th class="oculta">Hora</th><th>Valor</th><th class="oculta">Entrada</th><th>Saída</th><th>Resultado</th></tr></thead><tbody data-demo-tabela></tbody></table></div>
+        </div>
+        <p class="cabine-aviso">Demonstração ilustrativa.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ FAIXA -->
+    <section class="faixa" aria-label="Fatos">
+      <div><b>Deriv</b><span>Corretora fundada em 1999, quase 30 anos de mercado, onde fica a sua conta</span></div>
+      <div><b>Conta demo</b><span>Comece com dinheiro fictício e passe para o real quando quiser</span></div>
+      <div><b>Painel unificado</b><span>Acompanhe suas sessões no mesmo lugar, no celular ou no computador</span></div>
+      <div><b>Você no comando</b><span>Metas, limites e desligamento sempre na sua mão</span></div>
+    </section>
+
+    <!-- ===================================================== COMO FUNCIONA -->
+    <section class="bloco" id="como-funciona">
+      <div class="bloco-cab"><span class="sobretitulo">Como funciona</span><h2>Do cadastro à primeira operação em três passos</h2><p>Nada de instalar programa, configurar servidor ou entender código. A plataforma roda no navegador e o robô opera no nosso servidor, 24 horas, com a sua conta conectada.</p></div>
+      <ol class="passos">
+        <li><i>1</i><h3>Entre na fila de espera</h3><p>Preencha seus dados. Após a aprovação, você recebe por e-mail as instruções para acessar a plataforma.</p></li>
+        <li><i>2</i><h3>Conecte a sua conta na corretora</h3><p>A Deriv autoriza a plataforma a operar por você. O dinheiro nunca sai da sua conta; você deposita e saca direto lá.</p></li>
+        <li><i>3</i><h3>Escolha o robô e defina os limites</h3><p>Valor de entrada, meta de ganho e stop de perda. Ligou, o robô opera sozinho e para quando bater o que você definiu.</p></li>
+      </ol>
+      <div class="cta-linha"><a class="botao" href="#cadastro">Entrar na fila de espera <span>→</span></a><small>Acompanhe a liberação do seu acesso pelo e-mail cadastrado.</small></div>
+    </section>
+
+    <!-- ============================================================ ROBÔS -->
+    <section class="bloco escuro" id="robos">
+      <div class="bloco-cab"><span class="sobretitulo">Sua experiência</span><h2>Menos telas soltas.<br>Mais clareza para operar.</h2><p>Do aprendizado ao acompanhamento das sessões, uma experiência organizada para você encontrar o que precisa e seguir no seu ritmo.</p></div>
+      <div class="experiencia">
+        <article><span class="experiencia-numero">01 · APRENDA</span><h3>Um começo guiado</h3><p>Aulas dentro da plataforma para conhecer o ambiente, entender as ferramentas e preparar seus primeiros passos.</p></article>
+        <article><span class="experiencia-numero">02 · PLANEJE</span><h3>Seu cenário, com clareza</h3><p>Uma área consultiva para calcular entradas, limites e objetivos antes de decidir como operar.</p></article>
+        <article><span class="experiencia-numero">03 · ACOMPANHE</span><h3>Tudo à sua vista</h3><p>Operações, histórico e resultado da sessão reunidos em um painel acessível pelo computador ou celular.</p></article>
+      </div>
+      <div class="cta-linha"><a class="botao" href="#cadastro">Quero fazer parte <span>→</span></a><small>Cadastre-se para participar da primeira liberação de acessos.</small></div>
+    </section>
+
+    <!-- ========================================================= POR DENTRO -->
+    <section class="bloco" id="por-dentro">
+      <div class="bloco-cab"><span class="sobretitulo">A plataforma por dentro</span><h2>Feita para você entender tudo de relance</h2><p>As telas da plataforma, com dados de exemplo. Limpa, direta e igual no computador e no celular.</p></div>
+      <div class="galeria" data-galeria></div>
+    </section>
+
+    <!-- ============================================================ O ATIVO -->
+    <section class="bloco ativo" id="ativo">
+      <div class="ativo-texto">
+        <span class="sobretitulo">O ativo</span>
+        <h2>Um índice feito para estratégia, não para notícia.</h2>
+        <p>Os robôs operam o <b>Volatility 75 Index</b>, um índice que mede a volatilidade do mercado no espaço de 75 movimentações. Por isso ele é mais estável e tem um ritmo mais previsível do que moedas e ações: é o cenário ideal para a estratégia do robô ser aplicada com consistência, do jeito que foi desenhada.</p>
+        <p>Ele funciona 24 horas por dia, 7 dias por semana, sem abrir e fechar pregão, sem notícia derrubando o gráfico e sem gap de um dia para o outro. O robô lê o último dígito de cada movimento e entra só quando a regra dele é atendida.</p>
+      </div>
+      <div class="ativo-cards">
+        <div><b>24/7</b><span>Opera de madrugada, fim de semana e feriado. O mercado nunca para.</span></div>
+        <div><b>Sem notícia</b><span>Nenhum discurso de banco central ou balanço de empresa muda o ritmo do índice.</span></div>
+        <div><b>Sem gap</b><span>Não existe abertura de pregão: o preço anda tick a tick, sem saltos.</span></div>
+        <div><b>Dígitos</b><span>A regra do robô olha o último dígito de cada movimento. Simples de ler, simples de conferir.</span></div>
+      </div>
+    </section>
+
+    <!-- ========================================================= PLATAFORMA -->
+    <section class="bloco" id="plataforma">
+      <div class="bloco-cab"><span class="sobretitulo">A plataforma</span><h2>Tudo o que você precisa para operar com método, em um lugar só</h2></div>
+      <div class="grade">
+        <article><i>◎</i><h3>Cabine dos robôs ao vivo</h3><p>Dígitos chegando, contrato aberto, resultado por operação e a curva da sessão, em tempo real.</p></article>
+        <article><i>⌁</i><h3>Gestão de risco embutida</h3><p>Meta de ganho, stop de perda, teto de entrada e número máximo de operações. O robô para sozinho.</p></article>
+        <article><i>▤</i><h3>Gráfico e operação manual</h3><p>Velas, indicadores e contratos de Subir/Descer e Dígitos para quem também quer operar na mão.</p></article>
+        <article><i>◇</i><h3>Simulador de treinamento</h3><p>US$ 10.000 fictícios, com reabastecimento ilimitado, para treinar antes de arriscar um centavo.</p></article>
+        <article><i>▶</i><h3>Aulas dentro da plataforma</h3><p>Do primeiro acesso à leitura de dígitos, em vídeos curtos e diretos. Sem enrolação.</p></article>
+        <article><i>✦</i><h3>Assistente inteligente</h3><p>Pergunte sobre a plataforma, os robôs ou a sua sessão e receba resposta na hora.</p></article>
+        <article><i>▣</i><h3>Histórico completo</h3><p>Cada operação registrada: entrada, saída, dígito, resultado e acumulado. Você revisa o que quiser.</p></article>
+        <article><i>◔</i><h3>No celular, como um app</h3><p>Instale na tela inicial e acompanhe os robôs de onde estiver, com o mesmo acesso.</p></article>
+      </div>
+    </section>
+
+    <!-- ========================================================== GESTÃO -->
+    <section class="bloco escuro gestao">
+      <div class="gestao-texto">
+        <span class="sobretitulo">Gestão de risco</span>
+        <h2>Antes de ligar, você já decidiu onde parar.</h2>
+        <p>A maior causa de prejuízo não é a estratégia. É continuar operando depois da hora. Na plataforma, a meta e o stop são definidos antes da primeira entrada, e o robô respeita os dois sem discutir.</p>
+        <ul class="lista-check">
+          <li><i>✓</i> Meta de ganho: bateu, encerra e guarda o resultado.</li>
+          <li><i>✓</i> Stop de perda: chegou no limite, para na hora.</li>
+          <li><i>✓</i> Teto de entrada: a recuperação nunca passa do valor que você autorizou.</li>
+          <li><i>✓</i> Desligar a qualquer momento, de qualquer aparelho.</li>
+        </ul>
+      </div>
+      <div class="gestao-painel" aria-hidden="true">
+        <div class="gp-linha"><span>Entrada inicial</span><b>US$ 1,00</b></div>
+        <div class="gp-linha"><span>Meta de ganho</span><b class="verde">US$ 20,00</b></div>
+        <div class="gp-linha"><span>Stop de perda</span><b class="vermelho">US$ 10,00</b></div>
+        <div class="gp-linha"><span>Teto por entrada</span><b>US$ 8,00</b></div>
+        <div class="gp-barra"><i style="--p:62%"></i><span>Progresso até a meta</span><em>62%</em></div>
+        <div class="gp-botao">Ligar o robô</div>
+      </div>
+    </section>
+
+    <!-- ========================================================== SESSÕES -->
+    <section class="bloco escuro" id="sessoes">
+      <div class="bloco-cab"><span class="sobretitulo">Sessões na prática</span><h2>Como uma sessão termina quando a gestão é respeitada</h2><p>Vinte sessões de exemplo, no formato em que a plataforma resume cada uma: robô, duração, operações, acertos e resultado. Inclusive as que pararam no stop, porque isso também faz parte.</p></div>
+      <div class="sessoes" id="lista-sessoes" data-sessoes></div>
+      <button class="sessoes-expandir" type="button" aria-controls="lista-sessoes" aria-expanded="false">Ver todas as sessões de exemplo</button>
+    </section>
+
+
+    <!-- ========================================================= PARA QUEM -->
+    <section class="bloco escuro paraquem">
+      <div>
+        <span class="sobretitulo">É para você se</span>
+        <ul class="lista-check">
+          <li><i>✓</i> Quer operar com regras definidas em vez de no impulso.</li>
+          <li><i>✓</i> Não tem tempo de ficar na frente do gráfico o dia inteiro.</li>
+          <li><i>✓</i> Prefere ver tudo acontecendo, ao vivo, com transparência.</li>
+          <li><i>✓</i> Aceita que resultado vem de método, gestão e constância.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="sobretitulo cinza">Não é para você se</span>
+        <ul class="lista-x">
+          <li><i>✕</i> Procura promessa de ganho garantido. Não existe, e não vamos fingir que existe.</li>
+          <li><i>✕</i> Quer operar dinheiro que não pode perder.</li>
+          <li><i>✕</i> Não quer definir limites e prefere "deixar rodar".</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================== FAQ -->
+    <section class="bloco" id="faq">
+      <div class="bloco-cab"><span class="sobretitulo">Dúvidas frequentes</span><h2>Perguntas que todo mundo faz antes de começar</h2></div>
+      <div class="faq" data-faq></div>
+    </section>
+
+    <!-- ========================================================= CADASTRO -->
+    <section class="cadastro" id="cadastro">
+      <div class="cadastro-texto"><span class="sobretitulo">Fila de espera aberta</span><h2>Seu próximo passo começa aqui.</h2><p>Cadastre-se para participar da primeira liberação de vagas, com acesso gratuito à plataforma. Assim que seu cadastro for aprovado, você receberá as instruções de acesso por e-mail.</p><ul><li><i>✓</i> Quantidade inicial de vagas limitada</li><li><i>✓</i> Acesso liberado mediante aprovação</li><li><i>✓</i> Cadastro gratuito, sem cobrança nesta página</li></ul></div>
+      <form id="form-lead" novalidate>
+        <div class="form-top"><span>Leva menos de 1 minuto</span><b>Seus dados estão protegidos</b></div>
+        <label>Nome completo<input name="nome" autocomplete="name" maxlength="120" placeholder="Como podemos chamar você?" required></label>
+        <label>Seu melhor e-mail<input name="email" type="email" autocomplete="email" maxlength="180" placeholder="voce@email.com" required></label>
+        <label>WhatsApp com DDD<input name="telefone" type="tel" autocomplete="tel" maxlength="19" placeholder="(00) 00000-0000" required></label>
+        <input class="armadilha" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consentimento"><input name="consentiu" type="checkbox" required><span>Autorizo o contato da <b data-marca></b> por WhatsApp, telefone ou e-mail sobre a fila de espera e o acesso à plataforma. Posso cancelar a qualquer momento.</span></label>
+        <button class="botao enviar" type="submit">Entrar na fila de espera <span>→</span></button>
+        <p class="mensagem" role="status" aria-live="polite"></p>
+        <p class="aviso-legal">Operar envolve risco de perda. Demonstrações com valores ilustrativos.</p>
+      </form>
+    </section>
+  </main>
+
+
+  <a class="cta-fixo" href="#cadastro" aria-label="Ir para o cadastro">Entrar na fila de espera <span>→</span></a>
+  <script>/* A landing de captação. Uma página, três marcas: o domínio decide qual.
+   Sem pista nenhuma no domínio, fica a Teeds (a marca padrão). */
+const host = location.hostname.toLowerCase()
+const params = new URLSearchParams(location.search)
+const local = host === 'localhost' || host === '127.0.0.1'
+const pedida = local ? params.get('marca') : null
+const marca = host.includes('globalfly') || pedida === 'globalfly' ? 'globalfly'
+  : host.includes('omni') || pedida === 'omni' ? 'omni'
+  : 'teeds'
+
+/* Os robôs de cada marca, com a regra em uma linha. Os ids são os do motor. */
+const ROBOS = {
+  superior5: { regra: 'Over 6', ganha: [7, 8, 9], texto: 'Espera quatro dígitos seguidos que teriam perdido (loss virtual) e só então entra. Ganha quando o último dígito é 7, 8 ou 9. Tem modo Conservador e modo Agressivo.' },
+  ag2: { regra: 'Under 3', ganha: [0, 1, 2], texto: 'Mesma leitura do AG7, do outro lado: espera quatro dígitos seguidos que teriam perdido e então entra. Ganha com 0, 1 ou 2. Tem modo Conservador e modo Agressivo.' },
+  smart03: { regra: 'Over 3', ganha: [4, 5, 6, 7, 8, 9], texto: 'Contratos de 1 tick; ganha com 4, 5, 6, 7, 8 ou 9. A recuperação liga na primeira perda e usa o retorno real do contrato.' },
+  goreme: { regra: 'Under 9', ganha: [0, 1, 2, 3, 4, 5, 6, 7, 8], texto: 'Ganha com qualquer dígito de 0 a 8. O retorno por acerto é pequeno, então a recuperação liga já na primeira perda.' },
+  firstblock: { regra: 'Under 5', ganha: [0, 1, 2, 3, 4], texto: 'Espera dois dígitos seguidos da outra metade (loss virtual) e então entra. Ganha com 0, 1, 2, 3 ou 4, e recupera só o necessário.' },
+  secondblock: { regra: 'Over 4', ganha: [5, 6, 7, 8, 9], texto: 'Mesma regra do First Block, na metade de cima: espera dois dígitos seguidos da outra metade e entra. Ganha com 5, 6, 7, 8 ou 9.' },
+  thepalm: { regra: 'Under 9 → Under 5', ganha: [0, 1, 2, 3, 4, 5, 6, 7, 8], payout: 0.115, recuperacao: { ganha: [0, 1, 2, 3, 4], payout: 0.95, chance: 0.86 }, texto: 'Analisa 25 dígitos, arma entradas reais em Under 9 depois de uma perda virtual e troca para Under 5 na recuperação, com o payout real no cálculo.' },
+}
+/* O que muda de uma marca para outra. `tema` é a cor da barra do navegador. */
+const MARCAS = {
+  teeds: {
+    nome: 'TEEDS', cor: '#d2aa51', escura: '#8c6926', emblema: '/teeds-marca.png', assinatura: 'TRADING TECHNOLOGY', tema: '#090a0d',
+    intro: 'A Teeds reúne robôs de operação, gestão de risco e acompanhamento ao vivo em uma plataforma só. Você define quanto quer ganhar e quanto aceita perder; o robô cuida da execução, 24 horas, na sua conta da corretora.',
+    demo: { id: 'thepalm', nome: 'Sessão demonstrativa' },
+    fotos: [['teeds-robos.webp', 'Robôs', 'Cada robô numa linha, com a cabine aberta mostrando a análise, as operações e a curva da sessão.'], ['teeds-gerenciamento.webp', 'Gerenciamento', 'A planilha que calcula entrada, limites e objetivo antes de ligar o robô.'], ['teeds-aulas.webp', 'Aulas', 'O treinamento da plataforma, do primeiro acesso à leitura de dígitos.'], ['teeds-marketplace.webp', 'Marketplace', 'Ferramentas e produtos da casa, como o Simulador de Treinamento.']],
+  },
+  omni: {
+    nome: 'OMNI', cor: '#6c93c6', escura: '#0e2a4e', emblema: '/omni-marca.png', assinatura: 'FINANCIAL INTELLIGENCE', tema: '#081525',
+    intro: 'A OMNI reúne robôs de operação, gestão de risco e acompanhamento ao vivo em uma plataforma só. Você define quanto quer ganhar e quanto aceita perder; o robô cuida da execução, 24 horas, na sua conta da corretora.',
+    demo: { id: 'firstblock', nome: 'Sessão demonstrativa' },
+    fotos: [['omni-robos.webp', 'Robôs', 'Cada robô numa linha, com a cabine aberta mostrando a análise, as operações e a curva da sessão.'], ['omni-gerenciamento.webp', 'Gerenciamento', 'A planilha que calcula entrada, limites e objetivo antes de ligar o robô.'], ['omni-aulas.webp', 'Aulas', 'O treinamento da plataforma, do primeiro acesso à leitura de dígitos.'], ['omni-marketplace.webp', 'Marketplace', 'Ferramentas e produtos da casa, como o Simulador de Treinamento.']],
+  },
+  globalfly: {
+    nome: 'GLOBALFLY', prosa: 'GlobalFly', cor: '#C99A2E', escura: '#8a6a1f', emblema: '/globalfly-marca.png', assinatura: 'GLOBAL TRADING', tema: '#0B1626',
+    intro: 'A GlobalFly reúne robôs de operação, gestão de risco e acompanhamento ao vivo em uma plataforma só. Antes de decolar, você traça o plano de voo: quanto quer ganhar e quanto aceita perder. O robô assume o comando da execução, 24 horas, na sua conta da corretora.',
+    demo: { id: 'goreme', nome: 'Sessão demonstrativa' },
+    // As telas da GlobalFly ainda serão capturadas. Enquanto o arquivo não
+    // existir, a galeria esconde a figura (e a seção, se ficar vazia).
+    fotos: [['globalfly-robos.webp', 'Robôs', 'Cada robô numa linha, com a cabine aberta mostrando a análise, as operações e a curva da sessão.'], ['globalfly-gerenciamento.webp', 'Gerenciamento', 'O plano de voo antes de decolar: a planilha calcula entrada, limites e objetivo antes de ligar o robô.'], ['globalfly-aulas.webp', 'Aulas', 'O treinamento a bordo, do primeiro acesso à leitura de dígitos.'], ['globalfly-marketplace.webp', 'Marketplace', 'Ferramentas e produtos da plataforma, reunidos num só lugar.']],
+  },
+}
+const config = MARCAS[marca]
+document.documentElement.dataset.marca = marca
+document.documentElement.style.setProperty('--cor', config.cor)
+document.documentElement.style.setProperty('--cor-escura', config.escura)
+document.querySelectorAll('body [data-marca]').forEach(el => { el.textContent = config.nome })
+document.querySelectorAll('[data-logo]').forEach(el => { el.src = config.emblema })
+document.querySelectorAll('[data-assinatura]').forEach(el => { el.textContent = config.assinatura })
+document.querySelector('[data-intro]').textContent = config.intro
+document.title = `${config.nome} · Robôs de operação com gestão de risco`
+document.querySelector('[data-favicon-ico]').href = `/pwa-${marca}/favicon.ico`
+document.querySelectorAll('[data-favicon]').forEach(el => { el.href = `/pwa-${marca}/favicon-${el.dataset.favicon}.png` })
+document.querySelector('[data-apple-icon]').href = `/pwa-${marca}/icon-180.png`
+document.querySelector('meta[name="theme-color"]').content = config.tema
+
+/* ------------------------------------------------------ galeria */
+const galeriaEl = document.querySelector('[data-galeria]')
+for (const [arquivo, titulo, legenda] of config.fotos) {
+  const fig = document.createElement('figure')
+  fig.innerHTML = `<div class="moldura"><img loading="lazy" decoding="async" alt=""></div><figcaption><b></b><span></span></figcaption>`
+  fig.querySelector('img').src = `./plataforma/${arquivo}`
+  fig.querySelector('img').alt = `Tela ${titulo} da plataforma ${config.nome}`
+  fig.querySelector('b').textContent = titulo
+  fig.querySelector('span').textContent = legenda
+  // Tela que ainda não existe (ou não carregou) some sem deixar moldura vazia;
+  // sem nenhuma tela, a seção inteira e o atalho dela no topo saem junto.
+  fig.querySelector('img').addEventListener('error', () => {
+    fig.remove()
+    if (galeriaEl.children.length) return
+    const secao = galeriaEl.closest('section'); if (secao) secao.hidden = true
+    if (secao?.id) document.querySelectorAll(`a[href="#${secao.id}"]`).forEach(a => { a.hidden = true })
+  })
+  galeriaEl.appendChild(fig)
+}
+
+/* ------------------------------------------------ sessões na prática */
+/* Vinte sessões ILUSTRATIVAS, geradas com semente fixa: 18 positivas (meta ou
+   encerramento manual no lucro) e 2 negativas (stop). Está escrito na tela. */
+;(() => {
+  const el = document.querySelector('[data-sessoes]'); if (!el) return
+  let semente = 777
+  const sortear = () => { semente |= 0; semente = semente + 0x6D2B79F5 | 0; let t = Math.imul(semente ^ semente >>> 15, 1 | semente); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296 }
+  const entre = (a, b) => a + sortear() * (b - a)
+  const num = v => Math.abs(v).toFixed(2).replace('.', ',')
+  const sessoes = []
+  for (let i = 0; i < 20; i++) {
+    const negativa = i === 6 || i === 15
+    const robo = `Sessão de exemplo ${String(i + 1).padStart(2, '0')}`
+    const meta = [20, 30, 50, 80, 100, 150, 200][Math.floor(sortear() * 7)]
+    const resultado = negativa ? -Math.round(entre(0.45, 0.8) * meta * 100) / 100 : Math.round(entre(0.92, 1.06) * meta * 100) / 100
+    const ops = Math.round(entre(9, 64)), ganhas = negativa ? Math.round(ops * entre(0.42, 0.55)) : Math.round(ops * entre(0.68, 0.92))
+    const minutos = Math.round(entre(6, 95))
+    // curva: ruído com deriva até o resultado
+    const pontos = [0]; let v = 0
+    for (let k = 1; k <= 24; k++) { const alvo = resultado * k / 24; v = alvo + (sortear() - 0.5) * meta * 0.25 * (1 - k / 24); pontos.push(k === 24 ? resultado : v) }
+    sessoes.push({ robo, meta, resultado, ops, ganhas, minutos, pontos, negativa })
+  }
+  for (const s of sessoes) {
+    const art = document.createElement('article')
+    art.className = `sessao ${s.negativa ? 'stop' : 'meta'}`
+    const min = Math.min(...s.pontos, 0), max = Math.max(...s.pontos, 1)
+    const x = i => (i / 24) * 200, y = p => 44 - ((p - min) / (max - min || 1)) * 40
+    const d = s.pontos.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(p).toFixed(1)}`).join(' ')
+    art.innerHTML = `<header><b></b><span class="selo"></span></header><strong class="valor"></strong><svg viewBox="0 0 200 48" preserveAspectRatio="none" aria-hidden="true"><path d="${d}"/></svg><footer><span><i>Operações</i><b></b></span><span><i>Acertos</i><b></b></span><span><i>Duração</i><b></b></span></footer>`
+    art.querySelector('header b').textContent = s.robo
+    art.querySelector('.selo').textContent = s.negativa ? 'Parou no stop' : 'Meta batida'
+    art.querySelector('.valor').textContent = `${s.resultado < 0 ? '−' : '+'}${num(s.resultado)} USD`
+    const f = art.querySelectorAll('footer b'); f[0].textContent = String(s.ops); f[1].textContent = `${s.ganhas} de ${s.ops}`; f[2].textContent = `${s.minutos} min`
+    el.appendChild(art)
+  }
+})()
+
+/* ---------------------------------------------------------------- FAQ */
+const nomeNoTexto = config.prosa ?? config.nome
+const FAQ = [
+  ['Preciso ter experiência para usar?', `Não. A plataforma foi feita para quem está começando: aulas curtas dentro dela, conta demo com dinheiro fictício e a equipe ${nomeNoTexto} acompanhando a configuração. Quem já opera encontra gráfico, indicadores e operação manual também.`],
+  ['Onde fica o meu dinheiro?', `Na sua própria conta na Deriv, corretora internacional com mais de 20 anos de mercado. A ${nomeNoTexto} recebe apenas uma autorização para operar; depósitos e saques são feitos por você, direto na corretora. A plataforma nunca guarda saldo.`],
+  ['Posso perder dinheiro?', 'Pode. Toda operação financeira envolve risco, e ninguém sério promete ganho garantido. O que a plataforma faz é colocar o risco sob controle: você define o stop de perda antes de ligar e o robô para ali. O quanto arriscar é sempre decisão sua.'],
+  ['Quanto preciso para começar?', 'Você pode começar na conta demo, sem dinheiro nenhum, e conhecer tudo com calma. Na conta real, a entrada mínima por operação é pequena (a partir de US$ 0,35) e o valor total é você quem define.'],
+  ['O robô opera sozinho? Preciso deixar o computador ligado?', 'Ele opera no nosso servidor, 24 horas, com a sua conta conectada. Pode fechar o notebook ou trancar o celular: o robô continua e para sozinho quando bater a meta ou o stop.'],
+  ['Consigo acompanhar o que o robô está fazendo?', 'Tudo, ao vivo: os dígitos que chegam, a entrada armada, o contrato aberto, o resultado de cada operação e a curva da sessão. Depois, o histórico completo fica guardado para você revisar.'],
+  ['Funciona no celular?', 'Sim. A plataforma roda no navegador e pode ser instalada como app na tela inicial do iPhone ou do Android, com o mesmo acesso e as mesmas telas.'],
+  ['E se eu quiser parar?', 'Um toque em "Desligar" e o robô para. Você também pode remover a autorização na corretora a qualquer momento. Sem fidelidade, sem burocracia.'],
+  ['Como funciona a fila de espera?', 'O cadastro é gratuito. Nesta primeira etapa, as vagas são limitadas e o acesso à plataforma é gratuito para os cadastros aprovados. A inscrição não libera o acesso automaticamente: após a aprovação, as instruções chegam por e-mail.'],
+]
+const faqEl = document.querySelector('[data-faq]')
+for (const [pergunta, resposta] of FAQ) {
+  const det = document.createElement('details')
+  det.innerHTML = `<summary><span></span><i aria-hidden="true">+</i></summary><p></p>`
+  det.querySelector('span').textContent = pergunta
+  det.querySelector('p').textContent = resposta
+  faqEl.appendChild(det)
+}
+
+/* ------------------------------------------- a cabine (cenário pré-calculado) */
+/* Uma sessão FICTÍCIA, calculada uma vez com semente fixa: começa perto de
+   +US$ 4, sobe com altos e baixos e termina em +US$ 200 (meta). A regra dos
+   dígitos é a do robô da marca; os preços são inventados com o último dígito
+   coerente com o resultado. Está escrito na tela que é demonstração. */
+;(() => {
+  const raiz = document.querySelector('[data-demo]'); if (!raiz) return
+  const robo = ROBOS[config.demo.id]
+  const q = sel => raiz.querySelector(sel)
+  q('[data-demo-robo]').textContent = config.demo.nome
+  const META = 200, STOP = 100, BASE = robo.recuperacao ? 25 : 3
+  const PAYOUT = robo.payout ?? 0.95
+  const reduzido = matchMedia('(prefers-reduced-motion: reduce)').matches
+  const num = v => Math.abs(v).toFixed(2).replace('.', ',')
+  const assinado = v => `${v < 0 ? '−' : '+'}${num(v)}`
+  let semente = 20260915
+  const sortear = () => { semente |= 0; semente = semente + 0x6D2B79F5 | 0; let t = Math.imul(semente ^ semente >>> 15, 1 | semente); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296 }
+  const escolher = lista => lista[Math.floor(sortear() * lista.length)]
+  const grupo = robo.ganha, fora = [0,1,2,3,4,5,6,7,8,9].filter(d => !grupo.includes(d))
+
+  // 1) o roteiro: ganhos e perdas com progressão, em unidades de entrada base
+  const roteiro = []
+  let valor = 1, seguidas = 0, acumulado = 0, perdaAberta = 0
+  for (let i = 0; i < (robo.recuperacao ? 96 : 118); i++) {
+    if (robo.recuperacao && perdaAberta > 0) {
+      // recuperação (Under 5): entrada dimensionada para cobrir a perda e ainda deixar o lucro base
+      const rec = robo.recuperacao
+      const v = +((perdaAberta + PAYOUT) / rec.payout).toFixed(4)
+      const ganhou = sortear() < rec.chance
+      const lucro = ganhou ? +(v * rec.payout).toFixed(4) : -v
+      acumulado += lucro
+      roteiro.push({ ganhou, valor: v, lucro, ganha: rec.ganha, recuperacao: true })
+      perdaAberta = ganhou ? 0 : perdaAberta + v
+      continue
+    }
+    // fases: começo tranquilo (+4), meio com quedas maiores, fim subindo até a meta
+    const chance = robo.recuperacao ? (i < 8 ? 0.97 : i < 45 ? 0.86 : i < 70 ? 0.83 : 0.9) : (i < 6 ? 0.9 : i < 40 ? 0.66 : i < 75 ? 0.6 : 0.72)
+    const ganhou = sortear() < chance
+    const lucro = ganhou ? +(valor * PAYOUT).toFixed(4) : -valor
+    acumulado += lucro
+    roteiro.push({ ganhou, valor, lucro, ganha: robo.ganha })
+    if (robo.recuperacao) { if (!ganhou) perdaAberta = valor }
+    else if (ganhou) { valor = 1; seguidas = 0 } else { seguidas += 1; valor = Math.min(valor * 2.1, 9) }
+  }
+  // 2) escala para terminar exatamente na meta e nunca cruzar o stop
+  const escala = (META / BASE) / acumulado
+  let piso = 0, soma = 0
+  for (const op of roteiro) { op.valor = +(op.valor * BASE * escala).toFixed(2); op.lucro = +(op.lucro * BASE * escala).toFixed(2); soma += op.lucro; piso = Math.min(piso, soma) }
+  const ultimo = roteiro[roteiro.length - 1]; ultimo.lucro = +(ultimo.lucro + (META - soma)).toFixed(2)
+  if (piso < -STOP * 0.7) console.warn('[demo] o roteiro se aproxima do stop', piso)
+
+  // 3) a tela
+  const fita = q('[data-demo-fita]'), tabela = q('[data-demo-tabela]'), curvaLinha = q('[data-demo-linha]'), curvaArea = q('[data-demo-area]')
+  let digitos = [], curva = [0], resultado = 0, ops = 0, ganhas = 0, indice = 0, preco = 45631.12
+  const desenhar = () => {
+    const pontos = curva.slice(-60), n = pontos.length, min = Math.min(...pontos, 0), max = Math.max(...pontos, 1)
+    const x = i => n > 1 ? (i / (n - 1)) * 560 : 0, y = v => 56 - ((v - min) / (max - min || 1)) * 50
+    const d = pontos.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ')
+    curvaLinha.setAttribute('d', d); curvaArea.setAttribute('d', `${d} L560 60 L0 60Z`)
+    curvaLinha.style.stroke = resultado >= 0 ? '#42cb84' : '#ff6868'
+  }
+  const empurrarDigito = d => {
+    digitos.push(d); if (digitos.length > 16) digitos.shift()
+    if (!fita) return   // a fita de dígitos saiu da landing (15/09/2026); a plataforma continua com ela
+    fita.innerHTML = ''
+    digitos.forEach((v, i) => { const s = document.createElement('span'); s.textContent = String(v); s.className = `tv-d ${grupo.includes(v) ? 'up' : 'down'} ${i === digitos.length - 1 ? 'agora' : ''}`; fita.appendChild(s) })
+  }
+  const hora = () => new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+  const precoCom = digito => { preco += (sortear() - 0.5) * 6; const base = Math.floor(preco * 100) / 100; return +(Math.floor(base * 10) / 10 + digito / 100).toFixed(2) }
+  const atualizarResumo = () => {
+    q('[data-demo-ops]').textContent = String(ops); q('[data-demo-ops2]').textContent = `(${ops})`
+    q('[data-demo-ganhas]').textContent = String(ganhas); q('[data-demo-perdas]').textContent = String(ops - ganhas)
+    const r = q('[data-demo-resultado]'); r.innerHTML = `${assinado(resultado)} <small>USD</small>`; r.className = resultado >= 0 ? 'up' : 'down'
+    const a = q('[data-demo-atual]'); a.textContent = `${assinado(resultado)} USD`; a.className = resultado >= 0 ? 'up' : 'down'
+    q('[data-demo-stop]').textContent = `USD ${num(Math.max(0, STOP + resultado))}`
+    q('[data-demo-falta]').textContent = `USD ${num(Math.max(0, META - resultado))}`
+    q('[data-demo-cursor]').style.left = `${Math.min(100, Math.max(0, (resultado + STOP) / (META + STOP) * 100))}%`
+    q('[data-demo-cursor]').className = resultado >= 0 ? 'up' : 'down'
+  }
+  const etapa = (aberto, op) => {
+    q('[data-demo-etapa1]').textContent = aberto ? '●' : ops ? '✓' : '1'
+    q('[data-demo-etapa1-titulo]').textContent = aberto ? 'Contrato aberto' : ops ? 'Último contrato' : 'Aguardando entrada'
+    q('[data-demo-etapa1-sub]').textContent = aberto ? hora() : ops ? hora() : 'monitorando o mercado'
+    q('[data-demo-fase]').textContent = aberto ? (op && op.recuperacao ? 'Recuperando' : 'Contrato aberto') : (op && !op.ganhou) ? 'Recuperando' : robo.recuperacao ? 'Analisando mercado' : 'Analisando mercado'
+    const e2 = q('[data-demo-etapa2]'); e2.className = `tv-etapa ${!aberto && ops ? 'ativa concluida' : ''}`
+    e2.querySelector('i').textContent = !aberto && ops ? '✓' : '2'
+    q('[data-demo-etapa2-sub]').textContent = aberto ? 'aguardando resultado…' : op ? `${op.ganhou ? 'ganho' : 'perda'} ${assinado(op.lucro)} USD` : 'próxima etapa'
+    q('.tv-fluxo').className = `tv-fluxo ${aberto ? 'aberto' : ops ? 'fechado' : ''}`
+  }
+  const registrar = (op, entrada, saida, dIn, dOut) => {
+    const tr = document.createElement('tr'); tr.className = op.ganhou ? 'ganhou' : 'perdeu'
+    tr.innerHTML = `<td>${ops}</td><td class="oculta">${hora()}</td><td>${num(op.valor)}</td><td class="oculta">${entrada.toFixed(2)} <b class="chip">${dIn}</b></td><td>${saida.toFixed(2)} <b class="chip ${op.ganhou ? 'up' : 'down'}">${dOut}</b></td><td class="${op.ganhou ? 'up' : 'down'} forte">${assinado(op.lucro)}</td>`
+    tabela.prepend(tr); while (tabela.children.length > 8) tabela.lastChild.remove()
+  }
+  let parado = false
+  const passo = () => {
+    if (parado) return
+    if (indice >= roteiro.length) { q('[data-demo-fase]').textContent = 'Meta atingida'; q('[data-demo-etapa1-titulo]').textContent = 'Meta atingida'; q('[data-demo-etapa1-sub]').textContent = 'o robô encerrou sozinho'; parado = true; setTimeout(reiniciar, 9000); return }
+    const op = roteiro[indice]
+    // tick de espera (dígito qualquer), depois compra, depois resultado
+    empurrarDigito(escolher([...grupo, ...fora]))
+    q('[data-demo-entrada]').innerHTML = `${num(op.valor)} <i>USD</i>`
+    setTimeout(() => {
+      if (parado) return
+      const dIn = escolher([...grupo, ...fora]); const entrada = precoCom(dIn); empurrarDigito(dIn); etapa(true, op)
+      setTimeout(() => {
+        if (parado) return
+        const g = op.ganha ?? grupo, f = [0,1,2,3,4,5,6,7,8,9].filter(d => !g.includes(d))
+        const dOut = escolher(op.ganhou ? g : f); const saida = precoCom(dOut); empurrarDigito(dOut)
+        ops += 1; if (op.ganhou) ganhas += 1
+        resultado = +(resultado + op.lucro).toFixed(2); curva.push(resultado)
+        indice += 1
+        registrar(op, entrada, saida, dIn, dOut); atualizarResumo(); desenhar(); etapa(false, op)
+        const prox = roteiro[indice]; if (prox) q('[data-demo-entrada]').innerHTML = `${num(prox.valor)} <i>USD</i>`
+        setTimeout(passo, reduzido ? 2600 : 700 + sortear() * 500)
+      }, reduzido ? 1400 : 650)
+    }, reduzido ? 900 : 350)
+  }
+  const reiniciar = () => { digitos = []; curva = [0]; resultado = 0; ops = 0; ganhas = 0; indice = 0; parado = false; if (fita) fita.innerHTML = ''; tabela.innerHTML = ''; atualizarResumo(); desenhar(); etapa(false, null); setTimeout(passo, 600) }
+  reiniciar()
+})()
+
+/* ---------------------------------------------------- comportamento */
+const inicio = Date.now()
+let profundidade = 0
+const ctaFixo = document.querySelector('.cta-fixo')
+function atualizarCta() {
+  const total = document.documentElement.scrollHeight - innerHeight
+  profundidade = Math.max(profundidade, total > 0 ? Math.round(scrollY / total * 100) : 100)
+  const cadastro = document.querySelector('#cadastro').getBoundingClientRect()
+  const heroCta = document.querySelector('.hero-acoes').getBoundingClientRect()
+  const visivel = innerWidth > 600 && heroCta.bottom < 0 && cadastro.top > innerHeight && !document.activeElement?.matches('input,textarea')
+  ctaFixo.classList.toggle('visivel', visivel)
+  ctaFixo.setAttribute('aria-hidden', String(!visivel))
+  ctaFixo.tabIndex = visivel ? 0 : -1
+}
+addEventListener('scroll', atualizarCta, { passive: true })
+addEventListener('resize', atualizarCta)
+addEventListener('focusin', atualizarCta)
+addEventListener('focusout', atualizarCta)
+window.visualViewport?.addEventListener('resize', atualizarCta)
+atualizarCta()
+const maisSessoes = document.querySelector('.sessoes-expandir')
+maisSessoes.addEventListener('click', () => {
+  const expandida = document.querySelector('[data-sessoes]').classList.toggle('expandida')
+  maisSessoes.setAttribute('aria-expanded', String(expandida))
+  maisSessoes.textContent = expandida ? 'Mostrar menos sessões' : 'Ver todas as sessões de exemplo'
+  if (!expandida) document.querySelector('#sessoes').scrollIntoView({ block: 'start' })
+  atualizarCta()
+})
+
+function armazenamentoLer(chave) { try { return localStorage.getItem(chave) } catch { return null } }
+const chaveVisitas = `visitas-captura-${marca}`
+const visitas = Math.min(1000, Number(armazenamentoLer(chaveVisitas) || 0) + 1)
+try { localStorage.setItem(chaveVisitas, String(visitas)) } catch {}
+const form = document.querySelector('#form-lead')
+const telefone = form.elements.telefone
+telefone.addEventListener('input', () => {
+  const d = telefone.value.replace(/\D/g, '').slice(0, 11)
+  telefone.value = d.length <= 10 ? d.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, (_,a,b,c) => `${a?'('+a:''}${a.length===2?') ':''}${b}${c?'-'+c:''}`) : d.replace(/^(\d{2})(\d{5})(\d{0,4})$/, '($1) $2-$3')
+})
+form.addEventListener('submit', async event => {
+  event.preventDefault()
+  const mensagem = form.querySelector('.mensagem'), botao = form.querySelector('button')
+  if (!form.reportValidity()) return
+  botao.disabled = true; botao.textContent = 'Enviando…'; mensagem.textContent = ''
+  const dados = Object.fromEntries(new FormData(form))
+  const utm = new URLSearchParams(location.search)
+  try {
+    const resposta = await fetch(`https://${marca === 'globalfly' ? 'motor.globalflytrade.com' : 'motor.teedscompany.com'}/publico/leads`, {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ ...dados, marca, consentiu: form.elements.consentiu.checked,
+        tempo: Math.round((Date.now() - inicio) / 1000), profundidade, visitas, pagina: location.href,
+        campanha: utm.get('utm_campaign'), origem: utm.get('utm_source'), meio: utm.get('utm_medium'), conteudo: utm.get('utm_content'), termo: utm.get('utm_term') }),
+    })
+    const corpo = await resposta.json().catch(() => ({}))
+    if (!resposta.ok) throw new Error(corpo.erro || 'Não foi possível enviar agora.')
+    // Só avança depois de o motor confirmar que o lead foi preservado. O nome
+    // vai só para personalizar a próxima tela (ela usa textContent, nunca HTML).
+    const proxima = new URL('./obrigado/', location.href)
+    proxima.searchParams.set('nome', String(dados.nome).trim().split(/\s+/)[0])
+    for (const [chave, valor] of utm) if (chave.startsWith('utm_')) proxima.searchParams.set(chave, valor)
+    location.assign(proxima)
+  } catch (e) {
+    mensagem.textContent = e.message; mensagem.className = 'mensagem erro'
+    botao.disabled = false; botao.innerHTML = 'Tentar novamente <span>→</span>'
+  }
+})
+</script>
+</body>
+</html>

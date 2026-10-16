@@ -1,2 +1,0 @@
-# globalfly
-GlobalFly Trade
