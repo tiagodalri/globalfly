@@ -2,7 +2,7 @@
   "id": "/",
   "name": "GlobalFly Trade",
   "short_name": "GlobalFly",
-  "description": "GlobalFly — operações manuais, robôs e acompanhamento em um só lugar.",
+  "description": "GlobalFly Trade — operações manuais, robôs e acompanhamento em um só lugar.",
   "lang": "pt-BR",
   "dir": "ltr",
   "start_url": "/",
@@ -13,8 +13,8 @@
     "minimal-ui"
   ],
   "orientation": "any",
-  "background_color": "#0B1626",
-  "theme_color": "#0B1626",
+  "background_color": "#051528",
+  "theme_color": "#051528",
   "categories": [
     "finance",
     "business",

@@ -1,5 +1,5 @@
-const CACHE='globalfly-369cb0c85722';
-const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/MonitoramentoPanel.js?v=369cb0c85722","./assets/globalfly.css?v=369cb0c85722","./assets/globalfly.js?v=369cb0c85722"];
+const CACHE='globalfly-b354528fe281';
+const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/MonitoramentoPanel.js?v=b354528fe281","./assets/globalfly.css?v=b354528fe281","./assets/globalfly.js?v=b354528fe281"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).catch(()=>{}));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;const u=new URL(r.url);if(r.method!=='GET'||u.origin!==self.location.origin||r.cache==='no-store'||u.searchParams.has('vivo'))return;
