@@ -1,5 +1,5 @@
-const CACHE='globalfly-b0e0fe7abd84';
-const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/AoVivo.js?v=b0e0fe7abd84","./assets/MonitoramentoPanel.js?v=b0e0fe7abd84","./assets/RecursosDeApp.js?v=b0e0fe7abd84","./assets/globalfly.css?v=b0e0fe7abd84","./assets/globalfly.js?v=b0e0fe7abd84","./assets/globalfly2.css?v=b0e0fe7abd84","./assets/globalfly3.css?v=b0e0fe7abd84"];
+const CACHE='globalfly-37edac288ade';
+const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/AoVivo.js?v=37edac288ade","./assets/MonitoramentoPanel.js?v=37edac288ade","./assets/RecursosDeApp.js?v=37edac288ade","./assets/globalfly.css?v=37edac288ade","./assets/globalfly.js?v=37edac288ade","./assets/globalfly2.css?v=37edac288ade","./assets/globalfly3.css?v=37edac288ade"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).catch(()=>{}));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;const u=new URL(r.url);if(r.method!=='GET'||u.origin!==self.location.origin||r.cache==='no-store'||u.searchParams.has('vivo'))return;
