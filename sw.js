@@ -1,5 +1,5 @@
-const CACHE='globalfly-f2bf551fb37d';
-const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/AoVivo.js?v=f2bf551fb37d","./assets/Convidado.js?v=f2bf551fb37d","./assets/MonitoramentoPanel.js?v=f2bf551fb37d","./assets/RecursosDeApp.js?v=f2bf551fb37d","./assets/globalfly.css?v=f2bf551fb37d","./assets/globalfly.js?v=f2bf551fb37d","./assets/globalfly2.css?v=f2bf551fb37d","./assets/globalfly3.css?v=f2bf551fb37d"];
+const CACHE='globalfly-d37b5f02cdc4';
+const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/AoVivo.js?v=d37b5f02cdc4","./assets/Convidado.js?v=d37b5f02cdc4","./assets/MonitoramentoPanel.js?v=d37b5f02cdc4","./assets/RecursosDeApp.js?v=d37b5f02cdc4","./assets/globalfly.css?v=d37b5f02cdc4","./assets/globalfly.js?v=d37b5f02cdc4","./assets/globalfly2.css?v=d37b5f02cdc4","./assets/globalfly3.css?v=d37b5f02cdc4"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).catch(()=>{}));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;const u=new URL(r.url);if(r.method!=='GET'||u.origin!==self.location.origin||r.cache==='no-store'||u.searchParams.has('vivo'))return;
