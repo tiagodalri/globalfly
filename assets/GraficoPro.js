@@ -1,4 +1,4 @@
-import{M as Qt,S as Rt,j as P,r as ne}from"./globalfly.js?v=915ae6aa0bd7";/**
+import{M as Qt,S as Rt,j as P,r as ne}from"./globalfly.js?v=b565ebf770b8";/**
      * @license
      * KLineChart v10.0.3
      * Copyright (c) 2019 lihu.
