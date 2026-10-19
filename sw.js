@@ -1,5 +1,5 @@
-const CACHE='globalfly-eaeefa0ebfda';
-const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/AoVivo.js?v=eaeefa0ebfda","./assets/Convidado.js?v=eaeefa0ebfda","./assets/MonitoramentoPanel.js?v=eaeefa0ebfda","./assets/RecursosDeApp.js?v=eaeefa0ebfda","./assets/globalfly.css?v=eaeefa0ebfda","./assets/globalfly.js?v=eaeefa0ebfda","./assets/globalfly2.css?v=eaeefa0ebfda","./assets/globalfly3.css?v=eaeefa0ebfda"];
+const CACHE='globalfly-9c6f8a481c69';
+const SHELL=["./","./index.html","./manifest.webmanifest","./pwa-globalfly/icon-192.png","./pwa-globalfly/icon-512.png","./assets/AoVivo.js?v=9c6f8a481c69","./assets/Convidado.js?v=9c6f8a481c69","./assets/GraficoPro.js?v=9c6f8a481c69","./assets/MonitoramentoPanel.js?v=9c6f8a481c69","./assets/RecursosDeApp.js?v=9c6f8a481c69","./assets/globalfly.css?v=9c6f8a481c69","./assets/globalfly.js?v=9c6f8a481c69","./assets/globalfly2.css?v=9c6f8a481c69","./assets/globalfly3.css?v=9c6f8a481c69","./assets/globalfly4.css?v=9c6f8a481c69"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).catch(()=>{}));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;const u=new URL(r.url);if(r.method!=='GET'||u.origin!==self.location.origin||r.cache==='no-store'||u.searchParams.has('vivo'))return;
