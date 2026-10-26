@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#051528" />
+  <meta name="description" content="Cadastre-se para a live de lançamento da GlobalFly Trade: segunda, 9 de novembro, às 20h." />
+  <meta property="og:title" content="Live de lançamento da GlobalFly Trade" />
+  <meta property="og:description" content="Segunda, 9 de novembro, às 20h. Cadastre-se e entre na comunidade oficial." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://globalflytrade.com/cadastro/" />
+  <meta property="og:site_name" content="GlobalFly Trade" />
+  <!-- 26/10/2026: arte própria (a assinatura transparente aparecia sobre branco no WhatsApp) -->
+  <meta property="og:image" content="https://globalflytrade.com/globalfly-cadastro-compartilhar.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GlobalFly Trade: live de lançamento, segunda, 9 de novembro, às 20h" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>GlobalFly Trade · Live de lançamento</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/pwa-globalfly/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/pwa-globalfly/icon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/login-globalfly/nuvens.webp" />
+  <style>/* Captação da GlobalFly (26/10/2026): cadastro, questionário e obrigado.
+   Manual da marca: Azul GF nas superfícies, Marfim para leitura, Aço para
+   apoio, Ouro só como acento (botão com texto em Azul GF). Fonte Arimo. */
+:root {
+  --azul: #051528; --azul-2: #0A2038; --azul-3: #12304F;
+  --marfim: #F3F0E9; --aco: #9CB1C7; --ouro: #B78D39; --ouro-claro: #D4A64A;
+  --linha: rgba(156, 177, 199, .18); --erro: #F1828A;
+  --raio: 16px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; min-height: 100dvh; background: var(--azul); color: var(--marfim);
+  font: 400 16px/1.55 Arimo, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(5, 21, 40, .55) 0%, rgba(5, 21, 40, .82) 45%, var(--azul) 78%),
+    url("/login-globalfly/nuvens.webp") center 30% / cover no-repeat;
+}
+@media (max-width: 720px) { body::before { background: linear-gradient(180deg, rgba(5,21,40,.5) 0%, rgba(5,21,40,.86) 40%, var(--azul) 70%), url("/login-globalfly/nuvens-celular.webp") center top / cover no-repeat; } }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button, input { font: inherit; }
+
+.pagina { width: min(1120px, 100%); margin: 0 auto; padding: max(20px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom)); display: grid; gap: 40px; min-height: 100vh; min-height: 100dvh; grid-template-rows: auto 1fr auto; }
+.topo { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 8px; }
+.topo img { width: 190px; height: auto; }
+.passo { color: var(--aco); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+
+/* ------------------------------------------------ cadastro */
+.cadastro { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; }
+.selo-live {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border: 1px solid rgba(183, 141, 57, .45); border-radius: 999px;
+  background: rgba(183, 141, 57, .1); color: var(--marfim); font-size: 13.5px; font-weight: 700;
+}
+.selo-live i { width: 8px; height: 8px; border-radius: 50%; background: var(--ouro-claro); box-shadow: 0 0 0 0 rgba(212, 166, 74, .6); animation: pulso 2s infinite; }
+.selo-live span { color: var(--aco); font-weight: 400; }
+@keyframes pulso { 70% { box-shadow: 0 0 0 8px rgba(212, 166, 74, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 166, 74, 0); } }
+h1 { margin: 22px 0 16px; font-size: clamp(32px, 4.4vw, 50px); line-height: 1.08; letter-spacing: -.025em; font-weight: 700; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--ouro-claro); }
+.chamada { margin: 0; max-width: 34em; color: #D5DCE4; font-size: 18px; }
+.motivos { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.motivos li { display: flex; gap: 12px; align-items: flex-start; color: #D5DCE4; }
+.motivos b { flex: none; display: grid; place-items: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: rgba(183, 141, 57, .16); color: var(--ouro-claro); font-size: 13px; }
+
+.cartao {
+  position: relative; padding: 30px; border: 1px solid var(--linha); border-radius: var(--raio);
+  background: linear-gradient(180deg, rgba(18, 48, 79, .72), rgba(10, 32, 56, .86)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .6);
+}
+/* o corte diagonal do monograma, em ouro, no canto do cartão */
+.cartao::before { content: ""; position: absolute; top: -1px; right: 34px; width: 46px; height: 3px; background: var(--ouro); transform: skewX(-38deg); border-radius: 2px; }
+.cartao h2 { margin: 0 0 4px; font-size: 22px; letter-spacing: -.01em; }
+.cartao .sub { margin: 0 0 22px; color: var(--aco); font-size: 14.5px; }
+.campo { display: grid; gap: 7px; margin-bottom: 16px; font-size: 14px; font-weight: 700; }
+.campo input {
+  width: 100%; height: 52px; padding: 0 16px; border: 1px solid rgba(156, 177, 199, .3); border-radius: 12px;
+  background: rgba(5, 21, 40, .7); color: var(--marfim); font-size: 16px; font-weight: 400; transition: border-color .15s, box-shadow .15s;
+}
+.campo input::placeholder { color: rgba(156, 177, 199, .6); }
+.campo input:focus { outline: none; border-color: var(--ouro); box-shadow: 0 0 0 3px rgba(183, 141, 57, .22); }
+.campo input[aria-invalid="true"] { border-color: var(--erro); }
+.campo small { color: var(--erro); font-weight: 400; font-size: 13px; min-height: 0; }
+.armadilha { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; padding: 0 22px;
+  border: 0; border-radius: 12px; background: var(--ouro); color: var(--azul); font-size: 17px; font-weight: 700; text-decoration: none;
+  cursor: pointer; transition: background .15s, transform .1s;
+}
+.botao:hover { background: var(--ouro-claro); }
+.botao:active { transform: translateY(1px); }
+.botao:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.botao svg { width: 20px; height: 20px; flex: none; }
+.botao:focus-visible, .opcao:has(input:focus-visible), .produto:has(input:focus-visible), a:focus-visible { outline: 2px solid var(--ouro-claro); outline-offset: 3px; }
+.aviso { margin: 14px 0 0; color: var(--aco); font-size: 12.5px; line-height: 1.5; }
+.mensagem { margin: 12px 0 0; font-size: 14px; }
+.mensagem.erro { color: var(--erro); }
+.seguro { display: flex; align-items: center; gap: 7px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--linha); color: var(--aco); font-size: 12.5px; }
+.seguro svg { width: 14px; height: 14px; flex: none; }
+
+/* ------------------------------------------------ questionário e obrigado */
+.centro { display: grid; align-content: center; justify-items: center; }
+.centro .cartao { width: min(600px, 100%); }
+.progresso { display: grid; gap: 8px; margin-bottom: 24px; }
+.progresso div { height: 4px; border-radius: 99px; background: rgba(156, 177, 199, .18); overflow: hidden; }
+.progresso i { display: block; height: 100%; border-radius: inherit; background: var(--ouro); }
+.progresso span { color: var(--aco); font-size: 13px; font-weight: 700; }
+.pergunta { margin: 0 0 18px; padding: 0; font-weight: 700; font-size: clamp(22px, 3vw, 26px); line-height: 1.25; letter-spacing: -.01em; text-wrap: balance; }
+.opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.opcao { position: relative; display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 18px; border: 1px solid rgba(156, 177, 199, .3); border-radius: 12px; background: rgba(5, 21, 40, .55); cursor: pointer; font-size: 17px; font-weight: 700; transition: border-color .15s, background .15s; }
+.opcao input { position: absolute; opacity: 0; pointer-events: none; }
+.opcao i { flex: none; width: 20px; height: 20px; border: 2px solid rgba(156, 177, 199, .55); border-radius: 50%; transition: all .15s; }
+.opcao:hover { border-color: rgba(183, 141, 57, .6); }
+.opcao:has(input:checked) { border-color: var(--ouro); background: rgba(183, 141, 57, .12); }
+.opcao:has(input:checked) i { border: 6px solid var(--ouro); }
+.produtos { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--linha); }
+.produtos[hidden] { display: none; }
+.produtos h3 { margin: 0 0 4px; font-size: 17px; }
+.produtos p { margin: 0 0 14px; color: var(--aco); font-size: 14px; }
+.lista-produtos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.produto { position: relative; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 8px 14px; border: 1px solid rgba(156, 177, 199, .25); border-radius: 10px; background: rgba(5, 21, 40, .45); cursor: pointer; font-size: 15px; line-height: 1.25; transition: border-color .15s, background .15s; }
+.produto input { position: absolute; opacity: 0; pointer-events: none; }
+.produto i { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border: 2px solid rgba(156, 177, 199, .55); border-radius: 5px; transition: all .15s; }
+.produto:has(input:checked) { border-color: var(--ouro); background: rgba(183, 141, 57, .1); }
+.produto:has(input:checked) i { border-color: var(--ouro); background: var(--ouro); }
+.produto:has(input:checked) i::after { content: ""; width: 10px; height: 5px; margin-top: -3px; border: solid var(--azul); border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg); }
+.qual { margin-top: 10px; }
+.qual[hidden] { display: none; }
+.acoes { margin-top: 26px; }
+
+.ok { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%; background: rgba(183, 141, 57, .16); color: var(--ouro-claro); }
+.ok svg { width: 30px; height: 30px; }
+.obrigado { text-align: center; }
+.obrigado h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 38px); }
+.obrigado .chamada { margin: 0 auto 26px; font-size: 17px; }
+.ultimo { margin: 0 0 10px; color: var(--ouro-claro); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.live { display: flex; align-items: center; gap: 16px; margin-top: 22px; padding: 16px 18px; border: 1px solid var(--linha); border-radius: 12px; background: rgba(5, 21, 40, .5); text-align: left; }
+.live .data { flex: none; display: grid; place-items: center; width: 58px; height: 62px; border-radius: 10px; background: var(--marfim); color: var(--azul); line-height: 1; }
+.live .data b { font: 700 24px/1 ui-monospace, "SF Mono", Menlo, monospace; }
+.live .data small { margin-top: 4px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.live div:last-child { display: grid; gap: 2px; min-width: 0; }
+.live strong { font-size: 16px; }
+.live span { color: var(--aco); font-size: 14px; }
+.live a { color: var(--ouro-claro); font-size: 14px; font-weight: 700; text-decoration: none; }
+.live a:hover { text-decoration: underline; }
+.etapas { display: flex; justify-content: center; gap: 8px; margin: 0 0 26px; padding: 0; list-style: none; flex-wrap: wrap; }
+.etapas li { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px; background: rgba(156, 177, 199, .1); color: var(--aco); font-size: 13px; }
+.etapas li.feito { color: var(--marfim); }
+.etapas li.feito::before { content: "✓"; color: var(--ouro-claro); font-weight: 700; }
+.etapas li.agora { background: rgba(183, 141, 57, .16); color: var(--marfim); font-weight: 700; }
+
+.rodape { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding-top: 18px; border-top: 1px solid var(--linha); color: rgba(156, 177, 199, .75); font-size: 12px; }
+
+@media (max-width: 900px) {
+  .cadastro { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .pagina { gap: 28px; }
+}
+@media (max-width: 520px) {
+  .pagina { padding-inline: 16px; }
+  .topo img { width: 150px; }
+  h1 { margin-top: 18px; }
+  .chamada { font-size: 16.5px; }
+  .cartao { padding: 22px 18px; }
+  .lista-produtos { grid-template-columns: minmax(0, 1fr); }
+  .live { align-items: flex-start; }
+  .so-largo { display: none; }
+  .etapas { gap: 6px; }
+  .etapas li { padding: 4px 9px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+  <div class="pagina">
+    <header class="topo">
+      <img src="/globalfly-assinatura.png" alt="GlobalFly Trade" width="900" height="283" />
+      <span class="passo">Passo 1 de 2</span>
+    </header>
+
+    <main class="cadastro">
+      <section>
+        <span class="selo-live"><i></i>Live de lançamento <span>· segunda, 9/11, às 20h</span></span>
+        <h1>Garanta seu lugar na <em>live de lançamento</em> da GlobalFly Trade.</h1>
+        <p class="chamada">Cadastre-se para receber o link da live, os avisos do lançamento e o acesso à comunidade oficial no WhatsApp.</p>
+        <ul class="motivos">
+          <li><b>✓</b><span>A plataforma apresentada por dentro, ao vivo.</span></li>
+          <li><b>✓</b><span>As condições de lançamento, anunciadas na live.</span></li>
+          <li><b>✓</b><span>Suas dúvidas respondidas na hora.</span></li>
+        </ul>
+      </section>
+
+      <form class="cartao" id="form" novalidate>
+        <h2>Faça seu cadastro</h2>
+        <p class="sub">Leva menos de um minuto.</p>
+        <label class="campo">Nome completo
+          <input id="nome" name="nome" autocomplete="name" maxlength="120" placeholder="Como podemos chamar você?" required />
+          <small data-erro="nome"></small>
+        </label>
+        <label class="campo">Seu melhor e-mail
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="180" placeholder="voce@email.com" required />
+          <small data-erro="email"></small>
+        </label>
+        <label class="campo">WhatsApp com DDD
+          <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="16" placeholder="(11) 91234-5678" required />
+          <small data-erro="telefone"></small>
+        </label>
+        <input class="armadilha" id="empresa" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="botao" type="submit">Continuar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="mensagem" role="status" aria-live="polite"></p>
+        <p class="aviso">Ao continuar, você autoriza a GlobalFly Trade a falar com você por WhatsApp e e-mail sobre o lançamento. Você pode sair quando quiser.</p>
+        <div class="seguro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados ficam protegidos e não são compartilhados.</div>
+      </form>
+    </main>
+
+    <footer class="rodape">
+      <span>© 2026 GlobalFly Trade</span>
+      <span>Operar envolve risco de perda. Resultados passados não garantem resultados futuros.</span>
+    </footer>
+  </div>
+
+  <script>/* Captação da GlobalFly: o que as três páginas dividem. */
+var GF = (function () {
+  // O cadastro vai para o motor (ele grava com a chave do servidor). O
+  // questionário só completa essa linha, por uma função do banco que aceita a
+  // chave pública: a mesma de src/core/teeds/config.ts, que já vai no site.
+  var MOTOR = 'https://motor.globalflytrade.com/publico/leads'
+  var SUPABASE = 'https://wonxykovfvfnuhzpqsle.supabase.co'
+  var CHAVE = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indvbnh5a292ZnZmbnVoenBxc2xlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyMDU3MTgsImV4cCI6MjEwMzc4MTcxOH0.5n9ePaGLNMOHOzitZULblGCsTj3ORJDgsWvc17V_0PU'
+  // A comunidade oficial (src/marca/marcas.ts, `comunidade`)
+  var COMUNIDADE = 'https://chat.whatsapp.com/CPBJlfpTpZy7u2N5VF9Drq'
+  var CHAVE_LOCAL = 'gf-captacao'
+
+  // sessionStorage some quando o navegador do Instagram troca de aba: guarda nos dois
+  function ler() {
+    var bruto = null
+    try { bruto = sessionStorage.getItem(CHAVE_LOCAL) } catch (e) {}
+    if (!bruto) try { bruto = localStorage.getItem(CHAVE_LOCAL) } catch (e) {}
+    try { return bruto ? JSON.parse(bruto) : {} } catch (e) { return {} }
+  }
+  function guardar(dados) {
+    var tudo = Object.assign(ler(), dados), texto = JSON.stringify(tudo)
+    try { sessionStorage.setItem(CHAVE_LOCAL, texto) } catch (e) {}
+    try { localStorage.setItem(CHAVE_LOCAL, texto) } catch (e) {}
+    return tudo
+  }
+
+  // Parceiro de divulgação (27/10/2026). Vale o ENDEREÇO (Tiago: "o que deve valer é a URL: no
+  // /n é Naor, no /v é Victor"): estas páginas moram em /n/cadastro/ e /v/cadastro/, e o /n ou o
+  // /v fica na barra do começo ao fim. O endereço também vira a vitrine do navegador (a mesma
+  // chave do site, src/core/teeds/parceiro.ts), e o primeiro parceiro fica guardado como "quem
+  // trouxe". Vai na FRENTE do endereço gravado: o servidor guarda só 300 caracteres.
+  var PARCEIROS = ['n', 'v'], CHAVE_PARCEIRO = 'globalfly.parceiro', CHAVE_VITRINE = 'globalfly.vitrine'
+  var doCaminho = (location.pathname.split('/').filter(Boolean)[0] || '').toLowerCase()
+  var DO_ENDERECO = PARCEIROS.indexOf(doCaminho) >= 0 ? doCaminho : null
+  // link antigo (/cadastro/?parceiro=n): passa para /n/cadastro/, levando o resto do endereço
+  ;(function paraOEnderecoDoParceiro() {
+    var q = new URLSearchParams(location.search), codigo = (q.get('parceiro') || '').toLowerCase()
+    if (DO_ENDERECO || PARCEIROS.indexOf(codigo) < 0) return
+    location.replace('/' + codigo + location.pathname + location.search + location.hash)
+  })()
+  function guardarCodigo(chave, codigo, so_se_vazio) {
+    try {
+      if (so_se_vazio) {
+        var g = JSON.parse(localStorage.getItem(chave) || 'null')
+        if (g && PARCEIROS.indexOf(g.codigo) >= 0 && Date.now() - g.em < 90 * 864e5) return
+      }
+      localStorage.setItem(chave, JSON.stringify({ codigo: codigo, em: Date.now() }))
+    } catch (e) {}
+  }
+  if (DO_ENDERECO) { guardarCodigo(CHAVE_VITRINE, DO_ENDERECO, false); guardarCodigo(CHAVE_PARCEIRO, DO_ENDERECO, true) }
+  /** O parceiro deste cadastro: o do endereço. */
+  function parceiro() { return DO_ENDERECO }
+  // O clique no link do parceiro conta no funil dele (um por navegador, por dia), como no site:
+  // só na primeira página (/n/cadastro/), não no questionário nem no obrigado.
+  ;(function anotarClique() {
+    var q = new URLSearchParams(location.search)
+    var primeira = /^\/[a-z0-9]+\/cadastro\/?$/.test(location.pathname)
+    var codigo = DO_ENDERECO && (primeira || q.get('parceiro')) ? DO_ENDERECO : null
+    if (!codigo) return
+    var visitante = null
+    try { visitante = JSON.parse(localStorage.getItem('globalfly.visitante') || 'null') } catch (e) {}
+    if (!visitante || !/^[a-zA-Z0-9]{8,40}$/.test(visitante)) {
+      visitante = (Date.now().toString(36) + Math.random().toString(36).slice(2, 14)).replace(/[^a-zA-Z0-9]/g, '')
+      try { localStorage.setItem('globalfly.visitante', JSON.stringify(visitante)) } catch (e) {}
+    }
+    try {
+      fetch(SUPABASE + '/rest/v1/rpc/teeds_toque_parceiro', {
+        method: 'POST', keepalive: true,
+        headers: { apikey: CHAVE, Authorization: 'Bearer ' + CHAVE, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_marca: 'globalfly', p_codigo: codigo, p_visitante: visitante, p_link: (q.get('utm_source') || 'pagina-do-lancamento').slice(0, 60) }),
+      }).catch(function () {})
+    } catch (e) {}
+  })()
+  function paginaComParceiro() {
+    var p = parceiro(), aqui = new URL(location.href)
+    if (!p) return aqui.href
+    var nova = new URL(aqui.origin + aqui.pathname)
+    nova.searchParams.set('parceiro', p)
+    aqui.searchParams.forEach(function (v, k) { if (k !== 'parceiro') nova.searchParams.append(k, v) })
+    return nova.href
+  }
+
+  // As marcações da campanha (utm) seguem de página em página
+  function proxima(caminho) {
+    var destino = new URL(caminho, location.href), aqui = new URLSearchParams(location.search)
+    aqui.forEach(function (valor, chave) { if (/^(utm_|fbclid|gclid|src|sck)/.test(chave)) destino.searchParams.set(chave, valor) })
+    return destino.toString()
+  }
+
+  return { MOTOR: MOTOR, SUPABASE: SUPABASE, CHAVE: CHAVE, COMUNIDADE: COMUNIDADE, ler: ler, guardar: guardar, proxima: proxima, paginaComParceiro: paginaComParceiro }
+})()
+</script>
+  <script>
+    (function () {
+      var form = document.getElementById('form'), inicio = Date.now()
+      var tel = form.elements.telefone, botao = form.querySelector('.botao'), mensagem = form.querySelector('.mensagem')
+      var rotuloBotao = botao.innerHTML
+      var visitas = 1
+      try { visitas = Math.min(1000, Number(localStorage.getItem('visitas-captura-globalfly') || 0) + 1); localStorage.setItem('visitas-captura-globalfly', String(visitas)) } catch (e) {}
+
+      tel.addEventListener('input', function () {
+        var d = tel.value.replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '').slice(0, 11)
+        tel.value = d.length <= 2 ? (d ? '(' + d : '') : d.length <= 6 ? '(' + d.slice(0, 2) + ') ' + d.slice(2)
+          : d.length <= 10 ? '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6) : '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7)
+      })
+
+      function erro(campo, texto) {
+        var el = form.elements[campo]; el.setAttribute('aria-invalid', texto ? 'true' : 'false')
+        form.querySelector('[data-erro="' + campo + '"]').textContent = texto || ''
+        return !texto
+      }
+      ;['nome', 'email', 'telefone'].forEach(function (c) { form.elements[c].addEventListener('input', function () { erro(c, '') }) })
+
+      function conferir() {
+        var nome = form.elements.nome.value.trim().replace(/\s+/g, ' ')
+        var email = form.elements.email.value.trim().toLowerCase()
+        var digitos = tel.value.replace(/\D/g, '')
+        var ok = erro('nome', nome.length < 3 ? 'Escreva seu nome.' : '')
+        ok = erro('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? '' : 'Confira o e-mail.') && ok
+        ok = erro('telefone', digitos.length < 10 || digitos.length > 11 || /^0/.test(digitos) ? 'Coloque o DDD e o número.' : '') && ok
+        return ok ? { nome: nome, email: email, telefone: tel.value } : null
+      }
+
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault()
+        var dados = conferir()
+        if (!dados) { var primeiro = form.querySelector('[aria-invalid="true"]'); if (primeiro) primeiro.focus(); return }
+        botao.disabled = true; botao.textContent = 'Enviando…'; mensagem.textContent = ''; mensagem.className = 'mensagem'
+        var utm = new URLSearchParams(location.search)
+        fetch(GF.MOTOR, {
+          method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            marca: 'globalfly', nome: dados.nome, email: dados.email, telefone: dados.telefone, consentiu: true,
+            empresa: form.elements.empresa.value, tempo: Math.round((Date.now() - inicio) / 1000), profundidade: 100, visitas: visitas,
+            pagina: GF.paginaComParceiro(), campanha: utm.get('utm_campaign'), origem: utm.get('utm_source'), meio: utm.get('utm_medium'),
+            conteudo: utm.get('utm_content'), termo: utm.get('utm_term'),
+          }),
+        }).then(function (r) {
+          return r.json().catch(function () { return {} }).then(function (corpo) { if (!r.ok) throw new Error(corpo.erro || 'Não foi possível enviar agora.') })
+        }).then(function () {
+          // Só segue depois de o motor confirmar que o cadastro foi gravado
+          GF.guardar({ nome: dados.nome.split(' ')[0], email: dados.email, quando: Date.now() })
+          location.assign(GF.proxima('./questionario/'))
+        }).catch(function (e) {
+          mensagem.textContent = e instanceof TypeError || !e.message ? 'Sem conexão com a internet. Tente de novo.' : e.message; mensagem.className = 'mensagem erro'
+          botao.disabled = false; botao.innerHTML = rotuloBotao
+        })
+      })
+    })()
+  </script>
+</body>
+</html>
