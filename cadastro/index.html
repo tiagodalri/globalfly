@@ -200,107 +200,359 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
 .aviso a:hover, .rodape a:hover { color: var(--ouro, #B78D39); }
 
 /* ------------------------------------------------ página de vendas do lançamento (30/10/2026)
-   Tiago e Naor, áudio 1: presentes antes de tudo, a conta nasce no cadastro, a live libera o acesso. */
-.venda { gap: 72px; }
-.venda .topo .selo-live { font-size: 12.5px; padding: 6px 12px 6px 9px; }
-.v-heroi { align-items: start; }
-.v-abertura { display: grid; gap: 0; min-width: 0; }
-.v-gancho { margin: 0 0 14px; color: var(--ouro-claro); font-weight: 700; font-size: 15px; letter-spacing: .01em; }
-.v-heroi h1 { margin: 0 0 16px; }
-.v-apresenta { margin: 14px 0 0; display: inline-flex; align-items: center; gap: 8px; color: var(--marfim); font-size: 14.5px; font-weight: 700; }
-.v-apresenta::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #F1828A; box-shadow: 0 0 0 4px rgba(241, 130, 138, .18); }
-.v-apresenta[hidden] { display: none; }
-.v-premios { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.v-premio { display: grid; gap: 4px; align-content: start; padding: 14px; border: 1px solid rgba(212, 166, 74, .45); border-radius: 14px; background: linear-gradient(180deg, rgba(18, 48, 79, .75), rgba(10, 32, 56, .85)); }
-.v-premio svg { width: 56px; height: 42px; margin-bottom: 6px; }
-.v-premio b { font-size: 16px; line-height: 1.25; }
-.v-premio small { color: var(--aco); font-size: 13px; line-height: 1.4; }
-.v-premio s { color: rgba(156, 177, 199, .8); }
-.v-premio-acesso { border-color: rgba(95, 196, 140, .4); }
-.v-relogio { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.v-relogio-rotulo { color: var(--aco); font-size: 14px; font-weight: 700; margin-right: 4px; }
-.v-num { display: grid; justify-items: center; min-width: 60px; padding: 7px 8px; border: 1px solid var(--linha); border-radius: 10px; background: rgba(5, 21, 40, .6); }
-.v-num b { font: 700 22px/1.1 ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
-.v-num small { color: var(--aco); font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.v-relogio.v-acabou .v-num { display: none; }
-.v-relogio.v-acabou .v-relogio-rotulo { color: var(--ouro-claro); font-size: 16px; }
-.v-cta { margin-top: 22px; }
-.v-ancora { position: absolute; top: -90px; }
-.so-estreito { display: none; }
+   Tiago: "página envolvente, imersiva, quebre padrões". Tema da marca: aviação. A live é o embarque
+   (painel de partidas com contagem que vira), a viagem é um cartão de embarque, o acesso é um ingresso
+   dourado, as I.A. são os jatos do hangar. Ouro só como acento; Azul GF nas superfícies. */
+html:has(body.lp) { overflow-x: clip; }
+body.lp { background: var(--azul); overflow-x: clip; }
+body.lp::before { display: none; }
+.lp-rotulo { color: var(--ouro-claro); font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.lp-aovivo { display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px 7px 11px; border-radius: 999px; border: 1px solid rgba(241, 130, 138, .45); background: rgba(5, 21, 40, .55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-size: 13px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.lp-aovivo i { width: 8px; height: 8px; border-radius: 50%; background: #F1828A; box-shadow: 0 0 0 0 rgba(241, 130, 138, .7); animation: lp-pulso 1.6s infinite; }
+@keyframes lp-pulso { 70% { box-shadow: 0 0 0 9px rgba(241, 130, 138, 0); } 100% { box-shadow: 0 0 0 0 rgba(241, 130, 138, 0); } }
 
-.v-secao { display: grid; gap: 26px; }
-.v-cabeca { display: grid; gap: 10px; max-width: 680px; }
-.v-rotulo { color: var(--ouro-claro); font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.v-cabeca h2 { margin: 0; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.15; letter-spacing: -.02em; text-wrap: balance; }
-.v-cabeca p { margin: 0; color: #D5DCE4; font-size: 17px; }
+/* ---------- abertura */
+.lp-heroi { position: relative; isolation: isolate; overflow: hidden; padding: max(18px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 34px max(20px, env(safe-area-inset-left)); }
+.lp-ceu { position: absolute; inset: 0; z-index: -3; background:
+  linear-gradient(180deg, rgba(5, 21, 40, .35) 0%, rgba(5, 21, 40, .15) 35%, rgba(5, 21, 40, .8) 78%, var(--azul) 100%),
+  url("/login-globalfly/rastro.webp") center 35% / cover no-repeat; transform: scale(1.06); animation: lp-respira 22s ease-in-out infinite alternate; }
+@keyframes lp-respira { to { transform: scale(1.14) translate3d(-1.5%, 1%, 0); } }
+@media (max-width: 720px) { .lp-ceu { background: linear-gradient(180deg, rgba(5, 21, 40, .3) 0%, rgba(5, 21, 40, .2) 30%, rgba(5, 21, 40, .85) 70%, var(--azul) 100%), url("/login-globalfly/rastro-celular.webp") center top / cover no-repeat; } }
+.lp-estrelas { position: absolute; inset: 0; z-index: -2; pointer-events: none; opacity: .55; background-image:
+  radial-gradient(1.2px 1.2px at 12% 18%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 28% 8%, #fff 50%, transparent 51%),
+  radial-gradient(1.4px 1.4px at 46% 22%, #F3D58C 50%, transparent 51%), radial-gradient(1px 1px at 64% 12%, #fff 50%, transparent 51%),
+  radial-gradient(1.2px 1.2px at 82% 26%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 92% 6%, #F3D58C 50%, transparent 51%),
+  radial-gradient(1px 1px at 6% 40%, #fff 50%, transparent 51%), radial-gradient(1.3px 1.3px at 55% 4%, #fff 50%, transparent 51%);
+  animation: lp-cintila 5s ease-in-out infinite alternate; }
+@keyframes lp-cintila { to { opacity: .2; } }
+.lp-rastro { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.lp-rastro path { fill: none; stroke-linecap: round; }
+.lp-rastro-linha { stroke: url(#rastro-ouro); stroke-width: 2.4; stroke-dasharray: 2200; stroke-dashoffset: 2200; animation: lp-desenha 3.2s cubic-bezier(.45, .05, .2, 1) .3s forwards; filter: drop-shadow(0 0 6px rgba(212, 166, 74, .6)); }
+.lp-rastro-brilho { stroke: #FFF2CC; stroke-width: 4; stroke-dasharray: 60 2200; stroke-dashoffset: 60; opacity: 0; animation: lp-cometa 7s ease-in-out 3.4s infinite; filter: drop-shadow(0 0 10px #F3D58C); }
+@keyframes lp-desenha { to { stroke-dashoffset: 0; } }
+@keyframes lp-cometa { 0% { stroke-dashoffset: 60; opacity: 0; } 8% { opacity: 1; } 55% { stroke-dashoffset: -2140; opacity: 1; } 60%, 100% { stroke-dashoffset: -2140; opacity: 0; } }
 
-.v-linha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; counter-reset: passo; }
-.v-linha li { position: relative; display: grid; gap: 6px; align-content: start; padding: 18px; border: 1px solid var(--linha); border-radius: 14px; background: rgba(10, 32, 56, .55); }
-.v-linha li::after { content: ""; position: absolute; top: 31px; right: -15px; width: 16px; height: 2px; background: rgba(212, 166, 74, .5); }
-.v-linha li:last-child::after { display: none; }
-.v-quando { color: var(--ouro-claro); font: 700 12.5px/1.2 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .02em; }
-.v-linha b { font-size: 17px; }
-.v-linha p { margin: 0; color: var(--aco); font-size: 14.5px; line-height: 1.5; }
-.v-linha .v-fim { border-color: rgba(212, 166, 74, .55); background: rgba(183, 141, 57, .1); }
+.lp-topo { display: flex; align-items: center; justify-content: space-between; gap: 14px; max-width: 1280px; margin: 0 auto; }
+.lp-topo img { width: 180px; height: auto; margin-left: -10px; }
+.lp-heroi-grade { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 24px; align-items: center; padding: 34px 0 26px; }
+.lp-texto { display: grid; justify-items: start; gap: 0; min-width: 0; }
+.lp-gancho { margin: 0 0 16px; font-size: 15.5px; font-weight: 700; color: var(--ouro-claro); letter-spacing: .01em; display: inline-flex; align-items: center; gap: 10px; }
+.lp-gancho::before { content: ""; width: 28px; height: 2px; background: var(--ouro-claro); }
+.lp-titulo { margin: 0; display: grid; gap: 2px; font-size: clamp(36px, 5.6vw, 78px); line-height: .98; letter-spacing: -.035em; font-weight: 700; text-wrap: balance; }
+.lp-l { display: block; animation: lp-sobe .9s cubic-bezier(.2, .7, .2, 1) both; }
+.lp-l:nth-child(2) { animation-delay: .12s; }
+.lp-l:nth-child(3) { animation-delay: .24s; }
+.lp-ouro { margin-top: 10px; font-size: .62em; line-height: 1.08; letter-spacing: -.02em; background: linear-gradient(100deg, #D4A64A 0%, #F6DE9C 40%, #D4A64A 60%, #B78D39 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: lp-sobe .9s cubic-bezier(.2, .7, .2, 1) .24s both, lp-brilha 5s linear 1.4s infinite; }
+@keyframes lp-sobe { from { opacity: 0; transform: translateY(26px); } }
+@keyframes lp-brilha { to { background-position: -220% 0; } }
+.lp-sub { margin: 22px 0 0; max-width: 33em; font-size: 18px; color: #D5DCE4; }
+.lp-sub b { color: var(--marfim); }
+.lp-apresenta { margin: 16px 0 0; display: inline-flex; align-items: center; gap: 9px; font-size: 14.5px; font-weight: 700; }
+.lp-apresenta::before { content: ""; width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #F3F0E9 0 22%, transparent 23%), radial-gradient(circle at 50% 110%, #F3F0E9 0 42%, transparent 43%), #12304F; border: 1.5px solid var(--ouro); }
+.lp-apresenta[hidden] { display: none; }
+.lp-cta { position: relative; margin-top: 26px; display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 28px; border-radius: 14px; background: linear-gradient(180deg, #E2B95C, #B78D39); color: var(--azul); font-size: 18px; font-weight: 700; text-decoration: none; overflow: hidden; box-shadow: 0 16px 40px -14px rgba(212, 166, 74, .75), inset 0 1px 0 rgba(255, 255, 255, .35); transition: transform .15s, box-shadow .15s; }
+.lp-cta svg { width: 20px; height: 20px; transition: transform .2s; }
+.lp-cta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .45) 50%, transparent 70%); transform: translateX(-120%); animation: lp-reflexo 3.6s ease-in-out 2s infinite; }
+@keyframes lp-reflexo { 35%, 100% { transform: translateX(120%); } }
+.lp-cta:hover { transform: translateY(-2px); box-shadow: 0 22px 46px -14px rgba(212, 166, 74, .85), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.lp-cta:hover svg { transform: translateX(3px); }
+.lp-cta:focus-visible { outline: 2px solid var(--marfim); outline-offset: 3px; }
+.lp-mini { margin-top: 10px; color: var(--aco); font-size: 13px; }
 
-.v-libera { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--linha); }
-.v-libera li { display: grid; gap: 4px; padding: 18px 20px 18px 0; border-bottom: 1px solid var(--linha); }
-.v-libera b { font-size: 16.5px; display: flex; gap: 10px; align-items: baseline; }
-.v-libera b::before { content: "✓"; color: var(--ouro-claro); }
-.v-libera p { margin: 0 0 0 22px; color: var(--aco); font-size: 14.5px; }
+/* palco dos presentes */
+.lp-palco { position: relative; min-height: 520px; min-width: 0; }
+.lp-halo { position: absolute; left: 50%; top: 46%; width: 92%; aspect-ratio: 1.6; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(212, 166, 74, .36), rgba(212, 166, 74, .08) 55%, transparent 72%); filter: blur(10px); animation: lp-halo 6s ease-in-out infinite alternate; }
+@keyframes lp-halo { to { opacity: .6; transform: translate(-50%, -50%) scale(1.06); } }
+.lp-imac { position: absolute; left: 50%; top: 4%; width: min(82%, 560px); margin: 0; transform: translateX(-50%); animation: lp-flutua 7s ease-in-out infinite; }
+.lp-imac img { width: 100%; height: auto; display: block; filter: drop-shadow(0 40px 50px rgba(0, 0, 0, .55)) drop-shadow(0 0 40px rgba(212, 166, 74, .18)); }
+.lp-imac figcaption { position: absolute; right: -4%; top: 6%; padding: 8px 14px; border-radius: 999px; background: var(--marfim); color: var(--azul); font-size: 13px; font-weight: 700; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); transform: rotate(4deg); white-space: nowrap; }
+.lp-imac figcaption b { font-size: 15px; }
+@keyframes lp-flutua { 50% { transform: translateX(-50%) translateY(-12px); } }
 
-.v-porque { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: center; gap: 40px; }
-.v-porque blockquote { margin: 0; padding: 24px 26px; border-left: 3px solid var(--ouro); background: rgba(10, 32, 56, .6); border-radius: 0 14px 14px 0; font-size: 22px; line-height: 1.35; font-weight: 700; text-wrap: balance; }
+.lp-embarque { overflow: visible; position: absolute; left: -2%; bottom: 2%; width: min(72%, 440px); display: grid; grid-template-columns: 38% 1fr; border-radius: 16px; background: var(--marfim); color: var(--azul); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7); transform: rotate(-5deg); animation: lp-entra-esq 1s cubic-bezier(.2, .7, .2, 1) .5s both; }
+.lp-embarque-foto { position: relative; min-height: 150px; border-radius: 16px 0 0 16px; overflow: hidden; }
+.lp-embarque-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lp-embarque-dados { position: relative; padding: 12px 14px 12px 16px; display: grid; gap: 6px; border-left: 2px dashed rgba(5, 21, 40, .25); }
+.lp-embarque-dados::before, .lp-embarque-dados::after { content: ""; position: absolute; left: -9px; width: 16px; height: 16px; border-radius: 50%; background: var(--azul); }
+.lp-embarque-dados::before { top: -8px; } .lp-embarque-dados::after { bottom: -8px; }
+.lp-embarque-rot { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6B7D92; }
+.lp-rota { display: flex; align-items: center; gap: 6px; }
+.lp-rota b { font: 700 24px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .02em; }
+.lp-rota svg { width: 56px; height: 12px; flex: none; }
+.lp-embarque-pe { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 11px; color: #51627A; }
+.lp-embarque-pe b { color: var(--azul); }
+.lp-embarque-tag { position: absolute; top: -14px; left: 14px; padding: 7px 13px; border-radius: 999px; background: var(--azul); border: 1px solid rgba(212, 166, 74, .7); color: #F3D58C; font-size: 13px; font-weight: 700; box-shadow: 0 8px 20px rgba(0, 0, 0, .4); }
+.lp-ingresso { position: absolute; right: 0; bottom: 12%; width: 190px; padding: 16px 18px; border-radius: 16px; display: grid; gap: 2px; background: linear-gradient(135deg, #F6DE9C 0%, #D4A64A 45%, #A67B2C 100%); color: var(--azul); box-shadow: 0 26px 50px -18px rgba(212, 166, 74, .7), inset 0 1px 0 rgba(255, 255, 255, .5); transform: rotate(6deg); animation: lp-entra-dir 1s cubic-bezier(.2, .7, .2, 1) .7s both; overflow: hidden; }
+.lp-ingresso::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .55) 50%, transparent 65%); transform: translateX(-130%); animation: lp-reflexo 4.4s ease-in-out 2.4s infinite; }
+.lp-ingresso-rot { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.lp-ingresso s { font-size: 15px; font-weight: 700; opacity: .65; }
+.lp-ingresso b { font-size: 44px; line-height: 1; letter-spacing: -.03em; }
+.lp-ingresso-pe { font-size: 12px; font-weight: 700; }
+@keyframes lp-entra-esq { from { opacity: 0; transform: translate(-40px, 30px) rotate(-12deg); } }
+@keyframes lp-entra-dir { from { opacity: 0; transform: translate(40px, 30px) rotate(14deg); } }
 
-.v-perguntas { display: grid; border-top: 1px solid var(--linha); max-width: 820px; }
-.v-perguntas details { border-bottom: 1px solid var(--linha); }
-.v-perguntas summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; font-size: 17px; font-weight: 700; }
-.v-perguntas summary::-webkit-details-marker { display: none; }
-.v-perguntas summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linha); color: var(--ouro-claro); font-size: 18px; font-weight: 400; transition: transform .15s; }
-.v-perguntas details[open] summary::after { transform: rotate(45deg); }
-.v-perguntas summary:focus-visible { outline: 2px solid var(--ouro-claro); outline-offset: 2px; }
-.v-perguntas details p { margin: 0 0 18px; color: #D5DCE4; max-width: 680px; }
-.v-perguntas details a { color: var(--ouro-claro); }
+/* painel de partidas */
+.lp-painel { position: relative; max-width: 1280px; margin: 6px auto 0; padding: 14px 16px 16px; border-radius: 16px; background: rgba(3, 12, 24, .78); border: 1px solid rgba(212, 166, 74, .28); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 22px; align-items: center; }
+.lp-painel-cab, .lp-painel-linha { grid-column: 1; display: grid; grid-template-columns: 70px 80px minmax(0, 1fr) 150px; gap: 12px; align-items: center; }
+.lp-painel-cab { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--aco); }
+.lp-painel-linha { font: 700 15px/1.2 ui-monospace, "SF Mono", Menlo, monospace; color: #F3D58C; }
+.lp-painel-linha span:nth-child(3) { color: var(--marfim); font-family: Arimo, "Helvetica Neue", Arial, sans-serif; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp-painel-status { display: inline-flex; align-items: center; gap: 7px; }
+.lp-painel-status i { width: 8px; height: 8px; border-radius: 50%; background: #5FC48C; animation: lp-pisca 1.2s steps(2) infinite; }
+.lp-painel-status em { font-style: normal; color: #5FC48C; }
+@keyframes lp-pisca { 50% { opacity: .25; } }
+.lp-painel .lp-flaps { grid-column: 2; grid-row: 1 / span 2; }
+.lp-flaps { display: flex; gap: 8px; }
+.lp-flap { position: relative; display: grid; justify-items: center; gap: 4px; perspective: 300px; }
+.lp-flap b { position: relative; display: grid; place-items: center; min-width: 62px; height: 62px; padding: 0 6px; border-radius: 9px; background: linear-gradient(180deg, #16263B 0 49.5%, #0C1A2C 50.5% 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 6px 14px rgba(0, 0, 0, .4); font: 700 36px/1 ui-monospace, "SF Mono", Menlo, monospace; color: #F3F0E9; font-variant-numeric: tabular-nums; }
+.lp-flap b::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0, 0, 0, .65); }
+.lp-flap small { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--aco); }
+.lp-flap.vira b { animation: lp-vira .45s cubic-bezier(.3, .6, .4, 1); }
+@keyframes lp-vira { 0% { transform: rotateX(0); } 45% { transform: rotateX(-88deg); filter: brightness(.6); } 55% { transform: rotateX(88deg); } 100% { transform: rotateX(0); } }
+.lp-acabou .lp-flap { display: none; }
+.lp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
-.v-final { justify-items: center; text-align: center; padding: 44px 24px; border: 1px solid rgba(212, 166, 74, .4); border-radius: 20px; background: radial-gradient(90% 120% at 50% 0%, rgba(183, 141, 57, .16), rgba(10, 32, 56, .6) 70%); }
-.v-final h2 { margin: 0; font-size: clamp(26px, 3.6vw, 38px); line-height: 1.15; letter-spacing: -.02em; text-wrap: balance; }
-.v-final .v-relogio { justify-content: center; margin-top: 0; }
-.v-final .v-cta { margin-top: 0; width: auto; min-width: 280px; }
+/* faixa que corre */
+.lp-faixa { overflow: hidden; background: linear-gradient(90deg, #B78D39, #E2B95C, #B78D39); color: var(--azul); transform: rotate(-1.6deg) scaleX(1.04); margin: 8px 0; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+.lp-faixa-rolo { display: flex; width: max-content; animation: lp-corre 26s linear infinite; }
+.lp-faixa span { padding: 13px 0; font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; display: inline-flex; align-items: center; }
+.lp-faixa span::after { content: "✦"; margin: 0 26px; font-size: 12px; }
+@keyframes lp-corre { to { transform: translateX(-50%); } }
 
-.v-barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; gap: 6px; padding: 10px max(16px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-right)); background: rgba(5, 21, 40, .94); border-top: 1px solid rgba(212, 166, 74, .35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+/* avião cruzando a abertura pelo rastro */
+.lp-aviao { position: absolute; z-index: -1; left: -18%; top: 78%; width: clamp(150px, 17vw, 260px); height: auto; transform: rotate(-24deg); opacity: 0; pointer-events: none; animation: lp-voa 16s linear 1.2s infinite; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+@keyframes lp-voa { 0% { left: -18%; top: 84%; opacity: 0; } 6% { opacity: .95; } 70% { opacity: .95; } 78%, 100% { left: 108%; top: -14%; opacity: 0; } }
+
+/* ---------- presentes */
+.lp-presentes { display: grid; gap: 34px; }
+.lp-presentes-grade { display: grid; grid-template-columns: 1.35fr 1fr; grid-template-rows: auto auto; gap: 16px; }
+.lp-pr { position: relative; isolation: isolate; overflow: hidden; border-radius: 24px; border: 1px solid rgba(156, 177, 199, .18); background: linear-gradient(180deg, #0F2A48, #071A30); display: grid; align-content: end; min-height: 260px; }
+.lp-pr-texto { position: relative; display: grid; gap: 8px; padding: 26px 28px 28px; }
+.lp-pr-para { justify-self: start; padding: 5px 11px; border-radius: 999px; background: rgba(212, 166, 74, .16); border: 1px solid rgba(212, 166, 74, .45); color: var(--ouro-claro); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.lp-pr h3 { margin: 4px 0 0; font-size: clamp(30px, 3.8vw, 52px); line-height: 1; letter-spacing: -.03em; }
+.lp-pr p { margin: 0; color: #D5DCE4; font-size: 16px; max-width: 30em; }
+.lp-pr-viagem { grid-row: span 2; min-height: 560px; border-color: rgba(212, 166, 74, .45); }
+.lp-pr-fundo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; transform: scale(1.04); transition: transform 6s ease; }
+.lp-pr-viagem:hover .lp-pr-fundo { transform: scale(1.12); }
+.lp-pr-viagem::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(5, 21, 40, 0) 30%, rgba(5, 21, 40, .55) 58%, rgba(5, 21, 40, .95) 100%); }
+.lp-pr-aviao { position: absolute; z-index: -1; top: 14%; left: -30%; width: 46%; height: auto; transform: rotate(-10deg); animation: lp-voa-pr 11s ease-in-out infinite; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .4)); }
+@keyframes lp-voa-pr { 0% { left: -40%; top: 26%; } 100% { left: 120%; top: 2%; } }
+.lp-pr-viagem h3 { font-size: clamp(36px, 5vw, 68px); }
+.lp-pr-voo { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 8px; padding-top: 14px; border-top: 1px dashed rgba(243, 240, 233, .3); font: 600 12.5px/1.3 ui-monospace, "SF Mono", Menlo, monospace; color: var(--aco); text-transform: uppercase; letter-spacing: .05em; }
+.lp-pr-voo b { color: #F3D58C; }
+.lp-pr-imac { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; align-content: center; background: radial-gradient(70% 90% at 25% 50%, rgba(212, 166, 74, .2), transparent 70%), linear-gradient(180deg, #0F2A48, #071A30); }
+.lp-pr-foto { width: 100%; height: auto; padding: 22px 0 22px 18px; filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .5)); transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.lp-pr-imac:hover .lp-pr-foto { transform: translateY(-6px) scale(1.03); }
+.lp-pr-imac .lp-pr-texto { padding-left: 8px; }
+.lp-pr-acesso { background: linear-gradient(135deg, #F6DE9C 0%, #D4A64A 45%, #A67B2C 100%); border: 0; color: var(--azul); }
+.lp-pr-acesso::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .5) 50%, transparent 65%); transform: translateX(-130%); animation: lp-reflexo 5s ease-in-out 1s infinite; }
+.lp-pr-acesso .lp-pr-para { background: rgba(5, 21, 40, .12); border-color: rgba(5, 21, 40, .3); color: var(--azul); }
+.lp-pr-acesso p { color: rgba(5, 21, 40, .82); }
+.lp-pr-preco { display: flex; align-items: baseline; gap: 12px; }
+.lp-pr-preco s { font-size: 20px; font-weight: 700; opacity: .6; }
+.lp-pr-preco b { font-size: 46px; line-height: 1; letter-spacing: -.03em; color: var(--azul); }
+.lp-creditos { flex-basis: 100%; font-size: 11px; color: rgba(156, 177, 199, .6); }
+
+/* ---------- corpo */
+.lp-corpo { max-width: 1280px; margin: 0 auto; padding: 70px max(20px, env(safe-area-inset-right)) max(30px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); display: grid; gap: 110px; }
+.lp-cab { display: grid; gap: 12px; max-width: 760px; }
+.lp-cab h2, .lp-checkin-texto h2 { margin: 0; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.03em; text-wrap: balance; }
+.lp-cab p, .lp-checkin-texto > p { margin: 0; font-size: 18px; color: #D5DCE4; max-width: 38em; }
+
+/* check-in */
+.lp-checkin { scroll-margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: 60px; align-items: center; }
+.lp-checkin-texto { display: grid; gap: 18px; }
+.lp-checklist { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 0; border-left: 2px solid rgba(212, 166, 74, .35); }
+.lp-checklist li { position: relative; padding: 0 0 18px 24px; color: #D5DCE4; font-size: 16.5px; }
+.lp-checklist li::before { content: ""; position: absolute; left: -7px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--azul); border: 2px solid var(--ouro-claro); }
+.lp-checklist li:last-child { padding-bottom: 0; }
+.lp-checklist b { color: var(--ouro-claro); }
+.lp-cartao { padding-top: 0; overflow: hidden; border-color: rgba(212, 166, 74, .35); }
+.lp-cartao::before { display: none; }
+.lp-canhoto { display: flex; justify-content: space-between; gap: 10px; margin: 0 -30px 24px; padding: 14px 30px; background: linear-gradient(90deg, #B78D39, #E2B95C); color: var(--azul); font: 700 12px/1.2 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; position: relative; }
+
+/* cabine */
+.lp-cabine-sec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 34px 50px; align-items: start; }
+.lp-cabine-sec > .lp-cab { grid-column: 1; align-self: center; }
+.lp-cabine { grid-column: 2; grid-row: 1 / span 2; position: relative; border-radius: 22px; padding: 18px; background: linear-gradient(180deg, #0C2341, #071A30); border: 1px solid rgba(156, 177, 199, .2); box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .8), 0 0 0 1px rgba(212, 166, 74, .08), 0 0 80px -30px rgba(212, 166, 74, .35); display: grid; gap: 14px; min-width: 0; }
+.lp-cabine-topo { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.lp-cabine-quem { display: flex; gap: 12px; align-items: center; min-width: 0; }
+.lp-cabine-quem img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; object-position: center 28%; border: 1px solid rgba(212, 166, 74, .5); }
+.lp-cabine-quem div { display: grid; gap: 3px; min-width: 0; }
+.lp-cabine-quem b { font-size: 17px; }
+.lp-cabine-quem span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--aco); }
+.lp-cabine-quem em { font-style: normal; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lp-cabine-quem i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--aco); }
+.lp-cabine-quem i.analise { background: #9CB1C7; animation: lp-pisca 1s steps(2) infinite; }
+.lp-cabine-quem i.entrada { background: #F3D58C; box-shadow: 0 0 10px #F3D58C; }
+.lp-cabine-quem i.meta { background: #5FC48C; box-shadow: 0 0 10px #5FC48C; }
+.lp-cabine-quem i.stop { background: #F1828A; }
+.lp-cabine-res { display: grid; justify-items: end; gap: 2px; }
+.lp-cabine-res span { font-size: 11.5px; color: var(--aco); font-weight: 700; letter-spacing: .04em; }
+.lp-cabine-res b { font: 700 26px/1 ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; transition: color .2s; }
+.lp-cabine-res b.pos, .lp-op-res.pos { color: #5FC48C; }
+.lp-cabine-res b.neg, .lp-op-res.neg { color: #F1828A; }
+.lp-cabine-grafico { position: relative; height: 200px; border-radius: 14px; background: #061528; border: 1px solid rgba(156, 177, 199, .12); overflow: hidden; }
+.lp-cabine-grafico canvas { width: 100%; height: 100%; display: block; }
+.lp-cabine-par { position: absolute; left: 12px; top: 10px; font-size: 11.5px; font-weight: 700; color: var(--aco); letter-spacing: .03em; }
+.lp-cabine-meta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.lp-meta-rot { font-size: 12px; color: #F1828A; white-space: nowrap; }
+.lp-meta-rot b { color: var(--aco); font-weight: 700; margin-right: 3px; }
+.lp-meta-alvo { color: #5FC48C; }
+.lp-meta-trilho { position: relative; height: 8px; border-radius: 6px; background: linear-gradient(90deg, rgba(241, 130, 138, .5), rgba(156, 177, 199, .18) 66.6%, rgba(95, 196, 140, .55)); }
+.lp-meta-trilho u { position: absolute; left: 66.6%; top: -3px; bottom: -3px; width: 2px; background: rgba(243, 240, 233, .5); }
+.lp-meta-trilho i { position: absolute; top: 50%; left: 66.6%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: #F3D58C; border: 3px solid #071A30; box-shadow: 0 0 12px rgba(243, 213, 140, .8); transition: left .5s cubic-bezier(.3, .7, .3, 1); }
+.lp-cabine-ops { display: grid; gap: 4px; }
+.lp-ops-cab, .lp-cabine-ops li { display: grid; grid-template-columns: 34px 1fr 1fr 1fr; gap: 8px; align-items: center; }
+.lp-ops-cab { padding: 0 10px; font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--aco); }
+.lp-cabine-ops ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; min-height: 186px; align-content: start; }
+.lp-cabine-ops li { padding: 7px 10px; border-radius: 9px; background: rgba(156, 177, 199, .06); font: 600 13px/1.2 ui-monospace, "SF Mono", Menlo, monospace; animation: lp-op-entra .4s cubic-bezier(.2, .7, .2, 1); }
+.lp-cabine-ops li span:first-child { color: var(--aco); }
+.lp-cabine-ops li.ganhou { background: rgba(95, 196, 140, .1); }
+.lp-cabine-ops li.perdeu { background: rgba(241, 130, 138, .08); }
+.lp-cabine-ops .up { color: #5FC48C; } .lp-cabine-ops .down { color: #F1828A; }
+.lp-op-res { color: var(--aco); }
+@keyframes lp-op-entra { from { opacity: 0; transform: translateY(-8px); } }
+.lp-cabine-fim { position: absolute; left: 50%; top: 43%; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 6px; padding: 22px 30px; border-radius: 18px; background: rgba(5, 21, 40, .92); border: 1px solid rgba(95, 196, 140, .6); box-shadow: 0 0 60px rgba(95, 196, 140, .3); text-align: center; animation: lp-fim .5s cubic-bezier(.2, .9, .3, 1.3); width: max-content; max-width: 90%; }
+.lp-cabine-fim.neg { border-color: rgba(241, 130, 138, .6); box-shadow: 0 0 60px rgba(241, 130, 138, .25); }
+.lp-cabine-fim[hidden] { display: none; }
+.lp-cabine-fim b { font-size: 22px; color: #5FC48C; }
+.lp-cabine-fim.neg b { color: #F1828A; }
+.lp-cabine-fim span { font: 600 14px/1.3 ui-monospace, "SF Mono", Menlo, monospace; color: var(--marfim); }
+@keyframes lp-fim { from { opacity: 0; transform: translate(-50%, -50%) scale(.8); } }
+.lp-cabine-aviso { margin: 0; font-size: 11.5px; color: #7F95AE; text-align: center; }
+
+.lp-hangar { grid-column: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.lp-hangar figure { margin: 0; border-radius: 12px; overflow: hidden; aspect-ratio: 2 / 3; border: 1px solid rgba(156, 177, 199, .18); transition: transform .3s, border-color .3s; }
+.lp-hangar figure:hover { transform: translateY(-6px); border-color: rgba(212, 166, 74, .6); }
+.lp-hangar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* rota */
+.lp-voo { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.lp-voo::before { content: ""; position: absolute; left: 8px; right: 8px; top: 9px; height: 2px; background: repeating-linear-gradient(90deg, rgba(212, 166, 74, .7) 0 8px, transparent 8px 16px); }
+.lp-voo::after { content: "✈"; position: absolute; top: -6px; left: 0; font-size: 26px; color: var(--ouro-claro); transform: rotate(0deg); animation: lp-aviao 9s ease-in-out infinite; text-shadow: 0 0 14px rgba(212, 166, 74, .7); }
+@keyframes lp-aviao { 0% { left: 0; opacity: 0; } 8% { opacity: 1; } 88% { opacity: 1; } 100% { left: calc(100% - 26px); opacity: 0; } }
+.lp-voo li { position: relative; display: grid; gap: 6px; align-content: start; padding-top: 34px; }
+.lp-voo-ponto { position: absolute; top: 2px; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--azul); border: 2px solid var(--ouro-claro); }
+.lp-voo-fim .lp-voo-ponto { background: var(--ouro-claro); box-shadow: 0 0 0 6px rgba(212, 166, 74, .2); }
+.lp-voo-quando { font: 700 13px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--ouro-claro); }
+.lp-voo b { font-size: 20px; }
+.lp-voo p { margin: 0; color: var(--aco); font-size: 15px; }
+
+/* libera */
+.lp-libera { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.lp-libera li { position: relative; padding: 22px 22px 20px; border-radius: 16px; background: linear-gradient(180deg, rgba(18, 48, 79, .6), rgba(10, 32, 56, .4)); border: 1px solid rgba(156, 177, 199, .16); display: grid; gap: 6px; overflow: hidden; transition: border-color .25s, transform .25s; }
+.lp-libera li::before { content: ""; position: absolute; top: 0; left: 22px; width: 36px; height: 3px; background: var(--ouro); transform: skewX(-38deg); }
+.lp-libera li:hover { border-color: rgba(212, 166, 74, .5); transform: translateY(-3px); }
+.lp-libera b { font-size: 18px; }
+.lp-libera p { margin: 0; color: var(--aco); font-size: 15px; }
+
+/* por que de graça */
+.lp-porque { position: relative; display: grid; gap: 22px; padding: 64px clamp(22px, 6vw, 80px); border-radius: 28px; overflow: hidden; isolation: isolate; background: radial-gradient(80% 120% at 0% 0%, rgba(212, 166, 74, .22), transparent 60%), linear-gradient(135deg, #0F2A48, #061528); border: 1px solid rgba(212, 166, 74, .3); }
+.lp-porque::after { content: "”"; position: absolute; right: 3%; bottom: -18%; z-index: -1; font-size: 420px; line-height: 1; font-weight: 700; color: rgba(212, 166, 74, .08); }
+.lp-porque blockquote { margin: 0; max-width: 18em; font-size: clamp(30px, 4.6vw, 58px); line-height: 1.06; letter-spacing: -.03em; font-weight: 700; text-wrap: balance; }
+.lp-porque p { margin: 0; max-width: 44em; font-size: 17.5px; color: #D5DCE4; }
+
+/* perguntas */
+.lp-perguntas-sec { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 50px; align-items: start; }
+.lp-perguntas { display: grid; border-top: 1px solid var(--linha); }
+.lp-perguntas details { border-bottom: 1px solid var(--linha); }
+.lp-perguntas summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: 17.5px; font-weight: 700; }
+.lp-perguntas summary::-webkit-details-marker { display: none; }
+.lp-perguntas summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--linha); color: var(--ouro-claro); font-size: 19px; font-weight: 400; transition: transform .2s, background .2s; }
+.lp-perguntas details[open] summary::after { transform: rotate(45deg); background: rgba(212, 166, 74, .14); }
+.lp-perguntas summary:focus-visible { outline: 2px solid var(--ouro-claro); outline-offset: 2px; }
+.lp-perguntas details p { margin: 0 0 20px; color: #D5DCE4; max-width: 640px; }
+.lp-perguntas details a { color: var(--ouro-claro); }
+
+/* final */
+.lp-final { position: relative; display: grid; justify-items: center; gap: 22px; text-align: center; padding: 70px 24px; border-radius: 28px; overflow: hidden; isolation: isolate; border: 1px solid rgba(212, 166, 74, .35); }
+.lp-final::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(5, 21, 40, .45), rgba(5, 21, 40, .92)), url("./img/viagem.webp") center / cover no-repeat; }
+.lp-final h2 { margin: 0; max-width: 16em; font-size: clamp(30px, 4.4vw, 56px); line-height: 1.04; letter-spacing: -.03em; text-wrap: balance; }
+.lp-final .lp-flaps { justify-content: center; }
+.lp-final .lp-cta { margin-top: 4px; }
+.lp-rodape { padding-top: 22px; }
+
+/* entrada das seções: só para quem ainda está abaixo da dobra (o script marca) */
+.lp-anima { opacity: 0; transform: translateY(34px); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); }
+.lp-anima.lp-visto { opacity: 1; transform: none; }
+
+/* barra fixa do celular */
+.v-barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; gap: 6px; padding: 10px max(16px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); background: rgba(5, 21, 40, .94); border-top: 1px solid rgba(212, 166, 74, .35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .v-barra[hidden] { display: none; }
 .v-barra-tempo { text-align: center; color: var(--aco); font: 700 12px/1 ui-monospace, "SF Mono", Menlo, monospace; }
 .v-barra .botao { min-height: 50px; font-size: 16px; }
 
-@media (min-width: 901px) {
-  .v-heroi .cartao { position: sticky; top: 24px; }
-  .v-barra { display: none !important; }
+@media (min-width: 1025px) { .v-barra { display: none !important; } }
+@media (max-width: 1024px) {
+  .lp-heroi-grade { grid-template-columns: minmax(0, 1fr); padding-top: 26px; }
+  .lp-palco { min-height: 0; height: clamp(360px, 70vw, 560px); max-width: 640px; width: 100%; justify-self: center; }
+  .lp-painel { grid-template-columns: minmax(0, 1fr); }
+  .lp-painel .lp-flaps { grid-column: 1; grid-row: auto; }
+  .lp-checkin, .lp-cabine-sec, .lp-perguntas-sec { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .lp-cabine, .lp-hangar, .lp-cabine-sec > .lp-cab { grid-column: 1; grid-row: auto; }
+  .lp-voo { grid-template-columns: 1fr 1fr; row-gap: 30px; }
+  .lp-voo::before, .lp-voo::after { display: none; }
+  .lp-libera { grid-template-columns: 1fr 1fr; }
+  .lp-presentes-grade { grid-template-columns: minmax(0, 1fr); }
+  .lp-pr-viagem { grid-row: auto; }
+  .lp-corpo { gap: 84px; padding-bottom: 120px; }
 }
-@media (max-width: 900px) {
-  .venda { gap: 52px; padding-bottom: 110px; }
-  .so-estreito { display: inline-flex; }
-  .v-linha { grid-template-columns: 1fr 1fr; }
-  .v-linha li::after { display: none; }
-  .v-libera { grid-template-columns: 1fr 1fr; }
-  .v-porque { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (max-width: 600px) {
+  .lp-heroi { padding-bottom: 24px; }
+  .lp-topo img { width: 140px; }
+  .lp-aovivo { font-size: 12px; padding: 6px 11px 6px 9px; }
+  .lp-titulo { font-size: clamp(34px, 10.4vw, 46px); }
+  .lp-ouro { font-size: .74em; }
+  .lp-sub { font-size: 16.5px; margin-top: 16px; }
+  .lp-cta { width: 100%; justify-content: center; }
+  .lp-mini { justify-self: center; }
+  .lp-palco { height: 118vw; max-height: 470px; margin-top: 6px; }
+  .lp-imac { width: 92%; top: 0; }
+  .lp-imac figcaption { right: 0; top: -4%; font-size: 12px; }
+  .lp-embarque { width: 76%; bottom: 2%; grid-template-columns: 34% 1fr; }
+  .lp-embarque-foto { min-height: 108px; }
+  .lp-rota b { font-size: 19px; }
+  .lp-rota svg { width: 36px; }
+  .lp-ingresso { width: 150px; padding: 12px 14px; bottom: 30%; right: -2%; }
+  .lp-ingresso b { font-size: 34px; }
+  .lp-painel { padding: 12px; }
+  .lp-painel-cab { display: none; }
+  .lp-painel-linha { grid-template-columns: auto auto minmax(0, 1fr); gap: 10px; font-size: 13px; }
+  .lp-painel-linha span:nth-child(3) { display: none; }
+  .lp-painel-linha .lp-painel-status { justify-self: end; }
+  .lp-flaps { gap: 6px; }
+  .lp-flap { flex: 1; }
+  .lp-flap b { min-width: 0; width: 100%; height: 54px; font-size: 30px; }
+  .lp-faixa span { font-size: 13px; padding: 11px 0; }
+  .lp-corpo { padding-top: 54px; gap: 72px; }
+  .lp-cab p, .lp-checkin-texto > p { font-size: 16.5px; }
+  .lp-cabine { padding: 12px; border-radius: 18px; }
+  .lp-cabine-res b { font-size: 21px; }
+  .lp-cabine-grafico { height: 160px; }
+  .lp-cabine-ops li, .lp-ops-cab { grid-template-columns: 26px 1fr 1fr 1fr; gap: 6px; font-size: 12px; }
+  .lp-hangar { grid-template-columns: repeat(5, 42%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; margin: 0 -20px; padding-inline: 20px; }
+  .lp-hangar figure { scroll-snap-align: start; }
+  .lp-voo, .lp-libera { grid-template-columns: minmax(0, 1fr); }
+  .lp-pr-viagem { min-height: 440px; }
+  .lp-pr-imac { grid-template-columns: 42% 1fr; }
+  .lp-pr-foto { padding: 16px 0 16px 10px; }
+  .lp-pr-texto { padding: 20px; }
+  .lp-pr-imac .lp-pr-texto { padding: 16px 16px 16px 4px; }
+  .lp-pr-imac h3 { font-size: 30px; }
+  .lp-pr-imac p { font-size: 14px; }
+  .lp-pr-aviao { width: 62%; }
+  .lp-porque { padding: 40px 22px; border-radius: 22px; }
+  .lp-porque::after { font-size: 260px; }
+  .lp-final { padding: 50px 18px; border-radius: 22px; }
+  .lp-final .lp-flaps { width: 100%; }
 }
-@media (max-width: 520px) {
-  .v-gancho { font-size: 14px; margin-bottom: 10px; }
-  .v-premios { gap: 8px; margin-top: 20px; }
-  .v-premio { padding: 10px; border-radius: 12px; }
-  .v-premio svg { width: 40px; height: 30px; margin-bottom: 4px; }
-  .v-premio b { font-size: 13.5px; }
-  .v-premio small { font-size: 11.5px; }
-  .v-num { min-width: 52px; padding: 6px; }
-  .v-num b { font-size: 19px; }
-  .v-relogio-rotulo { width: 100%; }
-  .v-linha, .v-libera { grid-template-columns: minmax(0, 1fr); }
-  .v-libera li { padding-right: 0; }
-  .v-porque blockquote { font-size: 19px; padding: 18px 20px; }
-  .v-final { padding: 30px 18px; }
-  .v-final .v-cta { min-width: 0; width: 100%; }
-  .v-final .v-relogio-rotulo { width: auto; }
+@media (max-width: 520px) { .lp-canhoto { margin: 0 -18px 20px; padding: 12px 18px; font-size: 11px; } }
+@media (prefers-reduced-motion: reduce) {
+  .lp-rastro-linha { stroke-dashoffset: 0; }
+  .lp-anima { opacity: 1; transform: none; }
 }
+
 
 /* obrigado do lançamento (30/10/2026): três passos para não perder a live */
 .o-passos { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; text-align: left; }
@@ -322,50 +574,162 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
   .o-botao { width: 100%; }
   .o-agenda { display: flex; gap: 18px; justify-items: start; }
 }
+.lp-pr-viagem .lp-pr-para { background: rgba(5, 21, 40, .72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.lp-cabine-res span, .lp-cabine-res b { white-space: nowrap; }
+@media (max-width: 600px) {
+  .lp-cabine-topo { align-items: flex-start; }
+  .lp-cabine-quem img { width: 40px; height: 40px; }
+  .lp-cabine-quem b { font-size: 15.5px; }
+  .lp-cabine-quem span { font-size: 12px; }
+  .lp-cabine-res span { font-size: 10.5px; }
+  .lp-cabine-res b { font-size: 18px; }
+}
 </style>
 </head>
-<body>
-  <div class="pagina venda">
-    <header class="topo">
+<body class="lp">
+  <!-- 30/10/2026 (Tiago: "página envolvente, imersiva, quebre padrões"). O tema é o da marca: aviação.
+       As I.A. são jatos, a live é o embarque, a viagem vira cartão de embarque e o acesso vira ingresso dourado.
+       Presentes antes de tudo (áudio 1: "ele tem que saber o que vai ganhar antes de saber o que é"). -->
+
+  <section class="lp-heroi">
+    <div class="lp-ceu" aria-hidden="true"></div>
+    <svg class="lp-rastro" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="rastro-ouro" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#B78D39" stop-opacity="0" />
+          <stop offset=".55" stop-color="#D4A64A" stop-opacity=".55" />
+          <stop offset="1" stop-color="#F3D58C" stop-opacity="1" />
+        </linearGradient>
+      </defs>
+      <path class="lp-rastro-linha" d="M-60 880 C 420 640, 900 360, 1500 -40" />
+      <path class="lp-rastro-brilho" d="M-60 880 C 420 640, 900 360, 1500 -40" />
+    </svg>
+    <div class="lp-estrelas" aria-hidden="true"></div>
+    <img class="lp-aviao" src="./img/aviao.webp" alt="" width="520" height="131" aria-hidden="true" />
+
+    <header class="lp-topo">
       <img src="/globalfly-assinatura.png" alt="GlobalFly Trade" width="900" height="283" />
-      <span class="selo-live"><i></i>Ao vivo <span>· seg, 9/11, 20h</span></span>
+      <span class="lp-aovivo"><i></i>Ao vivo · seg, 9/11, 20h</span>
     </header>
 
-    <!-- 30/10/2026 (Tiago e Naor, áudio 1): a página deixa de ser lista de espera e vira página de vendas.
-         Os presentes vêm ANTES de a pessoa saber o que é o produto; o "Garanta seu lugar" desce para o formulário;
-         o cadastro cria a conta de verdade (a senha fica: "ele vai se sentir importante, está abrindo uma conta"). -->
-    <main class="cadastro v-heroi">
-      <section class="v-abertura">
-        <p class="v-gancho">Isso aqui a gente não vai te vender.</p>
-        <h1>Um iMac, uma viagem internacional e a plataforma de <em>R$ 2.000 liberada de graça.</em></h1>
-        <p class="chamada">Para quem assistir à live de lançamento da GlobalFly Trade do início ao fim. Você abre a sua conta hoje, e a live libera o acesso.</p>
-        <p class="v-apresenta" data-apresenta hidden></p>
-        <ul class="v-premios" aria-label="O que a live entrega">
-          <li class="v-premio">
-            <svg viewBox="0 0 64 48" aria-hidden="true"><rect x="4" y="3" width="56" height="33" rx="4" fill="#0A2038" stroke="#D4A64A" stroke-width="2.5"/><rect x="9" y="8" width="46" height="23" rx="2" fill="#12304F"/><path d="M27 37h10l2 6H25z" fill="#9CB1C7"/><rect x="19" y="43" width="26" height="3" rx="1.5" fill="#9CB1C7"/></svg>
-            <b>iMac</b><small>Presente no fim da live</small>
-          </li>
-          <li class="v-premio">
-            <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M6 33l27-9 15-12c5-3 8-1 6 3L43 28l-6 15-5 1 1-14-14 4-4 6H11l1-7z" fill="#D4A64A"/><path d="M4 44h56" stroke="#9CB1C7" stroke-width="2" stroke-dasharray="3 4"/></svg>
-            <b>Viagem internacional</b><small>Presente no fim da live</small>
-          </li>
-          <li class="v-premio v-premio-acesso">
-            <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M5 40l12-11 9 5 13-16 9 6 11-14" fill="none" stroke="#5FC48C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="59" cy="10" r="3.5" fill="#5FC48C"/></svg>
-            <b>Acesso à GlobalFly</b><small><s>R$ 2.000</s> R$ 0 com a live inteira</small>
-          </li>
-        </ul>
-        <div class="v-relogio" data-relogio>
-          <span class="v-relogio-rotulo" data-relogio-rotulo>Faltam</span>
-          <span class="v-num"><b data-d>--</b><small>dias</small></span>
-          <span class="v-num"><b data-h>--</b><small>horas</small></span>
-          <span class="v-num"><b data-m>--</b><small>min</small></span>
-          <span class="v-num"><b data-s>--</b><small>seg</small></span>
-        </div>
-        <a class="botao v-cta so-estreito" href="#cadastro" data-ir-ao-form>Abrir minha conta grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-      </section>
+    <div class="lp-heroi-grade">
+      <div class="lp-texto">
+        <p class="lp-gancho">Isso aqui a gente não vai te vender.</p>
+        <h1 class="lp-titulo">
+          <span class="lp-l">Um iMac.</span>
+          <span class="lp-l">Uma viagem internacional.</span>
+          <span class="lp-l lp-ouro">E a plataforma de R$&nbsp;2.000 liberada de graça.</span>
+        </h1>
+        <p class="lp-sub">Para quem ficar na live de lançamento da GlobalFly Trade <b>do início ao fim</b>. Você abre a sua conta hoje, e a live libera o acesso.</p>
+        <p class="lp-apresenta" data-apresenta hidden></p>
+        <a class="lp-cta" href="#cadastro" data-ir-ao-form><span>Abrir minha conta grátis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="lp-mini">Leva 1 minuto. Sem cartão.</span>
+      </div>
 
-      <form class="cartao" id="form" novalidate>
-        <span class="v-ancora" id="cadastro"></span>
+      <div class="lp-palco" aria-label="Os presentes da live: um iMac, uma viagem internacional e o acesso à plataforma">
+        <div class="lp-halo" aria-hidden="true"></div>
+        <figure class="lp-imac">
+          <img src="./img/imac.webp" alt="iMac com a tela da live de lançamento da GlobalFly" width="900" height="738" />
+          <figcaption><b>iMac</b> no fim da live</figcaption>
+        </figure>
+
+        <div class="lp-embarque" aria-label="Viagem internacional">
+          <div class="lp-embarque-foto"><img src="./img/viagem.webp" alt="Asa de avião sobre as nuvens no pôr do sol" width="1200" height="744" loading="eager" /></div>
+          <div class="lp-embarque-dados">
+            <span class="lp-embarque-rot">Cartão de embarque</span>
+            <div class="lp-rota"><b>BR</b><svg viewBox="0 0 60 12" aria-hidden="true"><path d="M2 6h50" stroke="#D4A64A" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M50 2l7 4-7 4z" fill="#D4A64A"/></svg><b>???</b></div>
+            <div class="lp-embarque-pe"><span>Voo <b>GF 0911</b></span><span>Embarque <b>fim da live</b></span></div>
+          </div>
+          <span class="lp-embarque-tag">✈ Viagem internacional</span>
+        </div>
+
+        <div class="lp-ingresso" aria-label="Acesso à GlobalFly: de R$ 2.000 por R$ 0">
+          <span class="lp-ingresso-rot">Acesso GlobalFly</span>
+          <s>R$ 2.000</s>
+          <b>R$ 0</b>
+          <span class="lp-ingresso-pe">com a live inteira</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-painel" data-relogio>
+      <div class="lp-painel-cab"><span>Partida</span><span>Voo</span><span>Destino</span><span class="lp-painel-status">Situação</span></div>
+      <div class="lp-painel-linha">
+        <span class="lp-painel-hora">20:00</span>
+        <span>GF 0911</span>
+        <span>Live de lançamento · seg, 9/11</span>
+        <span class="lp-painel-status"><i></i><em data-relogio-rotulo>Embarque aberto</em></span>
+      </div>
+      <div class="lp-flaps" aria-label="Contagem até a live">
+        <span class="lp-flap"><b data-d>--</b><small>dias</small></span>
+        <span class="lp-flap"><b data-h>--</b><small>horas</small></span>
+        <span class="lp-flap"><b data-m>--</b><small>min</small></span>
+        <span class="lp-flap"><b data-s>--</b><small>seg</small></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="lp-faixa" aria-hidden="true">
+    <div class="lp-faixa-rolo">
+      <span>Ao vivo · 9/11 · 20h</span><span>iMac</span><span>Viagem internacional</span><span>Plataforma de R$ 2.000 de graça</span><span>I.A. operando em dólar</span><span>Fique até o fim</span>
+      <span>Ao vivo · 9/11 · 20h</span><span>iMac</span><span>Viagem internacional</span><span>Plataforma de R$ 2.000 de graça</span><span>I.A. operando em dólar</span><span>Fique até o fim</span>
+    </div>
+  </div>
+
+  <main class="lp-corpo">
+  <section class="lp-presentes" aria-labelledby="presentes-titulo">
+    <div class="lp-cab lp-presentes-cab">
+      <span class="lp-rotulo">No fim da live</span>
+      <h2 id="presentes-titulo">Três presentes. Um deles é para todo mundo que ficar até o fim.</h2>
+    </div>
+    <div class="lp-presentes-grade">
+      <article class="lp-pr lp-pr-viagem">
+        <img class="lp-pr-fundo" src="./img/viagem.webp" alt="Asa de avião sobre as nuvens no pôr do sol" width="1400" height="933" loading="lazy" />
+        <img class="lp-pr-aviao" src="./img/aviao.webp" alt="" width="520" height="131" aria-hidden="true" loading="lazy" />
+        <div class="lp-pr-texto">
+          <span class="lp-pr-para">Para uma pessoa</span>
+          <h3>✈ Viagem internacional</h3>
+          <p>Passaporte na mão e embarque. Uma viagem para fora do Brasil vai para uma das pessoas que ficarem na live do início ao fim.</p>
+          <div class="lp-pr-voo"><span>Voo <b>GF 0911</b></span><span>Embarque <b>fim da live</b></span><span>Destino <b>internacional</b></span></div>
+        </div>
+      </article>
+      <article class="lp-pr lp-pr-imac">
+        <img class="lp-pr-foto" src="./img/imac.webp" alt="iMac" width="900" height="738" loading="lazy" />
+        <div class="lp-pr-texto">
+          <span class="lp-pr-para">Para outra pessoa</span>
+          <h3>iMac</h3>
+          <p>Um iMac novo para outra pessoa que ficar na live do início ao fim.</p>
+        </div>
+      </article>
+      <article class="lp-pr lp-pr-acesso">
+        <div class="lp-pr-texto">
+          <span class="lp-pr-para">Para todo mundo que ficar até o fim</span>
+          <h3>Acesso à GlobalFly</h3>
+          <p class="lp-pr-preco"><s>R$ 2.000</s> <b>R$ 0</b></p>
+          <p>As I.A., a operação manual, as salas ao vivo, as aulas e os relatórios. Liberado na hora em que a live termina.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+    <section class="lp-checkin" id="cadastro">
+      <div class="lp-checkin-texto">
+        <span class="lp-rotulo">Check-in</span>
+        <h2>Não é lista de espera. É a sua conta.</h2>
+        <p>Quem se cadastra hoje já sai com e-mail e senha na GlobalFly. A conta fica pronta agora. Falta uma coisa só para destravar tudo: estar na live.</p>
+        <ul class="lp-checklist">
+          <li><b>Hoje</b> você cria a sua senha e já entra.</li>
+          <li><b>Até 9/11</b> ativa os avisos e instala o app. A gente te chama na hora.</li>
+          <li><b>Na live</b> a sua presença é marcada sozinha, dentro da plataforma.</li>
+          <li><b>No fim</b> o acesso é liberado e saem os dois presentes.</li>
+        </ul>
+      </div>
+
+      <form class="cartao lp-cartao" id="form" novalidate>
+        <div class="lp-canhoto" aria-hidden="true">
+          <span>Cartão de embarque</span><span>GF 0911 · 9/11 · 20h</span>
+        </div>
         <h2>Abra sua conta e garanta seu lugar</h2>
         <p class="sub">Sua conta é criada agora. O acesso abre na live do dia 9.</p>
         <label class="campo">Nome completo
@@ -400,29 +764,66 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
         <p class="aviso">Ao continuar, você concorda com os <a href="/termos/#termos-de-uso" target="_blank" rel="noopener">Termos de Uso</a> e a <a href="/termos/#politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
         <div class="seguro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados ficam protegidos e não são compartilhados.</div>
       </form>
-    </main>
+    </section>
 
-    <section class="v-secao">
-      <div class="v-cabeca">
-        <span class="v-rotulo">Não é lista de espera</span>
-        <h2>Você não entra numa fila. Você abre a sua conta.</h2>
-        <p>Quem se cadastra hoje já tem e-mail e senha na GlobalFly. Falta uma coisa só: estar na live.</p>
+    <section class="lp-cabine-sec">
+      <div class="lp-cab">
+        <span class="lp-rotulo">A cabine</span>
+        <h2>É isso que a live libera: uma I.A. operando por você, em dólar.</h2>
+        <p>Você escolhe a I.A., a entrada, a meta e o limite de perda. Ela entra, sai, recupera e para sozinha quando bate a meta ou o limite.</p>
       </div>
-      <ol class="v-linha">
-        <li><span class="v-quando">Hoje</span><b>Conta criada</b><p>Você escolhe a sua senha e já entra com ela.</p></li>
-        <li><span class="v-quando">Até 9/11</span><b>Celular pronto</b><p>Lá dentro, ative os avisos e instale o app. A gente te chama na hora certa.</p></li>
-        <li><span class="v-quando">9/11, 20h</span><b>Live dentro da GlobalFly</b><p>Você assiste pela própria plataforma, e a sua presença é marcada sozinha.</p></li>
-        <li class="v-fim"><span class="v-quando">No fim da live</span><b>Acesso liberado</b><p>Ficou do início ao fim, a GlobalFly fica liberada para você. E saem os dois presentes.</p></li>
+
+      <div class="lp-cabine" data-cabine>
+        <div class="lp-cabine-topo">
+          <div class="lp-cabine-quem">
+            <img data-cab-capa src="/aulas-globalfly/robo-phenom-mobile.webp" alt="" width="640" height="960" />
+            <div><b data-cab-nome>GF Phenom</b><span><i data-cab-farol></i><em data-cab-fase>Analisando o mercado</em></span></div>
+          </div>
+          <div class="lp-cabine-res"><span>Resultado da sessão</span><b data-cab-res>+US$ 0,00</b></div>
+        </div>
+        <div class="lp-cabine-grafico"><canvas data-cab-grafico width="900" height="260" aria-hidden="true"></canvas><span class="lp-cabine-par">Volatility 75 · ao vivo</span></div>
+        <div class="lp-cabine-meta">
+          <span class="lp-meta-rot"><b>Limite</b> −US$ 20</span>
+          <div class="lp-meta-trilho"><i data-cab-barra></i><u></u></div>
+          <span class="lp-meta-rot lp-meta-alvo"><b>Meta</b> +US$ 10</span>
+        </div>
+        <div class="lp-cabine-ops">
+          <div class="lp-ops-cab"><span>#</span><span>Entrada</span><span>Direção</span><span>Resultado</span></div>
+          <ol data-cab-ops></ol>
+        </div>
+        <div class="lp-cabine-fim" data-cab-fim hidden><b>Meta atingida</b><span data-cab-fim-txt></span></div>
+        <p class="lp-cabine-aviso">Demonstração ilustrativa, com valores fictícios. Não é resultado real e não garante resultado futuro.</p>
+      </div>
+
+      <div class="lp-hangar" aria-label="As I.A. da GlobalFly">
+        <figure><img src="/aulas-globalfly/robo-phenom-mobile.webp" alt="GF Phenom" width="640" height="960" loading="lazy" /></figure>
+        <figure><img src="/aulas-globalfly/robo-gulf-mobile.webp" alt="GF Gulf" width="640" height="960" loading="lazy" /></figure>
+        <figure><img src="/aulas-globalfly/robo-raptor-mobile.webp" alt="GF Raptor" width="640" height="960" loading="lazy" /></figure>
+        <figure><img src="/aulas-globalfly/robo-falcon-mobile.webp" alt="GF Falcon" width="640" height="960" loading="lazy" /></figure>
+        <figure><img src="/aulas-globalfly/robo-legacy-mobile.webp" alt="GF Legacy" width="640" height="960" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <section class="lp-rota-sec">
+      <div class="lp-cab">
+        <span class="lp-rotulo">A rota</span>
+        <h2>Do cadastro ao acesso liberado</h2>
+      </div>
+      <ol class="lp-voo">
+        <li><span class="lp-voo-ponto"></span><span class="lp-voo-quando">Hoje</span><b>Conta criada</b><p>Você escolhe a sua senha e já entra com ela.</p></li>
+        <li><span class="lp-voo-ponto"></span><span class="lp-voo-quando">Até 9/11</span><b>Celular pronto</b><p>Avisos ligados e app instalado. A gente te chama na hora certa.</p></li>
+        <li><span class="lp-voo-ponto"></span><span class="lp-voo-quando">9/11, 20h</span><b>Live dentro da GlobalFly</b><p>Você assiste pela plataforma e a presença é marcada sozinha.</p></li>
+        <li class="lp-voo-fim"><span class="lp-voo-ponto"></span><span class="lp-voo-quando">Fim da live</span><b>Acesso liberado</b><p>Ficou do início ao fim: a GlobalFly é sua. E saem o iMac e a viagem.</p></li>
       </ol>
     </section>
 
-    <section class="v-secao">
-      <div class="v-cabeca">
-        <span class="v-rotulo">O que a live libera</span>
-        <h2>A plataforma completa, para operar em dólar com I.A.</h2>
+    <section class="lp-libera-sec">
+      <div class="lp-cab">
+        <span class="lp-rotulo">O que a live libera</span>
+        <h2>A plataforma completa</h2>
       </div>
-      <ul class="v-libera">
-        <li><b>As I.A. de operação</b><p>Você escolhe a I.A., a entrada, a meta e o limite de perda. Ela opera por você.</p></li>
+      <ul class="lp-libera">
+        <li><b>As I.A. de operação</b><p>Phenom, Gulf, Raptor, Falcon e Legacy. Cada uma com a sua estratégia.</p></li>
         <li><b>Operação manual</b><p>Gráfico ao vivo para quem gosta de operar com as próprias mãos.</p></li>
         <li><b>Salas ao vivo</b><p>Operações acompanhadas pela equipe, em tempo real, todos os dias.</p></li>
         <li><b>Aulas e apostila</b><p>Do primeiro passo ao gerenciamento, no seu ritmo.</p></li>
@@ -431,21 +832,18 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
       </ul>
     </section>
 
-    <section class="v-secao v-porque">
-      <div class="v-cabeca">
-        <span class="v-rotulo">Por que de graça</span>
-        <h2>O preço do seu acesso é o seu tempo.</h2>
-        <p>A partir da live, o acesso à GlobalFly custa R$ 2.000. Quem assistir à live de lançamento do começo ao fim fica isento. A gente quer você lá, porque é na live que mostramos a plataforma por dentro: como cada I.A. opera, como funciona o gerenciamento e como começar do jeito certo.</p>
-      </div>
+    <section class="lp-porque">
+      <span class="lp-rotulo">Por que de graça</span>
       <blockquote>“A única coisa que você precisa fazer é estar lá. Do começo ao fim.”</blockquote>
+      <p>A partir da live, o acesso à GlobalFly custa R$ 2.000. Quem assistir à live de lançamento inteira fica isento. A gente quer você lá, porque é na live que mostramos a plataforma por dentro: como cada I.A. opera, como funciona o gerenciamento e como começar do jeito certo.</p>
     </section>
 
-    <section class="v-secao">
-      <div class="v-cabeca">
-        <span class="v-rotulo">Perguntas</span>
+    <section class="lp-perguntas-sec">
+      <div class="lp-cab">
+        <span class="lp-rotulo">Perguntas</span>
         <h2>Antes de abrir a sua conta</h2>
       </div>
-      <div class="v-perguntas">
+      <div class="lp-perguntas">
         <details><summary>Preciso pagar alguma coisa?</summary><p>Não. Abrir a conta e assistir à live é de graça. Ficou até o fim, o acesso à plataforma também é.</p></details>
         <details><summary>Por que a conta fica travada até a live?</summary><p>Porque é a live que libera o acesso. Até lá, você já entra com o seu e-mail e a sua senha, prepara o celular e acompanha quanto falta.</p></details>
         <details><summary>Como vocês sabem que eu fiquei até o fim?</summary><p>A live passa dentro da GlobalFly, e a presença é marcada sozinha enquanto ela está aberta na sua tela. Deixe a tela ligada e a live aberta até o final.</p></details>
@@ -456,26 +854,27 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
       </div>
     </section>
 
-    <section class="v-secao v-final">
-      <h2>Segunda, 9/11, às 20h. Você vai estar lá?</h2>
-      <div class="v-relogio" data-relogio>
-        <span class="v-relogio-rotulo" data-relogio-rotulo>Faltam</span>
-        <span class="v-num"><b data-d>--</b><small>dias</small></span>
-        <span class="v-num"><b data-h>--</b><small>horas</small></span>
-        <span class="v-num"><b data-m>--</b><small>min</small></span>
-        <span class="v-num"><b data-s>--</b><small>seg</small></span>
+    <section class="lp-final">
+      <span class="lp-aovivo"><i></i>Ao vivo · seg, 9/11, 20h</span>
+      <h2>O embarque é na segunda, às 20h. Você vai estar lá?</h2>
+      <div class="lp-flaps" data-relogio>
+        <span class="lp-flap"><b data-d>--</b><small>dias</small></span>
+        <span class="lp-flap"><b data-h>--</b><small>horas</small></span>
+        <span class="lp-flap"><b data-m>--</b><small>min</small></span>
+        <span class="lp-flap"><b data-s>--</b><small>seg</small></span>
+        <em class="lp-sr" data-relogio-rotulo></em>
       </div>
-      <a class="botao v-cta" href="#cadastro" data-ir-ao-form>Abrir minha conta grátis</a>
+      <a class="lp-cta" href="#cadastro" data-ir-ao-form><span>Abrir minha conta grátis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </section>
 
-    <footer class="rodape">
+    <footer class="rodape lp-rodape">
       <span>© 2026 GlobalFly Trade</span>
       <span>Operar envolve risco de perda. Resultados passados não garantem resultados futuros.</span>
       <a href="/termos/" target="_blank" rel="noopener">Termos e políticas</a>
+      <span class="lp-creditos">Fotos: Wikimedia Commons. iMac, AzureSaturn (CC0); asa no pôr do sol, Jacky Lo (CC0); avião, Mathew Schwartz (CC BY 3.0). iMac é marca da Apple Inc., que não participa desta ação.</span>
     </footer>
-  </div>
+  </main>
 
-  <!-- celular: o botão de cadastro sempre à mão, menos quando o formulário já está na tela -->
   <div class="v-barra" data-barra hidden>
     <span class="v-barra-tempo" data-barra-tempo></span>
     <a class="botao" href="#cadastro" data-ir-ao-form>Abrir minha conta grátis</a>
@@ -605,9 +1004,12 @@ var GF = (function () {
 })()
 </script>
   <script>
-    // Página de vendas do lançamento (30/10/2026): relógio, quem apresenta, barra fixa do celular e pixel.
+    // Página de vendas do lançamento (30/10/2026): painel de embarque, cabine com uma I.A. operando
+    // (demonstração ilustrativa), quem apresenta, barra fixa do celular e pixel.
     (function () {
       GF.pixel()
+      var reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches
+
       // quem apresenta vem do endereço: o anúncio do Naor cai no /n, o do Victor no /v
       var APRESENTA = { n: 'Naor Bezerra', v: 'Victor Cordeiro' }
       var quem = APRESENTA[GF.parceiro() || '']
@@ -615,49 +1017,175 @@ var GF = (function () {
       apresenta.textContent = quem ? 'Ao vivo com ' + quem : 'Ao vivo com a equipe GlobalFly'
       apresenta.hidden = false
 
-      // relógio até a live: 9/11/2026, 20h de Brasília (23h UTC). Depois do começo, o texto muda sozinho.
+      // ------------------------------------------------ painel de embarque (contagem até 9/11, 20h de Brasília)
       var INICIO = Date.UTC(2026, 10, 9, 23, 0, 0), FIM = INICIO + 3 * 36e5
       var relogios = document.querySelectorAll('[data-relogio]'), barraTempo = document.querySelector('[data-barra-tempo]')
       function dois(n) { return (n < 10 ? '0' : '') + n }
+      function virar(el, valor) {
+        if (el.textContent === valor) return
+        el.textContent = valor
+        if (reduzir) return
+        var flap = el.parentNode; flap.classList.remove('vira'); void flap.offsetWidth; flap.classList.add('vira')
+      }
       function tique() {
         var agora = Date.now(), falta = Math.max(0, INICIO - agora)
         var d = Math.floor(falta / 864e5), h = Math.floor(falta / 36e5) % 24, m = Math.floor(falta / 6e4) % 60, seg = Math.floor(falta / 1e3) % 60
         Array.prototype.forEach.call(relogios, function (r) {
+          var rot = r.querySelector('[data-relogio-rotulo]')
           if (agora >= INICIO) {
-            r.classList.add('v-acabou')
-            r.querySelector('[data-relogio-rotulo]').textContent = agora < FIM ? 'A live está no ar agora' : 'A live de lançamento já aconteceu'
+            r.classList.add('lp-acabou')
+            if (rot) rot.textContent = agora < FIM ? 'Embarcando agora' : 'Partiu'
             return
           }
-          r.querySelector('[data-d]').textContent = d
-          r.querySelector('[data-h]').textContent = dois(h)
-          r.querySelector('[data-m]').textContent = dois(m)
-          r.querySelector('[data-s]').textContent = dois(seg)
+          if (rot && !rot.classList.contains('lp-sr')) rot.textContent = d < 1 ? 'Última chamada' : 'Embarque aberto'
+          virar(r.querySelector('[data-d]'), dois(d)); virar(r.querySelector('[data-h]'), dois(h))
+          virar(r.querySelector('[data-m]'), dois(m)); virar(r.querySelector('[data-s]'), dois(seg))
         })
-        if (barraTempo) barraTempo.textContent = agora >= INICIO ? '' : 'Faltam ' + d + 'd ' + dois(h) + 'h ' + dois(m) + 'min'
+        if (barraTempo) barraTempo.textContent = agora >= INICIO ? '' : 'Faltam ' + d + 'd ' + dois(h) + 'h ' + dois(m) + 'min para a live'
       }
       tique(); setInterval(tique, 1000)
 
-      // os botões levam ao formulário e já põem o cursor no primeiro campo
+      // ------------------------------------------------ botões que levam ao formulário
       var form = document.getElementById('form')
       Array.prototype.forEach.call(document.querySelectorAll('[data-ir-ao-form]'), function (a) {
         a.addEventListener('click', function (ev) {
           ev.preventDefault()
-          form.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
-          setTimeout(function () { try { form.elements.nome.focus({ preventScroll: true }) } catch (e) { form.elements.nome.focus() } }, 450)
+          document.getElementById('cadastro').scrollIntoView({ behavior: reduzir ? 'auto' : 'smooth', block: 'start' })
+          setTimeout(function () { try { form.elements.nome.focus({ preventScroll: true }) } catch (e) { form.elements.nome.focus() } }, 500)
         })
       })
 
       // barra fixa no celular: aparece depois da abertura e some enquanto o formulário está na tela
-      var barra = document.querySelector('[data-barra]'), abertura = document.querySelector('.v-abertura')
+      var barra = document.querySelector('[data-barra]'), heroi = document.querySelector('.lp-heroi')
       if (barra && 'IntersectionObserver' in window) {
-        var vendoForm = false, passouAbertura = false
-        var atualizar = function () { barra.hidden = !(passouAbertura && !vendoForm) }
+        var vendoForm = false, passou = false
+        var atualizar = function () { barra.hidden = !(passou && !vendoForm) }
         new IntersectionObserver(function (e) { vendoForm = e[0].isIntersecting; atualizar() }).observe(form)
-        new IntersectionObserver(function (e) { passouAbertura = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; atualizar() }).observe(abertura)
+        new IntersectionObserver(function (e) { passou = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; atualizar() }).observe(heroi)
       }
+
+      // ------------------------------------------------ entrada das seções (tudo já está visível sem script)
+      if ('IntersectionObserver' in window && !reduzir) {
+        var alvos = document.querySelectorAll('.lp-cab, .lp-checkin-texto, .lp-cabine, .lp-hangar figure, .lp-voo li, .lp-libera li, .lp-porque, .lp-final')
+        var obs = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('lp-visto'); obs.unobserve(e.target) } })
+        }, { rootMargin: '0px 0px -8% 0px' })
+        Array.prototype.forEach.call(alvos, function (el, i) {
+          if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('lp-anima'); el.style.transitionDelay = (i % 5) * 70 + 'ms'; obs.observe(el) }
+        })
+      }
+
+      // ------------------------------------------------ cabine: uma I.A. operando (demonstração ilustrativa)
+      var cab = document.querySelector('[data-cabine]')
+      if (!cab) return
+      var IAS = [['GF Phenom', 'phenom'], ['GF Gulf', 'gulf'], ['GF Raptor', 'raptor'], ['GF Falcon', 'falcon'], ['GF Legacy', 'legacy']]
+      var el = function (q) { return cab.querySelector(q) }
+      var tela = el('[data-cab-grafico]'), ctx = tela.getContext('2d')
+      var nomeEl = el('[data-cab-nome]'), capaEl = el('[data-cab-capa]'), faseEl = el('[data-cab-fase]'), farol = el('[data-cab-farol]')
+      var resEl = el('[data-cab-res]'), barraMeta = el('[data-cab-barra]'), lista = el('[data-cab-ops]'), fim = el('[data-cab-fim]'), fimTxt = el('[data-cab-fim-txt]')
+      var META = 10, LIMITE = -20, BASE = 1
+      var precos = [], marcas = [], preco = 1000, tendencia = 0
+      var s, ia = 0, rodando = false, visivel = false, relogioOps = null
+      function dinheiro(v) { return (v < 0 ? '−' : '+') + 'US$ ' + Math.abs(v).toFixed(2).replace('.', ',') }
+      function valor(v) { return 'US$ ' + v.toFixed(2).replace('.', ',') }
+      for (var k = 0; k < 140; k++) { preco += (Math.random() - .5) * 2.2; precos.push(preco) }
+
+      function desenhar() {
+        var dpr = Math.min(2, window.devicePixelRatio || 1), w = tela.clientWidth, h = tela.clientHeight
+        if (tela.width !== Math.round(w * dpr)) { tela.width = Math.round(w * dpr); tela.height = Math.round(h * dpr) }
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h)
+        var min = Math.min.apply(null, precos), max = Math.max.apply(null, precos), pad = (max - min) * .18 + .5
+        var X = function (i) { return i / (precos.length - 1) * (w - 54) }, Y = function (p) { return h - 12 - (p - min + pad) / (max - min + pad * 2) * (h - 24) }
+        ctx.strokeStyle = 'rgba(156,177,199,.10)'; ctx.lineWidth = 1
+        for (var g = 1; g < 4; g++) { ctx.beginPath(); ctx.moveTo(0, h * g / 4); ctx.lineTo(w, h * g / 4); ctx.stroke() }
+        var grad = ctx.createLinearGradient(0, 0, 0, h); grad.addColorStop(0, 'rgba(212,166,74,.28)'); grad.addColorStop(1, 'rgba(212,166,74,0)')
+        ctx.beginPath(); precos.forEach(function (p, i) { i ? ctx.lineTo(X(i), Y(p)) : ctx.moveTo(X(i), Y(p)) })
+        ctx.lineTo(X(precos.length - 1), h); ctx.lineTo(0, h); ctx.closePath(); ctx.fillStyle = grad; ctx.fill()
+        ctx.beginPath(); precos.forEach(function (p, i) { i ? ctx.lineTo(X(i), Y(p)) : ctx.moveTo(X(i), Y(p)) })
+        ctx.strokeStyle = '#D4A64A'; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.stroke()
+        marcas.forEach(function (m) {
+          var i = m.i - (precosTotal - precos.length); if (i < 0) return
+          var x = X(i), y = Y(precos[i])
+          ctx.fillStyle = m.ok === null ? '#F3F0E9' : m.ok ? '#5FC48C' : '#F1828A'
+          ctx.beginPath(); ctx.arc(x, y, 4.5, 0, 7); ctx.fill()
+          ctx.beginPath(); ctx.moveTo(x, y + (m.sobe ? 10 : -10)); ctx.lineTo(x - 4, y + (m.sobe ? 16 : -16)); ctx.lineTo(x + 4, y + (m.sobe ? 16 : -16)); ctx.closePath(); ctx.fill()
+        })
+        var ux = X(precos.length - 1), uy = Y(precos[precos.length - 1])
+        ctx.fillStyle = '#F3D58C'; ctx.beginPath(); ctx.arc(ux, uy, 3.5, 0, 7); ctx.fill()
+        ctx.fillStyle = 'rgba(212,166,74,.16)'; ctx.fillRect(w - 52, uy - 10, 52, 20)
+        ctx.fillStyle = '#F3D58C'; ctx.font = '600 11px ui-monospace, Menlo, monospace'; ctx.fillText(precos[precos.length - 1].toFixed(2), w - 48, uy + 4)
+      }
+      var precosTotal = precos.length
+      function passo() {
+        tendencia = tendencia * .92 + (Math.random() - .5) * .5
+        preco += tendencia + (Math.random() - .5) * 1.6
+        precos.push(preco); precosTotal++; if (precos.length > 140) precos.shift()
+        desenhar()
+      }
+
+      function nova() {
+        s = { res: 0, entrada: BASE, n: 0, ganhas: 0 }
+        lista.innerHTML = ''; marcas = []; fim.hidden = true
+        nomeEl.textContent = IAS[ia][0]; capaEl.src = '/aulas-globalfly/robo-' + IAS[ia][1] + '-mobile.webp'
+        mostrar()
+      }
+      function mostrar() {
+        resEl.textContent = dinheiro(s.res); resEl.className = s.res > 0 ? 'pos' : s.res < 0 ? 'neg' : ''
+        barraMeta.style.left = Math.max(0, Math.min(100, (s.res - LIMITE) / (META - LIMITE) * 100)) + '%'
+      }
+      function fase(texto, estado) { faseEl.textContent = texto; farol.className = estado || '' }
+      function operar() {
+        if (!rodando) return
+        fase('Analisando o mercado', 'analise')
+        relogioOps = setTimeout(function () {
+          if (!rodando) return
+          var sobe = Math.random() < .5, entrada = s.entrada, n = ++s.n
+          var marca = { i: precosTotal - 1, sobe: sobe, ok: null }; marcas.push(marca); if (marcas.length > 8) marcas.shift()
+          fase('Entrada de ' + valor(entrada) + ' · ' + (sobe ? 'sobe' : 'desce'), 'entrada')
+          var li = document.createElement('li')
+          li.innerHTML = '<span>' + n + '</span><span>' + valor(entrada) + '</span><span class="' + (sobe ? 'up' : 'down') + '">' + (sobe ? '▲ Sobe' : '▼ Desce') + '</span><span class="lp-op-res">aguardando</span>'
+          lista.insertBefore(li, lista.firstChild); while (lista.children.length > 5) lista.removeChild(lista.lastChild)
+          relogioOps = setTimeout(function () {
+            if (!rodando) return
+            var ganhou = Math.random() < .7, delta = ganhou ? +(entrada * .95).toFixed(2) : -entrada
+            marca.ok = ganhou; s.res = +(s.res + delta).toFixed(2); if (ganhou) s.ganhas++
+            var r = li.querySelector('.lp-op-res'); r.textContent = dinheiro(delta); r.className = 'lp-op-res ' + (ganhou ? 'pos' : 'neg')
+            li.classList.add(ganhou ? 'ganhou' : 'perdeu')
+            // depois de uma perda, a I.A. sobe a entrada para recuperar; acertou, volta para a entrada inicial
+            s.entrada = ganhou ? BASE : +(Math.min(entrada * 2.1, s.res - LIMITE)).toFixed(2)
+            mostrar()
+            if (s.res >= META || s.res <= LIMITE || s.entrada < .35) {
+              var bateu = s.res >= META
+              fase(bateu ? 'Meta atingida' : 'Limite de perda atingido', bateu ? 'meta' : 'stop')
+              fim.querySelector('b').textContent = bateu ? 'Meta atingida' : 'Limite de perda atingido'
+              fim.className = 'lp-cabine-fim ' + (bateu ? 'pos' : 'neg')
+              fimTxt.textContent = dinheiro(s.res) + ' em ' + s.n + ' operações · ' + s.ganhas + ' positivas'
+              fim.hidden = false
+              relogioOps = setTimeout(function () { ia = (ia + 1) % IAS.length; nova(); operar() }, 4200)
+              return
+            }
+            relogioOps = setTimeout(operar, 700)
+          }, 1500)
+        }, 1100)
+      }
+      var relogioGrafico = null
+      function ligar() {
+        if (rodando) return
+        // retomou com uma entrada pela metade: ela some, e a sessão segue de onde estava
+        var pendente = lista.firstChild && lista.firstChild.querySelector('.lp-op-res:not(.pos):not(.neg)')
+        if (pendente) { lista.removeChild(lista.firstChild); marcas.pop(); s.n-- }
+        rodando = true; relogioGrafico = setInterval(passo, reduzir ? 600 : 160); operar()
+      }
+      function desligar() { rodando = false; clearInterval(relogioGrafico); clearTimeout(relogioOps) }
+      nova(); desenhar()
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (e) { visivel = e[0].isIntersecting; visivel && !document.hidden ? ligar() : desligar() }, { threshold: .15 }).observe(cab)
+        document.addEventListener('visibilitychange', function () { document.hidden ? desligar() : visivel && ligar() })
+      } else ligar()
+      addEventListener('resize', desenhar)
     })()
   </script>
-  <script>
+<script>
     (function () {
       var form = document.getElementById('form'), inicio = Date.now()
       var tel = form.elements.telefone, botao = form.querySelector('.botao'), mensagem = form.querySelector('.mensagem')
