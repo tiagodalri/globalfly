@@ -737,6 +737,7 @@ body.lp::before { display: none; }
 .lp-cab-ops li.perdeu { background: rgba(241, 130, 138, .08); }
 .lp-op-n { color: var(--aco); }
 .lp-op-tipo { display: flex; align-items: center; gap: 6px; min-width: 0; color: var(--marfim); font-family: Arimo, "Helvetica Neue", Arial, sans-serif; font-weight: 700; white-space: nowrap; overflow: hidden; }
+.lp-op-tipo b { font: 600 13px/1.1 ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; color: var(--marfim); }
 .lp-op-tipo em { flex: none; padding: 2px 6px; border-radius: 6px; background: rgba(243, 213, 140, .14); color: #F3D58C; font-size: 10px; font-style: normal; letter-spacing: .03em; }
 .lp-op-ent { color: var(--aco); }
 .lp-op-res { text-align: right; color: var(--aco); white-space: nowrap; }
@@ -1388,6 +1389,7 @@ var GF = (function () {
       // ------------------------------------------------ cabine: reprise de sessões reais, operação por operação
       // (31/10/2026) Uma sessão de cada I.A., gravada na plataforma e terminada na meta: [entrada, 1 = dígito acima
       // / 0 = abaixo, resultado, preço do Volatility 75 na entrada]. Nada aqui é sorteado: é a sessão como foi.
+      // Na fila aparece o preço do índice em cada entrada (pedido do Tiago, no lugar de "Dígito acima/abaixo").
       var cab = document.querySelector('[data-cabine]')
       if (!cab) return
       var SESSOES = [
@@ -1404,7 +1406,7 @@ var GF = (function () {
       var nEl = q('[data-cab-n]'), posEl = q('[data-cab-pos]'), entEl = q('[data-cab-ent]'), lista = q('[data-cab-ops]')
       var alerta = q('[data-cab-alerta]'), alertaTit = q('[data-cab-alerta-titulo]'), alertaTxt = q('[data-cab-alerta-txt]'), nota = q('[data-cab-nota]')
       var moeda = function (v, sinal) { var t = 'US$ ' + Math.abs(v).toFixed(2).replace('.', ','); return sinal ? (v < 0 ? '−' : '+') + t : t }
-      var preco = function (v) { return v.toFixed(2).replace('.', ',') }
+      var preco = function (v) { return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }
       // a fita de cada I.A. (como os stories): toca para ver aquela sessão
       SESSOES.forEach(function (s, i) {
         var b = document.createElement('button')
@@ -1447,7 +1449,7 @@ var GF = (function () {
         if (!rodando || pausaFim) return
         var op = s.ops[k], n = k + 1, recup = op[0] > s.ops[0][0] + 0.001
         var li = document.createElement('li')
-        li.innerHTML = '<span class="lp-op-n">#' + n + '</span><span class="lp-op-tipo">' + (op[1] ? 'Dígito acima' : 'Dígito abaixo') + (recup ? '<em>Recuperação</em>' : '') + '</span><span class="lp-op-ent">' + moeda(op[0]) + '</span><span class="lp-op-res">…</span>'
+        li.innerHTML = '<span class="lp-op-n">#' + n + '</span><span class="lp-op-tipo">' + '<b>' + preco(op[3]) + '</b>' + (recup ? '<em>Recuperação</em>' : '') + '</span><span class="lp-op-ent">' + moeda(op[0]) + '</span><span class="lp-op-res">…</span>'
         lista.insertBefore(li, lista.firstChild); while (lista.children.length > 5) lista.removeChild(lista.lastChild)
         entEl.textContent = moeda(op[0]); precoEl.textContent = preco(op[3])
         fase(recup ? 'Recuperando' : 'Operando', recup ? 'recupera' : 'opera')
@@ -1524,7 +1526,7 @@ var GF = (function () {
         for (var x = 0; x < qtd && k < s.ops.length - 1; x++) {
           var op = s.ops[k], n = k + 1, recup = op[0] > s.ops[0][0] + 0.001, ganhou = op[2] > 0
           var li = document.createElement('li'); li.className = ganhou ? 'ganhou' : 'perdeu'; li.style.animation = 'none'
-          li.innerHTML = '<span class="lp-op-n">#' + n + '</span><span class="lp-op-tipo">' + (op[1] ? 'Dígito acima' : 'Dígito abaixo') + (recup ? '<em>Recuperação</em>' : '') + '</span><span class="lp-op-ent">' + moeda(op[0]) + '</span><span class="lp-op-res ' + (ganhou ? 'pos' : 'neg') + '">' + moeda(op[2], true) + '</span>'
+          li.innerHTML = '<span class="lp-op-n">#' + n + '</span><span class="lp-op-tipo">' + '<b>' + preco(op[3]) + '</b>' + (recup ? '<em>Recuperação</em>' : '') + '</span><span class="lp-op-ent">' + moeda(op[0]) + '</span><span class="lp-op-res ' + (ganhou ? 'pos' : 'neg') + '">' + moeda(op[2], true) + '</span>'
           lista.insertBefore(li, lista.firstChild)
           if (ganhou) positivas++
           k = n; alvo = +(alvo + op[2]).toFixed(2); acum.push(alvo)
