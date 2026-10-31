@@ -244,7 +244,7 @@ body.lp::before { display: none; }
 .lp-l { display: block; animation: lp-sobe .9s cubic-bezier(.2, .7, .2, 1) both; }
 .lp-l:nth-child(2) { animation-delay: .12s; }
 .lp-l:nth-child(3) { animation-delay: .24s; }
-.lp-ouro { margin-top: 10px; font-size: .62em; line-height: 1.08; letter-spacing: -.02em; background: linear-gradient(100deg, #D4A64A 0%, #F6DE9C 40%, #D4A64A 60%, #B78D39 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: lp-sobe .9s cubic-bezier(.2, .7, .2, 1) .24s both, lp-brilha 5s linear 1.4s infinite; }
+.lp-ouro { margin-top: 10px; font-size: .62em; line-height: 1.08; letter-spacing: -.02em; color: var(--ouro-claro); animation: lp-sobe .9s cubic-bezier(.2, .7, .2, 1) .24s both; }
 @keyframes lp-sobe { from { transform: translateY(22px); } }
 @keyframes lp-brilha { to { background-position: -220% 0; } }
 .lp-sub { margin: 22px 0 0; max-width: 33em; font-size: 18px; color: #D5DCE4; }
@@ -254,7 +254,7 @@ body.lp::before { display: none; }
 .lp-apresenta[hidden] { display: none; }
 .lp-cta { position: relative; margin-top: 26px; display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 28px; border-radius: 14px; background: linear-gradient(180deg, #E2B95C, #B78D39); color: var(--azul); font-size: 18px; font-weight: 700; text-decoration: none; overflow: hidden; box-shadow: 0 16px 40px -14px rgba(212, 166, 74, .75), inset 0 1px 0 rgba(255, 255, 255, .35); transition: transform .15s, box-shadow .15s; }
 .lp-cta svg { width: 20px; height: 20px; transition: transform .2s; }
-.lp-cta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .45) 50%, transparent 70%); transform: translateX(-120%); animation: lp-reflexo 3.6s ease-in-out 2s infinite; }
+.lp-cta::after { content: none; }
 @keyframes lp-reflexo { 35%, 100% { transform: translateX(120%); } }
 .lp-cta:hover { transform: translateY(-2px); box-shadow: 0 22px 46px -14px rgba(212, 166, 74, .85), inset 0 1px 0 rgba(255, 255, 255, .35); }
 .lp-cta:hover svg { transform: translateX(3px); }
@@ -285,7 +285,7 @@ body.lp::before { display: none; }
 .lp-embarque-pe b { color: var(--azul); }
 .lp-embarque-tag { position: absolute; top: -14px; left: 14px; padding: 7px 13px; border-radius: 999px; background: var(--azul); border: 1px solid rgba(212, 166, 74, .7); color: #F3D58C; font-size: 13px; font-weight: 700; box-shadow: 0 8px 20px rgba(0, 0, 0, .4); }
 .lp-ingresso { position: absolute; right: 0; bottom: 12%; width: 190px; padding: 16px 18px; border-radius: 16px; display: grid; gap: 2px; background: linear-gradient(135deg, #F6DE9C 0%, #D4A64A 45%, #A67B2C 100%); color: var(--azul); box-shadow: 0 26px 50px -18px rgba(212, 166, 74, .7), inset 0 1px 0 rgba(255, 255, 255, .5); transform: rotate(6deg); animation: lp-entra-dir 1s cubic-bezier(.2, .7, .2, 1) .7s both; overflow: hidden; }
-.lp-ingresso::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .55) 50%, transparent 65%); transform: translateX(-130%); animation: lp-reflexo 4.4s ease-in-out 2.4s infinite; }
+.lp-ingresso::after { content: none; }
 .lp-ingresso-rot { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
 .lp-ingresso s { font-size: 15px; font-weight: 700; opacity: .65; }
 .lp-ingresso b { font-size: 44px; line-height: 1; letter-spacing: -.03em; }
@@ -347,7 +347,7 @@ body.lp::before { display: none; }
 .lp-pr-imac:hover .lp-pr-foto { transform: translateY(-6px) scale(1.03); }
 .lp-pr-imac .lp-pr-texto { padding-left: 8px; }
 .lp-pr-acesso { background: linear-gradient(135deg, #F6DE9C 0%, #D4A64A 45%, #A67B2C 100%); border: 0; color: var(--azul); }
-.lp-pr-acesso::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .5) 50%, transparent 65%); transform: translateX(-130%); animation: lp-reflexo 5s ease-in-out 1s infinite; }
+.lp-pr-acesso::after { content: none; }
 .lp-pr-acesso .lp-pr-para { background: rgba(5, 21, 40, .12); border-color: rgba(5, 21, 40, .3); color: var(--azul); }
 .lp-pr-acesso p { color: rgba(5, 21, 40, .82); }
 .lp-pr-preco { display: flex; align-items: baseline; gap: 12px; }
@@ -375,6 +375,96 @@ body.lp::before { display: none; }
   .lp-embarque-campos dd { font-size: 11.5px; }
   .lp-embarque-campos div:first-child dd { font-size: 13px; }
   .lp-embarque-tag { font-size: 11.5px; }
+}
+
+
+/* ---------- provas reais (30/10/2026, Tiago: "o cara tem que ver um número, um lucro") */
+.lp-aviso-real { position: absolute; z-index: 3; left: 0; top: 0; width: min(300px, 62%); display: grid; grid-template-columns: 36px 1fr; gap: 4px 10px; padding: 11px 13px; border-radius: 16px; background: rgba(243, 240, 233, .94); color: var(--azul); box-shadow: 0 20px 40px -14px rgba(0, 0, 0, .6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); animation: lp-notif-entra .7s cubic-bezier(.2, .8, .2, 1.1) .9s both; }
+.lp-aviso-real img { width: 36px; height: 36px; border-radius: 9px; }
+.lp-aviso-real div { display: grid; gap: 1px; min-width: 0; }
+.lp-aviso-real b { font-size: 13.5px; }
+.lp-aviso-real span { font-size: 12.5px; color: #33465C; }
+.lp-aviso-real .lp-aviso-app { font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #6B7D92; }
+.lp-aviso-real em { grid-column: 1 / -1; font-style: normal; font-size: 10.5px; color: #6B7D92; border-top: 1px solid rgba(5, 21, 40, .1); padding-top: 5px; }
+@keyframes lp-notif-entra { from { transform: translateY(-16px) scale(.96); } }
+.lp-rostos { display: inline-flex; }
+.lp-rostos img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ouro); background: #12304F; }
+.lp-rostos img + img { margin-left: -9px; }
+.lp-apresenta::before { content: none; }
+
+.lp-real { display: grid; gap: 34px; }
+.lp-real-grade { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 40px; align-items: center; }
+.lp-celular { justify-self: center; width: 100%; max-width: 330px; aspect-ratio: 9 / 18.5; border-radius: 46px; padding: 12px; background: #0a0f17; box-shadow: 0 0 0 2px #2a3442, 0 40px 80px -30px rgba(0, 0, 0, .8), 0 0 90px -30px rgba(212, 166, 74, .35); }
+.lp-celular-tela { position: relative; height: 100%; border-radius: 36px; overflow: hidden; padding: 54px 12px 20px; background: radial-gradient(120% 80% at 30% 0%, #1F4C7A, transparent 60%), linear-gradient(180deg, #0B2A4A, #051528 70%); display: grid; align-content: start; gap: 22px; }
+.lp-celular-tela::before { content: ""; position: absolute; top: 12px; left: 50%; width: 92px; height: 26px; margin-left: -46px; border-radius: 20px; background: #000; }
+.lp-celular-hora { display: grid; justify-items: center; color: #F3F0E9; }
+.lp-celular-hora span { font-size: 13px; font-weight: 600; opacity: .85; }
+.lp-celular-hora b { font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -.02em; }
+.lp-notifs { display: grid; gap: 8px; }
+.lp-notif { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; padding: 10px 11px; border-radius: 18px; background: rgba(243, 240, 233, .9); color: var(--azul); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); animation: lp-notif-loop 9s cubic-bezier(.2, .8, .2, 1) infinite both; }
+.lp-notif:nth-child(2) { animation-delay: .35s; }
+.lp-notif:nth-child(3) { animation-delay: .7s; }
+@keyframes lp-notif-loop { 0% { transform: translateY(-14px) scale(.97); } 8%, 100% { transform: none; } }
+.lp-notif img { width: 34px; height: 34px; border-radius: 9px; }
+.lp-notif div { display: grid; gap: 1px; min-width: 0; }
+.lp-notif-app { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: #6B7D92; }
+.lp-notif-app em { font-style: normal; text-transform: none; font-weight: 600; }
+.lp-notif b { font-size: 13px; }
+.lp-notif span:last-child { font-size: 12.5px; color: #33465C; }
+
+.lp-prints { display: grid; gap: 16px; min-width: 0; }
+.lp-print { border-radius: 20px; padding: 18px 20px; background: linear-gradient(180deg, #0C2341, #071A30); border: 1px solid rgba(156, 177, 199, .2); display: grid; gap: 12px; box-shadow: 0 30px 60px -36px rgba(0, 0, 0, .8); min-width: 0; }
+.lp-print header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.lp-print header div { display: grid; gap: 2px; }
+.lp-print header b { font-size: 16px; }
+.lp-print header span { font-size: 12.5px; color: var(--aco); }
+.lp-selo-meta { flex: none; padding: 5px 11px; border-radius: 999px; background: rgba(95, 196, 140, .14); border: 1px solid rgba(95, 196, 140, .5); color: #5FC48C !important; font-size: 12px !important; font-weight: 700; }
+.lp-print-res { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.lp-print-res b { font: 700 40px/1 ui-monospace, "SF Mono", Menlo, monospace; color: #5FC48C; letter-spacing: -.02em; }
+.lp-print-res span { color: var(--aco); font-size: 14px; }
+.lp-curva { width: 100%; height: 130px; display: block; border-radius: 12px; background: #061528; border: 1px solid rgba(156, 177, 199, .12); }
+.lp-print-dados { margin: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.lp-print-dados div, .lp-manual > div { display: grid; gap: 2px; }
+.lp-print dt { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--aco); }
+.lp-print dd { margin: 0; font: 700 15px/1.2 ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
+.lp-print dd.pos { color: #5FC48C; } .lp-print dd.neg { color: #F1828A; }
+.lp-print footer { font-size: 11.5px; color: #7F95AE; border-top: 1px solid rgba(156, 177, 199, .14); padding-top: 10px; }
+.lp-manual { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.lp-manual svg { width: 40px; height: 12px; }
+.lp-manual-lucro { margin-left: auto; text-align: right; }
+.lp-manual-lucro dd { font-size: 30px; color: #5FC48C; }
+.lp-real-nota { margin: 0; max-width: 60em; font-size: 12.5px; color: #7F95AE; }
+
+/* ---------- tripulação */
+.lp-comando { display: grid; gap: 34px; }
+.lp-tripulacao { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.lp-piloto { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); border-radius: 24px; overflow: hidden; border: 1px solid rgba(156, 177, 199, .18); background: #030b16; }
+.lp-piloto-principal { border-color: rgba(212, 166, 74, .55); box-shadow: 0 0 80px -30px rgba(212, 166, 74, .45); }
+.lp-piloto-capa { margin: 0; }
+.lp-piloto-capa img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s ease; }
+.lp-piloto:hover .lp-piloto-capa img { transform: scale(1.04); }
+.lp-piloto-info { display: grid; align-content: end; gap: 10px; padding: 22px 20px; background: linear-gradient(180deg, transparent, rgba(5, 21, 40, .9)); }
+.lp-piloto-cargo { justify-self: start; padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(212, 166, 74, .5); color: var(--ouro-claro); font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.lp-piloto h3 { margin: 0; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.02; letter-spacing: -.02em; }
+.lp-piloto-real { margin: 6px 0 0; display: grid; gap: 6px; }
+.lp-piloto-real img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 14px; border: 1px solid rgba(243, 240, 233, .2); transform: rotate(2deg); box-shadow: 0 18px 30px -14px rgba(0, 0, 0, .7); }
+.lp-piloto-real figcaption { font-size: 11.5px; color: var(--aco); }
+@media (max-width: 1024px) {
+  .lp-real-grade { grid-template-columns: minmax(0, 1fr); }
+  .lp-tripulacao { grid-template-columns: minmax(0, 1fr); }
+  .lp-piloto-principal { order: -1; }
+}
+@media (max-width: 600px) {
+  .lp-aviso-real { position: relative; width: 100%; order: -1; }
+  .lp-celular { max-width: 300px; }
+  .lp-celular-hora b { font-size: 54px; }
+  .lp-print { padding: 14px; }
+  .lp-print-res b { font-size: 32px; }
+  .lp-print-dados { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lp-manual-lucro { margin-left: 0; text-align: left; width: 100%; }
+  .lp-piloto { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .lp-piloto-info { padding: 14px 12px; }
+  .lp-piloto h3 { font-size: 22px; }
 }
 
 /* ---------- corpo */
@@ -632,6 +722,24 @@ body.lp::before { display: none; }
 .lp-embarque-tag { top: -18px; }
 .lp-embarque-dados { padding-top: 28px; }
 @media (max-width: 600px) { .lp-sub { margin-top: 24px; } }
+/* tripulação, versão 2: retrato inteiro no cartão, foto real como polaroide no canto */
+.lp-piloto { display: block; aspect-ratio: 5 / 6; }
+.lp-piloto-capa { position: absolute; inset: 0; }
+.lp-piloto-capa img { object-position: center 18%; }
+.lp-piloto-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 24px; display: grid; gap: 8px; align-content: end; background: linear-gradient(180deg, transparent, rgba(3, 11, 22, .92) 55%); }
+.lp-piloto-info h3 { max-width: 60%; }
+.lp-piloto-real { position: absolute; right: 20px; bottom: 20px; width: 34%; margin: 0; }
+.lp-piloto-real img { aspect-ratio: 4 / 5; border: 4px solid #F3F0E9; border-radius: 6px; transform: rotate(4deg); }
+.lp-piloto-real figcaption { position: absolute; left: 0; right: 0; bottom: -2px; transform: rotate(4deg) translateY(100%); padding-top: 6px; text-align: center; font-size: 11px; }
+.lp-piloto-cargo { background: rgba(3, 11, 22, .6); }
+@media (max-width: 600px) {
+  .lp-piloto { grid-template-columns: none; aspect-ratio: 4 / 5; }
+  .lp-piloto-info { padding: 18px 16px; }
+  .lp-piloto-real { width: 36%; right: 14px; bottom: 30px; }
+  .lp-piloto-real figcaption { display: none; }
+}
+.lp-piloto-real img { width: 100%; height: auto; object-fit: cover; }
+@media (max-width: 600px) { .lp-ingresso { top: 36%; } .lp-imac figcaption { right: -6%; top: -8%; } }
 </style>
 </head>
 <body class="lp">
@@ -650,10 +758,8 @@ body.lp::before { display: none; }
         </linearGradient>
       </defs>
       <path class="lp-rastro-linha" d="M-60 880 C 420 640, 900 360, 1500 -40" />
-      <path class="lp-rastro-brilho" d="M-60 880 C 420 640, 900 360, 1500 -40" />
     </svg>
     <div class="lp-estrelas" aria-hidden="true"></div>
-    <img class="lp-aviao" src="./img/aviao.webp" alt="" width="520" height="131" aria-hidden="true" />
 
     <header class="lp-topo">
       <img src="/globalfly-assinatura.png" alt="GlobalFly Trade" width="900" height="283" />
@@ -669,13 +775,18 @@ body.lp::before { display: none; }
           <span class="lp-l lp-ouro">E quem ficar até o fim leva de graça a plataforma de R$&nbsp;3.000.</span>
         </h1>
         <p class="lp-sub">No final da live de lançamento, quem ficou <b>do início ao fim</b> recebe o acesso gratuito à GlobalFly Trade e concorre ao iMac e à viagem internacional. Você abre a sua conta hoje.</p>
-        <p class="lp-apresenta" data-apresenta hidden></p>
+        <p class="lp-apresenta" data-apresenta hidden><span class="lp-rostos" data-rostos></span><span data-apresenta-texto></span></p>
         <a class="lp-cta" href="#cadastro" data-ir-ao-form><span>Abrir minha conta grátis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <span class="lp-mini">Leva 1 minuto. Sem cartão.</span>
       </div>
 
       <div class="lp-palco" aria-label="Na live: acesso gratuito à plataforma e a chance de ganhar um iMac e uma viagem internacional">
         <div class="lp-halo" aria-hidden="true"></div>
+        <div class="lp-aviso-real" aria-label="Resultado real de uma sessão na plataforma">
+          <img src="/pwa-globalfly/icon-180.png" alt="" width="36" height="36" />
+          <div><span class="lp-aviso-app">GlobalFly · agora</span><b>✅ GF Raptor · Meta atingida</b><span>+US$ 125,21 em 286 operações · 227 positivas</span></div>
+          <em>Sessão real · conta demo · 29/10</em>
+        </div>
         <figure class="lp-imac">
           <img src="./img/imac.webp" alt="iMac com a tela da live de lançamento da GlobalFly" width="900" height="738" />
           <figcaption>Concorra a este <b>iMac</b></figcaption>
@@ -730,6 +841,76 @@ body.lp::before { display: none; }
   </div>
 
   <main class="lp-corpo">
+  <section class="lp-real" aria-labelledby="real-titulo">
+    <div class="lp-cab">
+      <span class="lp-rotulo">A plataforma por dentro</span>
+      <h2 id="real-titulo">Isso é a GlobalFly funcionando. Números tirados da própria plataforma.</h2>
+      <p>Você escolhe a I.A., define entrada, meta e limite de perda, e ela opera sozinha. Quando a sessão termina, o aviso chega no seu celular.</p>
+    </div>
+    <div class="lp-real-grade">
+      <div class="lp-celular" aria-label="Avisos de sessões encerradas na meta, no celular">
+        <div class="lp-celular-tela">
+          <div class="lp-celular-hora"><span>sexta-feira, 30 de outubro</span><b>12:10</b></div>
+          <div class="lp-notifs">
+            <div class="lp-notif"><img src="/pwa-globalfly/icon-180.png" alt="" width="34" height="34" /><div><span class="lp-notif-app">GlobalFly <em>12:08</em></span><b>✅ GF Falcon · Meta atingida</b><span>+US$ 62,55 em 46 operações · 30 positivas</span></div></div>
+            <div class="lp-notif"><img src="/pwa-globalfly/icon-180.png" alt="" width="34" height="34" /><div><span class="lp-notif-app">GlobalFly <em>11:42</em></span><b>✅ GF Legacy · Meta atingida</b><span>+US$ 10,27 em 74 operações · 45 positivas</span></div></div>
+            <div class="lp-notif"><img src="/pwa-globalfly/icon-180.png" alt="" width="34" height="34" /><div><span class="lp-notif-app">GlobalFly <em>08:58</em></span><b>✅ GF Raptor · Meta atingida</b><span>+US$ 100,45 em 628 operações · 473 positivas</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-prints">
+        <article class="lp-print">
+          <header><div><b>GF Raptor</b><span>Volatility 75 · sessão encerrada</span></div><span class="lp-selo-meta">Meta atingida</span></header>
+          <div class="lp-print-res"><b>+US$ 125,21</b><span>em 10 minutos</span></div>
+          <svg class="lp-curva" data-curva viewBox="0 0 600 150" preserveAspectRatio="none" aria-label="Resultado da sessão, operação a operação"></svg>
+          <dl class="lp-print-dados">
+            <div><dt>Operações</dt><dd>286</dd></div><div><dt>Positivas</dt><dd class="pos">227</dd></div><div><dt>Negativas</dt><dd class="neg">59</dd></div>
+            <div><dt>Entrada</dt><dd>US$ 2,50</dd></div><div><dt>Meta</dt><dd>US$ 120</dd></div><div><dt>Limite</dt><dd>US$ 300</dd></div>
+          </dl>
+          <footer>Conta demo · 29/10/2026, 18:15 às 18:25</footer>
+        </article>
+
+        <article class="lp-print lp-print-manual">
+          <header><div><b>Operação manual</b><span>Volatility 75 · Sobe · 1 minuto</span></div><span class="lp-selo-meta">Ganhou</span></header>
+          <div class="lp-manual">
+            <div><dt>Entrada</dt><dd>US$ 100,00</dd></div>
+            <svg viewBox="0 0 40 12" aria-hidden="true"><path d="M2 6h30" stroke="#D4A64A" stroke-width="1.6"/><path d="M30 2l7 4-7 4z" fill="#D4A64A"/></svg>
+            <div><dt>Recebeu</dt><dd>US$ 178,32</dd></div>
+            <div class="lp-manual-lucro"><dt>Lucro</dt><dd>+US$ 78,32</dd></div>
+          </div>
+          <footer>Conta demo · 29/10/2026, 20:02</footer>
+        </article>
+      </div>
+    </div>
+    <p class="lp-real-nota">Sessões e operações reais feitas na GlobalFly em conta de demonstração (dólares virtuais), entre 29 e 30/10/2026. Escolhemos exemplos que terminaram com lucro: nem toda sessão termina na meta, e há sessões que param no limite de perda. Resultados passados não garantem resultados futuros.</p>
+  </section>
+
+  <section class="lp-comando" aria-labelledby="comando-titulo">
+    <div class="lp-cab">
+      <span class="lp-rotulo">Quem está no comando</span>
+      <h2 id="comando-titulo" data-comando-titulo>Quem pilota a live de lançamento</h2>
+    </div>
+    <div class="lp-tripulacao">
+      <article class="lp-piloto" data-piloto="n">
+        <figure class="lp-piloto-capa"><img src="./img/naor-capa.webp" alt="Naor Bezerra" width="800" height="1067" loading="lazy" /></figure>
+        <div class="lp-piloto-info">
+          <span class="lp-piloto-cargo">Comandante da live</span>
+          <h3>Naor Bezerra</h3>
+          <figure class="lp-piloto-real"><img src="./img/naor-evento.webp" alt="Naor Bezerra em evento do mercado financeiro" width="900" height="1154" loading="lazy" /><figcaption>Naor em evento do mercado financeiro</figcaption></figure>
+        </div>
+      </article>
+      <article class="lp-piloto" data-piloto="v">
+        <figure class="lp-piloto-capa"><img src="./img/victor-capa.webp" alt="Victor Cordeiro" width="800" height="1067" loading="lazy" /></figure>
+        <div class="lp-piloto-info">
+          <span class="lp-piloto-cargo">Comandante da live</span>
+          <h3>Victor Cordeiro</h3>
+          <figure class="lp-piloto-real"><img src="./img/victor-turma.webp" alt="Victor Cordeiro em aula presencial" width="900" height="1200" loading="lazy" /><figcaption>Victor em aula presencial</figcaption></figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="lp-presentes" aria-labelledby="presentes-titulo">
     <div class="lp-cab lp-presentes-cab">
       <span class="lp-rotulo">No fim da live</span>
@@ -738,7 +919,6 @@ body.lp::before { display: none; }
     <div class="lp-presentes-grade">
       <article class="lp-pr lp-pr-viagem">
         <img class="lp-pr-fundo" src="./img/viagem.webp" alt="Asa de avião sobre as nuvens no pôr do sol" width="1400" height="933" loading="lazy" />
-        <img class="lp-pr-aviao" src="./img/aviao.webp" alt="" width="520" height="131" aria-hidden="true" loading="lazy" />
         <div class="lp-pr-texto">
           <span class="lp-pr-para">Você concorre</span>
           <h3>✈ Viagem internacional</h3>
@@ -1065,10 +1245,40 @@ var GF = (function () {
 
       // quem apresenta vem do endereço: o anúncio do Naor cai no /n, o do Victor no /v
       var APRESENTA = { n: 'Naor Bezerra', v: 'Victor Cordeiro' }
-      var quem = APRESENTA[GF.parceiro() || '']
+      var vitrine = GF.parceiro() || ''
+      var quem = APRESENTA[vitrine]
       var apresenta = document.querySelector('[data-apresenta]')
-      apresenta.textContent = quem ? 'Ao vivo com ' + quem : 'Ao vivo com a equipe GlobalFly'
+      var rostos = vitrine ? [vitrine] : ['n', 'v']
+      document.querySelector('[data-rostos]').innerHTML = rostos.map(function (c) {
+        return '<img src="./img/' + (c === 'n' ? 'naor' : 'victor') + '-rosto.webp" alt="" width="200" height="200" />'
+      }).join('')
+      apresenta.querySelector('[data-apresenta-texto]').textContent = quem ? 'Ao vivo com ' + quem : 'Ao vivo com Naor Bezerra e Victor Cordeiro'
       apresenta.hidden = false
+      // quem é da vitrine vem primeiro e vira o comandante; o outro aparece como copiloto
+      var titulo = document.querySelector('[data-comando-titulo]')
+      if (quem) {
+        titulo.textContent = 'Na live, quem pilota é o ' + quem + '.'
+        Array.prototype.forEach.call(document.querySelectorAll('[data-piloto]'), function (el) {
+          var meu = el.getAttribute('data-piloto') === vitrine
+          el.classList.toggle('lp-piloto-principal', meu)
+          if (!meu) el.querySelector('.lp-piloto-cargo').textContent = 'Copiloto'
+        })
+      }
+
+      // a curva real da sessão do print (GF Raptor, 29/10, 286 operações), operação a operação
+      var CURVA = [-2.5,-5.22,-5.07,-4.92,-4.77,-4.62,-4.47,-4.32,-4.17,-4.02,-6.52,-1.29,-1.14,-0.99,-0.84,-0.69,-3.19,2.04,2.19,2.34,2.49,2.64,2.79,2.94,3.09,3.24,3.39,3.54,3.69,3.84,3.99,4.14,4.29,4.44,4.59,4.74,2.24,-0.48,7.49,7.64,7.79,7.94,8.09,8.24,8.39,8.54,8.69,8.84,8.99,9.14,9.29,9.44,9.59,9.74,9.89,10.04,10.19,10.34,10.49,10.64,10.79,8.29,5.57,13.54,13.69,13.84,13.99,14.14,14.29,14.44,14.59,14.74,14.89,15.04,15.19,12.69,9.97,5.83,-0.53,-10.64,-27.25,-54.54,31.73,31.88,32.03,32.18,32.33,32.48,32.63,32.78,32.93,33.08,33.23,30.73,35.96,36.11,36.26,36.41,36.56,36.71,36.86,37.01,34.51,31.79,39.76,39.91,40.06,40.21,40.36,40.51,40.66,40.81,40.96,41.11,41.26,41.41,41.56,41.71,41.86,42.01,42.16,42.31,42.46,42.61,42.76,42.91,43.06,43.21,43.36,43.51,43.66,43.81,43.96,44.11,44.26,44.41,44.56,44.71,44.86,45.01,45.16,45.31,45.46,45.61,45.76,45.91,46.06,46.21,46.36,46.51,46.66,46.81,46.96,47.11,47.26,47.41,47.56,45.06,50.29,47.79,45.07,40.93,34.57,24.46,7.85,60.36,57.86,55.14,63.11,63.26,63.41,63.56,63.71,63.86,64.01,64.16,61.66,58.94,66.91,67.06,67.21,67.36,67.51,65.01,62.29,58.15,70.39,70.54,70.69,70.84,70.99,71.14,68.64,65.92,61.78,55.42,45.31,77.27,77.42,77.57,77.72,77.87,78.02,78.17,78.32,78.47,78.62,78.77,76.27,73.55,81.52,81.67,81.82,81.97,82.12,82.27,82.42,82.57,82.72,82.87,83.02,80.52,85.75,85.9,86.05,86.2,83.7,80.98,76.84,70.48,60.37,92.33,92.48,92.63,92.78,90.28,87.56,83.42,95.66,95.81,95.96,96.11,96.26,96.41,96.56,96.71,96.86,97.01,97.16,97.31,97.46,94.96,100.19,100.34,100.49,100.64,100.79,98.29,95.57,103.54,103.69,103.84,103.99,104.14,104.29,104.44,101.94,107.17,107.32,107.47,107.62,107.77,107.92,108.07,108.22,108.37,108.52,108.67,106.17,103.45,99.31,92.95,82.84,66.23,38.94,125.21]
+      ;(function () {
+        var svg = document.querySelector('[data-curva]'); if (!svg) return
+        var min = -60, max = 130, X = function (i) { return (i / (CURVA.length - 1) * 600).toFixed(1) }, Y = function (v) { return (8 + (max - v) / (max - min) * 134).toFixed(1) }
+        var pts = CURVA.map(function (v, i) { return X(i) + ',' + Y(v) }).join(' ')
+        svg.innerHTML = '<defs><linearGradient id="curva-ouro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FC48C" stop-opacity=".35"/><stop offset="1" stop-color="#5FC48C" stop-opacity="0"/></linearGradient></defs>' +
+          '<line x1="0" x2="600" y1="' + Y(0) + '" y2="' + Y(0) + '" stroke="rgba(156,177,199,.35)" stroke-dasharray="4 4"/>' +
+          '<line x1="0" x2="600" y1="' + Y(120) + '" y2="' + Y(120) + '" stroke="rgba(95,196,140,.6)" stroke-dasharray="4 4"/>' +
+          '<text x="4" y="' + (Y(120) - 4) + '" fill="#5FC48C" font-size="11" font-family="ui-monospace, Menlo, monospace">meta</text>' +
+          '<polygon points="0,' + Y(0) + ' ' + pts + ' 600,' + Y(0) + '" fill="url(#curva-ouro)"/>' +
+          '<polyline class="lp-curva-linha" points="' + pts + '" fill="none" stroke="#5FC48C" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>' +
+          '<circle cx="600" cy="' + Y(125.21) + '" r="4" fill="#5FC48C"/>'
+      })()
 
       // ------------------------------------------------ painel de embarque (contagem até 9/11, 20h de Brasília)
       var INICIO = Date.UTC(2026, 10, 9, 23, 0, 0), FIM = INICIO + 3 * 36e5
