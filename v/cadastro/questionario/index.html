@@ -183,7 +183,7 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
 }
 /* ------------------------------------------------ questionário (02/11/2026: no padrão da página de vendas) */
 .quiz { padding: 30px 32px 0; overflow: hidden; }
-.quiz-etapas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 26px; padding: 0; list-style: none; counter-reset: none; }
+.quiz-etapas { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); margin: 0 0 26px; padding: 0; list-style: none; counter-reset: none; }
 .quiz-etapas li { position: relative; display: grid; justify-items: center; gap: 8px; color: var(--aco); font-size: 12.5px; font-weight: 700; text-align: center; }
 .quiz-etapas li::before { content: ""; position: absolute; top: 15px; right: 50%; width: 100%; height: 2px; background: rgba(156, 177, 199, .2); z-index: 0; }
 .quiz-etapas li:first-child::before { display: none; }
@@ -225,6 +225,12 @@ h1 em { font-style: normal; color: var(--ouro-claro); }
   .quiz .opcao small { font-size: 12.5px; }
   .quiz-ingresso { margin: 22px -18px 0; padding: 14px 18px; }
 }
+/* o obrigado com o mesmo indicador de etapas (a última, a live, em destaque) */
+.obrigado-etapas { margin: 22px 0 26px; }
+.obrigado-etapas .agora i svg { width: 16px; height: 16px; }
+/* sem palavra sozinha na última linha (regra do Tiago) */
+.o-passos strong, .acesso strong, .obrigado h1 { text-wrap: balance; }
+.obrigado p, .o-passos span, .acesso p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 /* links dos termos (27/10/2026) */
 .aviso a, .rodape a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
@@ -1034,7 +1040,7 @@ body.lp :is(summary, label, .botao, .lp-cta span) { text-wrap: balance; }
           <legend class="pergunta" data-pergunta>Você já foi cliente do ecossistema do Victor Cordeiro?</legend>
           <p class="quiz-sub">Assim a equipe prepara a live pensando em quem já conhece o trabalho e em quem está chegando agora.</p>
           <div class="opcoes">
-            <label class="opcao"><input type="radio" name="cliente" value="sim" id="cliente-sim" /><i></i><span><b>Sim</b><small>Já fui cliente de algum produto</small></span></label>
+            <label class="opcao"><input type="radio" name="cliente" value="sim" id="cliente-sim" /><i></i><span><b>Sim</b><small>Já fui cliente de algum&nbsp;produto</small></span></label>
             <label class="opcao"><input type="radio" name="cliente" value="nao" id="cliente-nao" /><i></i><span><b>Não</b><small>Primeira vez aqui</small></span></label>
           </div>
         </fieldset>
