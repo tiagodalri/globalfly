@@ -394,12 +394,6 @@ body.lp::before { display: none; }
 
 .lp-real { display: grid; gap: 34px; }
 .lp-real-grade { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 40px; align-items: center; }
-.lp-celular { justify-self: center; width: 100%; max-width: 330px; aspect-ratio: 9 / 18.5; border-radius: 46px; padding: 12px; background: #0a0f17; box-shadow: 0 0 0 2px #2a3442, 0 40px 80px -30px rgba(0, 0, 0, .8), 0 0 90px -30px rgba(212, 166, 74, .35); }
-.lp-celular-tela { position: relative; height: 100%; border-radius: 36px; overflow: hidden; padding: 54px 12px 20px; background: radial-gradient(120% 80% at 30% 0%, #1F4C7A, transparent 60%), linear-gradient(180deg, #0B2A4A, #051528 70%); display: grid; align-content: start; gap: 22px; }
-.lp-celular-tela::before { content: ""; position: absolute; top: 12px; left: 50%; width: 92px; height: 26px; margin-left: -46px; border-radius: 20px; background: #000; }
-.lp-celular-hora { display: grid; justify-items: center; color: #F3F0E9; }
-.lp-celular-hora span { font-size: 13px; font-weight: 600; opacity: .85; }
-.lp-celular-hora b { font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -.02em; }
 .lp-notifs { display: grid; gap: 8px; }
 .lp-notif { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; padding: 10px 11px; border-radius: 18px; background: rgba(243, 240, 233, .9); color: var(--azul); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); animation: lp-notif-loop 9s cubic-bezier(.2, .8, .2, 1) infinite both; }
 .lp-notif:nth-child(2) { animation-delay: .35s; }
@@ -455,8 +449,6 @@ body.lp::before { display: none; }
 }
 @media (max-width: 600px) {
   .lp-aviso-real { position: relative; width: 100%; order: -1; }
-  .lp-celular { max-width: 300px; }
-  .lp-celular-hora b { font-size: 54px; }
   .lp-print { padding: 14px; }
   .lp-print-res b { font-size: 32px; }
   .lp-print-dados { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -783,8 +775,6 @@ body.lp::before { display: none; }
 
 /* revisão do celular (31/10/2026) */
 @media (max-width: 600px) {
-  /* o celular de exemplo sem a sobra vazia embaixo dos avisos */
-  .lp-celular { aspect-ratio: 9 / 15.6; }
   /* no cartão final, a asa desce e o alto fica escuro: o título não briga com a foto */
   .lp-final::before { background: linear-gradient(180deg, rgba(5, 21, 40, .9) 0%, rgba(5, 21, 40, .84) 42%, rgba(5, 21, 40, .55) 68%, rgba(5, 21, 40, .94) 100%), url("./img/viagem.webp") 70% 100% / cover no-repeat; }
 }
@@ -901,6 +891,64 @@ body.lp::before { display: none; }
 .lp-embarque-dados { padding-top: 32px; }
 @media (prefers-reduced-motion: reduce) { .lp-imac { animation: none; } }
 .lp-painel-status { white-space: nowrap; }
+
+
+/* ------------------------------------------------ o iPhone (02/11/2026): tela bloqueada de verdade, estilo Apple
+   Titânio com brilho, botões laterais, Dynamic Island, papel de parede da GF, hora grande no alto, avisos de vidro
+   fosco chegando um a um perto da lanterna e da câmera, barrinha inicial e um reflexo passando pela tela. */
+.lp-iphone { container-type: inline-size; position: relative; justify-self: center; width: 100%; max-width: 300px; aspect-ratio: 1 / 2.04; padding: 11px; border-radius: 53px;
+  background: linear-gradient(140deg, #9a9ea6 0%, #4a4e56 14%, #2b2e34 30%, #6c7078 52%, #2a2d33 72%, #8d9199 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .28), inset 0 0 0 4px #0b0c0f, 0 60px 90px -45px rgba(0, 0, 0, .95), 0 0 110px -40px rgba(212, 166, 74, .5);
+  animation: lp-iphone-flutua 8s ease-in-out infinite; }
+@keyframes lp-iphone-flutua { 50% { transform: translateY(-10px) rotate(-.6deg); } }
+.lp-iphone-botao { position: absolute; width: 4px; border-radius: 3px; background: linear-gradient(90deg, #5f636b, #a7abb2 60%, #4b4f56); }
+.lp-iphone-botao.acao { left: -3px; top: 20%; height: 8%; }
+.lp-iphone-botao.vol1 { left: -3px; top: 31%; height: 13%; }
+.lp-iphone-botao.vol2 { left: -3px; top: 46.5%; height: 13%; }
+.lp-iphone-botao.lado { right: -3px; top: 33%; height: 20%; }
+.lp-iphone-tela { position: relative; height: 100%; overflow: hidden; border-radius: 14cqw; isolation: isolate; color: #fff;
+  display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto auto; font-family: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arimo, Arial, sans-serif; }
+/* o papel de parede: noite azul da GF com um brilho dourado que respira devagar */
+.lp-iphone-fundo { position: absolute; inset: -10%; z-index: -1;
+  background: radial-gradient(60% 40% at 78% 74%, rgba(212, 166, 74, .55), transparent 70%), radial-gradient(70% 45% at 18% 26%, rgba(54, 110, 178, .6), transparent 70%), radial-gradient(90% 60% at 50% 110%, rgba(183, 141, 57, .35), transparent 70%), linear-gradient(180deg, #0B2546 0%, #071830 55%, #050F20 100%);
+  animation: lp-iphone-aurora 14s ease-in-out infinite alternate; }
+@keyframes lp-iphone-aurora { to { transform: translate(-3%, 2%) scale(1.06); filter: hue-rotate(-8deg); } }
+.lp-iphone-status { position: relative; display: flex; align-items: center; justify-content: space-between; height: 15cqw; padding: 0 7cqw 0 8.5cqw; font-size: 4.4cqw; font-weight: 600; }
+.lp-iphone-ilha { position: absolute; left: 50%; top: 3.2cqw; width: 33cqw; height: 9.6cqw; margin-left: -16.5cqw; border-radius: 6cqw; background: #000; box-shadow: inset 0 0 0 .4cqw #111; }
+.lp-iphone-ilha::after { content: ""; position: absolute; right: 3.4cqw; top: 50%; width: 3.2cqw; height: 3.2cqw; margin-top: -1.6cqw; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2b3a55, #0a0d14 70%); }
+.lp-iphone-icones { display: inline-flex; align-items: center; gap: 1.6cqw; }
+.lp-iphone-icones svg { height: 3.6cqw; width: auto; fill: currentColor; }
+.lp-iphone-icones svg:last-child { height: 4cqw; }
+.lp-iphone-hora { display: grid; justify-items: center; padding-top: 3cqw; text-shadow: 0 2px 20px rgba(0, 0, 0, .25); }
+.lp-iphone-cadeado { width: 5cqw; height: 5cqw; fill: currentColor; margin-bottom: 2cqw; opacity: .9; }
+.lp-iphone-hora span { font-size: 5.6cqw; font-weight: 600; opacity: .88; }
+.lp-iphone-hora b { font-size: 29cqw; line-height: .95; font-weight: 700; letter-spacing: -.035em; }
+/* os avisos de vidro fosco, como no iOS: chegam um a um, o mais novo em cima */
+.lp-iphone .lp-notifs { grid-row: 4; display: grid; gap: 2.4cqw; padding: 0 3.6cqw 3cqw; }
+.lp-iphone .lp-notif { grid-template-columns: 10.5cqw minmax(0, 1fr); gap: 3cqw; padding: 3.2cqw 3.6cqw; border-radius: 7cqw; background: rgba(245, 245, 247, .74); color: #0b1424;
+  backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .5);
+  animation: lp-iphone-notif 10s cubic-bezier(.2, .9, .25, 1) infinite both; }
+.lp-iphone .lp-notif:nth-child(1) { animation-delay: 1.4s; }
+.lp-iphone .lp-notif:nth-child(2) { animation-delay: .7s; }
+.lp-iphone .lp-notif:nth-child(3) { animation-delay: 0s; }
+@keyframes lp-iphone-notif { 0% { opacity: 0; transform: translateY(24px) scale(.94); } 7% { opacity: 1; transform: none; } 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: translateY(-6px) scale(.98); } }
+.lp-iphone .lp-notif img { width: 10.5cqw; height: 10.5cqw; border-radius: 2.6cqw; }
+.lp-iphone .lp-notif-app { font-size: 3.5cqw; letter-spacing: .02em; color: #5b6575; }
+.lp-iphone .lp-notif b { font-size: 4.3cqw; letter-spacing: -.01em; }
+.lp-iphone .lp-notif span:last-child { font-size: 4cqw; line-height: 1.3; color: #2c3647; }
+.lp-iphone-rodape { grid-row: 5; display: flex; justify-content: space-between; padding: 1cqw 11cqw 4cqw; }
+.lp-iphone-rodape i { width: 15cqw; height: 15cqw; border-radius: 50%; display: grid; place-items: center; background: rgba(20, 28, 42, .45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: inset 0 0 0 .4cqw rgba(255, 255, 255, .08); }
+.lp-iphone-rodape svg { width: 6.6cqw; height: 6.6cqw; fill: currentColor; color: #fff; }
+.lp-iphone-barra { position: absolute; left: 50%; bottom: 2.4cqw; width: 36cqw; height: 1.6cqw; margin-left: -18cqw; border-radius: 1cqw; background: rgba(255, 255, 255, .9); }
+/* o reflexo: um brilho fixo de vidro no canto e uma faixa de luz que atravessa a tela de tempos em tempos */
+.lp-iphone-reflexo { position: absolute; inset: 0; z-index: 5; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(118deg, transparent 38%, rgba(255, 255, 255, .13) 46%, rgba(255, 255, 255, .03) 52%, transparent 58%) 0 0 / 300% 100% no-repeat, radial-gradient(90% 50% at 0% 0%, rgba(255, 255, 255, .12), transparent 60%);
+  animation: lp-iphone-brilho 7s ease-in-out infinite; }
+@keyframes lp-iphone-brilho { 0%, 55% { background-position: 120% 0, 0 0; } 85%, 100% { background-position: -40% 0, 0 0; } }
+@media (min-width: 1025px) { .lp-iphone { transform: perspective(1600px) rotateY(-5deg); animation-name: lp-iphone-flutua-3d; } }
+@keyframes lp-iphone-flutua-3d { 0%, 100% { transform: perspective(1600px) rotateY(-5deg); } 50% { transform: perspective(1600px) rotateY(-3deg) translateY(-10px); } }
+@media (max-width: 600px) { .lp-iphone { max-width: 290px; } }
+@media (prefers-reduced-motion: reduce) { .lp-iphone, .lp-iphone-fundo, .lp-iphone .lp-notif, .lp-iphone-reflexo { animation: none; } .lp-iphone .lp-notif { opacity: 1; transform: none; } }
 </style>
 </head>
 <body class="lp">
@@ -1039,14 +1087,38 @@ body.lp::before { display: none; }
       <p>Você escolhe a I.A., define entrada, meta e limite de perda, e ela opera sozinha. Quando a sessão termina, o aviso chega no seu celular.</p>
     </div>
     <div class="lp-real-grade">
-      <div class="lp-celular" aria-label="Avisos de sessões encerradas na meta, no celular">
-        <div class="lp-celular-tela">
-          <div class="lp-celular-hora"><span>sexta-feira, 30 de outubro</span><b>12:10</b></div>
+      <div class="lp-iphone" aria-label="Avisos de sessões encerradas na meta, na tela bloqueada do celular">
+        <span class="lp-iphone-botao acao" aria-hidden="true"></span>
+        <span class="lp-iphone-botao vol1" aria-hidden="true"></span>
+        <span class="lp-iphone-botao vol2" aria-hidden="true"></span>
+        <span class="lp-iphone-botao lado" aria-hidden="true"></span>
+        <div class="lp-iphone-tela">
+          <div class="lp-iphone-fundo" aria-hidden="true"></div>
+          <div class="lp-iphone-status" aria-hidden="true">
+            <span>GlobalFly</span>
+            <i class="lp-iphone-ilha"></i>
+            <span class="lp-iphone-icones">
+              <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+              <svg viewBox="0 0 16 12"><path d="M8 11.6l2.3-2.6a3.3 3.3 0 00-4.6 0zM4.1 7.5a5.6 5.6 0 017.8 0l1.5-1.7a7.9 7.9 0 00-10.8 0zM.9 4a10.2 10.2 0 0114.2 0L16.6 2.3a12.5 12.5 0 00-17.2 0z"/></svg>
+              <svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="23" height="11" rx="3.2" fill="none" stroke="currentColor" opacity=".45"/><rect x="2.2" y="2.2" width="17" height="7.6" rx="1.8"/><path d="M25 4.2v3.6a1.9 1.9 0 000-3.6z" opacity=".45"/></svg>
+            </span>
+          </div>
+          <div class="lp-iphone-hora">
+            <svg class="lp-iphone-cadeado" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0110 0v3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><rect x="5" y="11" width="14" height="10" rx="2.6"/></svg>
+            <span>sexta-feira, 30 de outubro</span>
+            <b>12:10</b>
+          </div>
           <div class="lp-notifs">
             <div class="lp-notif"><img src="/pwa-globalfly/icon-180.png" alt="" width="34" height="34" /><div><span class="lp-notif-app">GlobalFly <em>12:08</em></span><b>✅ GF Falcon · Meta atingida</b><span>+US$ 62,55 em 46 operações · 30 positivas</span></div></div>
             <div class="lp-notif"><img src="/pwa-globalfly/icon-180.png" alt="" width="34" height="34" /><div><span class="lp-notif-app">GlobalFly <em>11:42</em></span><b>✅ GF Legacy · Meta atingida</b><span>+US$ 10,27 em 74 operações · 45 positivas</span></div></div>
             <div class="lp-notif"><img src="/pwa-globalfly/icon-180.png" alt="" width="34" height="34" /><div><span class="lp-notif-app">GlobalFly <em>08:58</em></span><b>✅ GF Raptor · Meta atingida</b><span>+US$ 100,45 em 628 operações · 473 positivas</span></div></div>
           </div>
+          <div class="lp-iphone-rodape" aria-hidden="true">
+            <i><svg viewBox="0 0 24 24"><path d="M8 2h8v4l-2 3v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V9L8 6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="1.3"/></svg></i>
+            <i><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></i>
+          </div>
+          <i class="lp-iphone-barra" aria-hidden="true"></i>
+          <i class="lp-iphone-reflexo" aria-hidden="true"></i>
         </div>
       </div>
 
