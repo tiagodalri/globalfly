@@ -1,4 +1,4 @@
-import{M as Qe,S as Xt,j as S,r as J,dA as Er,dx as Zt,dB as Ha,dC as Ga,dD as Ua,n as st}from"./globalfly.js?v=de471869f67f";/**
+import{M as Qe,S as Xt,j as S,r as J,dA as Er,dx as Zt,dB as Ha,dC as Ga,dD as Ua,n as st}from"./globalfly.js?v=e2b198b50165";/**
      * @license
      * KLineChart v10.0.3
      * Copyright (c) 2019 lihu.
