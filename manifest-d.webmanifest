@@ -2,7 +2,7 @@
   "id": "/",
   "name": "GlobalFly Trade",
   "short_name": "GlobalFly",
-  "description": "GlobalFly Trade: robôs de operação, gestão de risco e acompanhamento ao vivo, na sua própria conta da corretora.",
+  "description": "GlobalFly Trade: I.A. de operação, gestão de risco e acompanhamento ao vivo, na sua própria conta da corretora.",
   "lang": "pt-BR",
   "dir": "ltr",
   "start_url": "/?origem=app&parceiro_rota=d",
@@ -61,9 +61,9 @@
   "prefer_related_applications": false,
   "shortcuts": [
     {
-      "name": "Robôs",
-      "short_name": "Robôs",
-      "description": "Ligar e acompanhar os robôs",
+      "name": "I.A.",
+      "short_name": "I.A.",
+      "description": "Ligar e acompanhar as I.A.",
       "url": "/?tela=robos&parceiro_rota=d",
       "icons": [
         {
