@@ -1400,6 +1400,9 @@ html:has(body.sl) { overflow-x: hidden; }
 .sl-protagonista img { position: relative; z-index: 1; }
 .sl-heroi { overflow: visible; overflow-x: clip; }
 @media (min-width: 981px) { .sl-protagonista { top: -70px; } }
+.sl-fim h2 { max-width: 20ch; margin-top: 6px; }
+.sl-fim p { margin: 6px 0 0; }
+.sl-fim .sl-cta { margin-top: 20px; }
 </style>
   <link rel="stylesheet" href="./cabine.css" />
 </head>
@@ -1627,8 +1630,10 @@ html:has(body.sl) { overflow-x: hidden; }
     </section>
 
     <section class="sl-fim" aria-label="Garanta seu lugar">
-      <h2>Domingo, 20h. O seu lugar no sofá está esperando.</h2>
-      <a class="botao sl-cta" href="#cadastro" data-ir-ao-form>Quero meu lugar na Super Live <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <span class="sl-rotulo">Domingo · 29/11 · 20h</span>
+      <h2>O seu compromisso deste domingo é com a gente.</h2>
+      <p>Ao vivo, de graça e sem precisar comprar curso.</p>
+      <a class="botao sl-cta" href="#cadastro" data-ir-ao-form>Garantir meu lugar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </section>
   </main>
 
