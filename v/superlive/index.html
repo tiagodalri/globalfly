@@ -1235,7 +1235,68 @@ html:has(body.sl) { overflow-x: hidden; }
   .sl-convidado { font-size: 13px; white-space: nowrap; padding-right: 14px; }
   .sl-convidado img { width: 32px; height: 32px; }
 }
+
+/* ------------------------------------------------ as I.A. operando (a cabine vem de cabine.css) */
+.sl-ias { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.sl-ias .lp-cabine { grid-column: auto; grid-row: auto; min-width: 0; }
+.sl-toque { display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; color: var(--quente) !important; font-size: 14.5px; font-weight: 700; }
+.sl-toque::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--quente); animation: sl-pulso-ouro 1.8s infinite; }
+@keyframes sl-pulso-ouro { 0% { box-shadow: 0 0 0 0 rgba(242, 178, 92, .6) } 70% { box-shadow: 0 0 0 9px rgba(242, 178, 92, 0) } 100% { box-shadow: 0 0 0 0 rgba(242, 178, 92, 0) } }
+.sl-ias-aviso { grid-column: 1 / -1; margin: 0; color: var(--aco) !important; font-size: 12.5px; }
+
+/* ------------------------------------------------ o Assessor no WhatsApp (conversa animada) */
+.sl-assessor { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.sl-fone { position: relative; display: grid; grid-template-rows: auto 1fr auto; height: 600px; border-radius: 34px; overflow: hidden; background: #0B141A; border: 6px solid #1B2630; box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .95), 0 0 0 1px rgba(242, 178, 92, .22), 0 0 80px -30px rgba(37, 211, 102, .35); }
+.sl-fone-topo { display: flex; align-items: center; gap: 11px; padding: 14px 16px; background: #1F2C34; }
+.sl-fone-topo img { width: 38px; height: 38px; border-radius: 50%; }
+.sl-fone-topo b { display: block; font-size: 15.5px; color: #E9EDEF; }
+.sl-fone-topo span { display: block; font-size: 12.5px; color: #8696A0; }
+.sl-fone-conversa { display: flex; flex-direction: column; gap: 7px; padding: 14px 12px; overflow-y: auto; scrollbar-width: none; scroll-behavior: smooth;
+  background: #0B141A radial-gradient(circle at 20% 10%, rgba(37, 211, 102, .05), transparent 40%); }
+.sl-fone-conversa::-webkit-scrollbar { display: none; }
+.sl-zap-msg { position: relative; max-width: 86%; padding: 8px 10px 20px; border-radius: 10px; font-size: 14.5px; line-height: 1.42; color: #E9EDEF; animation: sl-zap-chega .32s cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes sl-zap-chega { from { opacity: 0; transform: translateY(10px) scale(.96) } }
+.sl-zap-msg p { margin: 0; color: #E9EDEF !important; }
+.sl-zap-msg time { position: absolute; right: 9px; bottom: 4px; font-size: 10.5px; color: rgba(233, 237, 239, .55); }
+.sl-zap-eu { align-self: flex-end; background: #005C4B; border-top-right-radius: 2px; }
+.sl-zap-eu time { color: #7FD4C2; }
+.sl-zap-gf { align-self: flex-start; background: #1F2C34; border-top-left-radius: 2px; }
+.sl-verde { color: #4ADE80; }
+.sl-zap-tempo { align-self: center; margin: 6px 0; padding: 4px 10px; border-radius: 8px; background: #182229; color: #8696A0; font-size: 11.5px; animation: sl-zap-chega .3s both; }
+.sl-zap-audio { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; width: 86%; padding-top: 10px; }
+.sl-zap-play { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; cursor: pointer; padding: 0; }
+.sl-zap-play svg { width: 18px; height: 18px; margin-left: 2px; }
+.sl-zap-onda { display: flex; align-items: center; gap: 2.5px; height: 22px; overflow: hidden; }
+.sl-zap-onda i { flex: 0 0 3px; border-radius: 2px; background: rgba(255, 255, 255, .38); transition: background .12s; }
+.sl-zap-onda i.sl-ouvida { background: #53BDEB; }
+.sl-tocando .sl-zap-onda i { animation: sl-zap-onda .5s ease-in-out infinite alternate; }
+.sl-tocando .sl-zap-onda i:nth-child(odd) { animation-delay: .18s; }
+@keyframes sl-zap-onda { to { transform: scaleY(.55) } }
+.sl-zap-dur { font-size: 11.5px; color: #7FD4C2; font-variant-numeric: tabular-nums; }
+.sl-zap-transc { grid-column: 1 / -1; padding-top: 7px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: 13.5px; animation: sl-zap-chega .3s both; }
+.sl-zap-transc em { display: block; font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7FD4C2; }
+.sl-zap-digitando { display: inline-flex; gap: 4px; padding: 13px 14px; }
+.sl-zap-digitando i { width: 7px; height: 7px; border-radius: 50%; background: #8696A0; animation: sl-zap-ponto 1s infinite; }
+.sl-zap-digitando i:nth-child(2) { animation-delay: .15s; } .sl-zap-digitando i:nth-child(3) { animation-delay: .3s; }
+@keyframes sl-zap-ponto { 0%, 60%, 100% { transform: none; opacity: .5 } 30% { transform: translateY(-4px); opacity: 1 } }
+.sl-fone-barra { display: flex; align-items: center; gap: 8px; padding: 9px 10px 12px; background: #0B141A; }
+.sl-fone-barra span { flex: 1; padding: 10px 14px; border-radius: 22px; background: #1F2C34; color: #8696A0; font-size: 14px; }
+.sl-fone-barra i { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #00A884; color: #0B141A; }
+.sl-fone-barra svg { width: 22px; height: 22px; }
+.sl-zap-de-novo { margin-top: 20px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(242, 178, 92, .5); background: rgba(242, 178, 92, .08); color: var(--marfim); font: 700 14px Arimo, sans-serif; cursor: pointer; }
+.sl-zap-de-novo:hover { border-color: var(--quente); }
+.sl-assessor .sl-ias-aviso { margin-top: 14px; }
+
+@media (max-width: 980px) {
+  .sl-ias, .sl-assessor { grid-template-columns: minmax(0, 1fr); }
+  .sl-assessor .sl-fone { order: 2; width: min(400px, 100%); justify-self: center; }
+}
+@media (max-width: 720px) {
+  .sl-fone { height: 540px; border-radius: 28px; }
+  .sl-ias .lp-cabine { margin-inline: 0; }
+}
 </style>
+  <link rel="stylesheet" href="./cabine.css" />
 </head>
 <body class="sl">
   <!--
@@ -1319,6 +1380,72 @@ html:has(body.sl) { overflow-x: hidden; }
   </div>
 
   <main class="sl-corpo">
+    <section class="sl-ias" aria-labelledby="titulo-ias">
+      <div class="sl-ias-texto">
+        <span class="sl-rotulo">As I.A. operando</span>
+        <h2 id="titulo-ias">É isso que você vai ver na live: uma I.A. operando em dólar, sozinha.</h2>
+        <p>Você escolhe a I.A., a entrada, a meta e o limite de perda. Ela entra, sai, recupera e para sozinha quando bate a meta ou o limite.</p>
+        <p class="sl-toque">Toque em uma I.A. para ver a sessão dela, operação por operação.</p>
+      </div>
+      <div class="lp-cabine" data-cabine>
+        <div class="lp-cab-ias" role="tablist" aria-label="Escolha a I.A." data-cab-ias></div>
+        <div class="lp-cab-tela">
+          <div class="lp-cab-topo">
+            <img data-cab-capa src="/aulas-globalfly/robo-falcon-mobile.webp" alt="" width="640" height="960" loading="lazy" />
+            <div class="lp-cab-quem">
+              <b data-cab-nome>GF Falcon</b>
+              <span class="lp-cab-status" data-cab-status><i aria-hidden="true"></i><em data-cab-fase>Operando</em></span>
+            </div>
+            <div class="lp-cab-res"><span>Resultado</span><b data-cab-res>+US$ 0,00</b></div>
+          </div>
+          <div class="lp-cab-meta">
+            <span>Meta <b data-cab-meta>US$ 60</b></span>
+            <div class="lp-cab-trilho"><i data-cab-barra></i></div>
+            <span class="lp-cab-pct" data-cab-pct>0%</span>
+          </div>
+          <div class="lp-cab-grafico">
+            <canvas data-cab-grafico width="900" height="300" aria-hidden="true"></canvas>
+            <span class="lp-cab-ativo"><i aria-hidden="true"></i>Volatility 75 <b data-cab-preco>—</b></span>
+          </div>
+          <dl class="lp-cab-nums">
+            <div><dt>Operações</dt><dd data-cab-n>0</dd></div>
+            <div><dt>Positivas</dt><dd class="pos" data-cab-pos>0</dd></div>
+            <div><dt>Entrada</dt><dd data-cab-ent>—</dd></div>
+          </dl>
+          <ol class="lp-cab-ops" data-cab-ops aria-live="off"></ol>
+          <div class="lp-cab-alerta" data-cab-alerta hidden>
+            <img src="/pwa-globalfly/icon-180.png" alt="" width="36" height="36" />
+            <div><span>GlobalFly · agora</span><b data-cab-alerta-titulo>✅ GF Falcon · Meta atingida</b><em data-cab-alerta-txt></em></div>
+          </div>
+        </div>
+        <p class="lp-cab-nota" data-cab-nota>Reprise de sessões gravadas na plataforma, operação por operação.</p>
+      </div>
+      <p class="sl-ias-aviso">Reprise de sessões reais que terminaram na meta. Nem toda sessão termina assim: operar envolve risco de perda.</p>
+    </section>
+
+    <section class="sl-assessor" aria-labelledby="titulo-assessor">
+      <div class="sl-fone" data-zap aria-label="Demonstração de uma conversa com o Assessor GF no WhatsApp">
+        <div class="sl-fone-topo">
+          <img src="/pwa-globalfly/icon-180.png" alt="" width="36" height="36" />
+          <div><b>Assessor GF</b><span data-zap-status>online</span></div>
+        </div>
+        <div class="sl-fone-conversa" data-zap-conversa aria-live="off"></div>
+        <div class="sl-fone-barra" aria-hidden="true"><span>Mensagem</span><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-2.1A7 7 0 0 0 19 12z"/></svg></i></div>
+      </div>
+      <div class="sl-assessor-texto">
+        <span class="sl-rotulo">O Assessor GF</span>
+        <h2 id="titulo-assessor">Manda um áudio no WhatsApp e a sua I.A. começa a operar.</h2>
+        <p>O Assessor GF entende o seu áudio, liga a I.A. que você pediu com a entrada, a meta e o limite de perda, e te avisa no WhatsApp quando a sessão termina.</p>
+        <ul class="sl-lista">
+          <li><b>Por áudio ou texto</b>, do jeito que você fala.</li>
+          <li><b>Liga e desliga a I.A.</b> sem abrir a plataforma.</li>
+          <li><b>Avisa o resultado</b> assim que a sessão acaba.</li>
+        </ul>
+        <button type="button" class="sl-zap-de-novo" data-zap-de-novo>Ver a conversa de novo</button>
+        <p class="sl-ias-aviso">Demonstração ilustrativa da conversa. O Assessor está em liberação para os membros.</p>
+      </div>
+    </section>
+
     <section class="sl-tv" aria-labelledby="titulo-tv">
       <div class="sl-grade" role="img" aria-label="Programação de domingo, 29 de novembro: às 20h, Super Live ao vivo">
         <div class="sl-grade-topo"><b>Domingo</b><span>29 de novembro</span></div>
@@ -1771,5 +1898,7 @@ var GF = (function () {
       })
     })()
   </script>
+  <script src="./cabine.js" defer></script>
+  <script src="./assessor.js" defer></script>
 </body>
 </html>
